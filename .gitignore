@@ -30,3 +30,5 @@ node_modules/
 # Config folders
 .idx/
 .vscode/
+
+phpmyadmin/
