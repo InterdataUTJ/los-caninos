@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="./images/logo.svg" alt="logo" width="200">
+  <img src="./assets/images/logo.svg" alt="logo" width="200">
   <br>
   Veterinaria: Los caninos
   <br>
