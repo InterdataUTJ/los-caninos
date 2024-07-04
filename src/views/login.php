@@ -2,7 +2,7 @@
 session_start();
 
 if (isset($_SESSION["usuario"]) && $_SERVER["REQUEST_METHOD"] == "GET") {
-  header("Location: index.php", true, 301);
+  header("Location: /", true, 301);
   exit();
 }
 
@@ -24,9 +24,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (!isset($usr_operacion)) error("Validacion Incorrecta!");
   if (!isset($usr_resultado)) error("Validacion Incorrecta!");
   if ($usr_operacion != $usr_resultado) error("Validacion Incorrecta!");
-  if (!tryLogin(trim($usr_username), trim($usr_password))) error("Credenciales incorrectas!");
+  
+  $login_rol = tryLogin(trim($usr_username), trim($usr_password));
+  if (is_null($login_rol)) error("Credenciales incorrectas!");
 
   $_SESSION["usuario"] = $_POST["username"];
+  $_SESSION["rol"] = $login_rol;
   header("Location: index.php", true, 301);
   exit();
 }
