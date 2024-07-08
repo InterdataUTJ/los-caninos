@@ -36,7 +36,7 @@ $num2 = rand(1, 10);
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Los caninos</title>
-  <link rel="shortcut icon" href="assets/images/logo.svg">
+  <link rel="shortcut icon" href="/images/logo.png">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
@@ -75,7 +75,7 @@ $num2 = rand(1, 10);
         <div class="row mb-4">
           <div class="col d-flex justify-content-center">
             <div class="text-center">
-              <p>Ya tienes una cuenta? <a href="login.php">Inicia sesión</a></p>
+              <p>Ya tienes una cuenta? <a href="/login/">Inicia sesión</a></p>
             </div>
           </div>
         </div>
