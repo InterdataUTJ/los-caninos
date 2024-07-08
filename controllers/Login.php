@@ -1,6 +1,6 @@
 <?php
 function tryLogin($usr_username, $usr_password) {
-    include(__DIR__ . "/../utils/dbConnection.php");
+    include(__DIR__ . "/../models/dbConnection.php");
     
     $sentencia = $mysql_conn->prepare("CALL verificar_usuario(?, ?);");
     $sentencia->bind_param("ss", $usr_username, $usr_password);

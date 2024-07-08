@@ -1,0 +1,15 @@
+RewriteEngine on
+RedirectMatch 403 ^/models/.*$
+RedirectMatch 403 ^/components/.*$
+
+ErrorDocument 404 /views/404.php
+RewriteRule ^$ /views/index.php [END]
+
+RewriteCond %{REQUEST_URI} /$
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule (.+?)/$ /views/$1.php [END]
+
+RewriteCond %{REQUEST_URI} !\/$
+RewriteCond %{REQUEST_URI} \.
+RewriteRule (.+?)$ /views/$1 [END]

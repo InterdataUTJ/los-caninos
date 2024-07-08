@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="./assets/images/logo.svg" alt="logo" width="200">
+  <img src="./views/images/logo.svg" alt="logo" width="200">
   <br>
   Veterinaria: Los caninos
   <br>
@@ -16,8 +16,8 @@
 
 
 
-## License 🚨
+## Licencia 🚨
 
-This proyect is under the [**GPL v3**](https://www.gnu.org/licenses/gpl-3.0) license.
+Esté proyecto está publicado bajo la licencia [**GPL v3**](https://www.gnu.org/licenses/gpl-3.0).
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
