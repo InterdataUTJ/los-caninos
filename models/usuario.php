@@ -1,5 +1,5 @@
 <?php
-require_once(__DIR__ . "/dbConnection.php");
+require_once(__DIR__ . "/db.php");
 
 class Usuario {
   public $idUsuario;
@@ -22,16 +22,18 @@ class Usuario {
 
   public function singup($nombre, $apellidoP, $apellidoM, $sexo, $usuario, $contrasena) {
     $resultado = DB::query("CALL usuario_disponible(?);", $usuario);
+    echo var_dump($resultado);
+    if (count($resultado) != 1) return false;
+    if (count($resultado[0]) != 1) return false;
+    if (!isset($resultado[0]["disponible"])) return false;
     if (!boolval($resultado)) return false;
 
-    $resultado = DB::query(
+    DB::query(
       "CALL nuevo_usuario(?, ?, ?, ?, ?, ?);", 
       $nombre, $apellidoP, $apellidoM, 
       $sexo, $usuario, $contrasena
     );
-    echo var_dump($resultado);
 
-    if (!$resultado) return false;
     return $this->login($usuario, $contrasena);
   }
 }

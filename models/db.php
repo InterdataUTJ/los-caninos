@@ -25,8 +25,11 @@ class DB {
     }
 
     $sentencia->bind_param($types, ...$params);
-    $sentencia->execute();
+    if (!$sentencia->execute()) return NULL;
+
     $result = $sentencia->get_result();
+    if (!$result) return NULL;
+
     $data = $result->fetch_all(MYSQLI_ASSOC);
 
     $sentencia->close();
