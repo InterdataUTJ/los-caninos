@@ -1,14 +1,37 @@
 <?php
-$servername = "127.0.0.1";
-$username = "root";
-$password = "";
-$database = "veterinaria";
+class DB {
+  private static $servername = "localhost";
+  private static $username = "root";
+  private static $password = "";
+  private static $database = "veterinaria";
 
-// Create connection
-$mysql_conn = new mysqli($servername, $username, $password, $database);
+  private static function getConnection() {
+    $mysql_conn = new mysqli(self::$servername, self::$username, self::$password, self::$database);
+    if ($mysql_conn->connect_error) die("Connection failed: " . $mysql_conn->connect_error);
+    return $mysql_conn;
+  }
 
-// Check connection
-if ($mysql_conn->connect_error) {
-  die("Connection failed: " . $mysql_conn->connect_error);
+  public static function query($query, ...$params) {
+    $mysql_conn = self::getConnection();
+
+    $sentencia = $mysql_conn->prepare($query);
+    $types = "";
+
+    foreach ($params as $param) {
+      if (is_int($param)) $types .= "i";
+      else if (is_float($param)) $types .= "d";
+      else if (is_string($param)) $types .= "s";
+      else $types .= "b";
+    }
+
+    $sentencia->bind_param($types, ...$params);
+    $sentencia->execute();
+    $result = $sentencia->get_result();
+    $data = $result->fetch_all(MYSQLI_ASSOC);
+
+    $sentencia->close();
+    $mysql_conn->close();
+    return $data;
+  }
 }
 ?>
