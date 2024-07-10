@@ -2,20 +2,37 @@
 require_once(__DIR__ . "/dbConnection.php");
 
 class Usuario {
-  public $id;
+  public $idUsuario;
+  public $idRegistro;
   public $nombreUsuario;
   public $rol;
 
-  function login($usr_username, $usr_password) {
+  public function login($usr_username, $usr_password) {
     $resultado = DB::query("CALL verificar_usuario(?, ?);", $usr_username, $usr_password);
     if (count($resultado) != 1) return false;
-    if (count($resultado[0]) != 2) return false;
+    if (count($resultado[0]) != 3) return false;
     if (!isset($resultado[0]["rol"])) return false;
 
-    $this->id = 0;
+    $this->idUsuario = $resultado[0]["idUsuario"];
+    $this->idRegistro = $resultado[0]["idRegistro"];
     $this->rol = $resultado[0]["rol"];
     $this->nombreUsuario = $usr_username;
     return true;
+  }
+
+  public function singup($nombre, $apellidoP, $apellidoM, $sexo, $usuario, $contrasena) {
+    $resultado = DB::query("CALL usuario_disponible(?);", $usuario);
+    if (!boolval($resultado)) return false;
+
+    $resultado = DB::query(
+      "CALL nuevo_usuario(?, ?, ?, ?, ?, ?);", 
+      $nombre, $apellidoP, $apellidoM, 
+      $sexo, $usuario, $contrasena
+    );
+    echo var_dump($resultado);
+
+    if (!$resultado) return false;
+    return $this->login($usuario, $contrasena);
   }
 }
 ?>

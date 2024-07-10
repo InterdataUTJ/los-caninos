@@ -1,12 +1,3 @@
-<?php
-session_start();
-
-if (!isset($_SESSION["usuario"])) {
-  header("Location: /login/");
-  die();
-}
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
