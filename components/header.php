@@ -1,11 +1,11 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_DISABLED) session_start();
 ?>
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top" style="background-color: #fcbc73 !important;">
   <div class="container-fluid">
     <a class="navbar-brand d-flex gap-2 fw-bold" href="/">
-      <img src="/images/logo.svg" alt="logo" width="30px">
+      <img src="/src/images/logo.svg" alt="logo" width="30px">
       Los caninos
     </a>
 
