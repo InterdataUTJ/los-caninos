@@ -1,0 +1,14 @@
+.btn-orange-primary, .btn-orange-primary:visited {
+  background-color: #fcbc73 !important;
+  font-weight: bold !important;
+  border: none !important;
+  color: black !important;
+}
+
+.btn-orange-primary:hover {
+  background-color: #f8c58a !important;
+}
+
+.btn-orange-primary:active {
+  background-color: #efac5e !important;
+}

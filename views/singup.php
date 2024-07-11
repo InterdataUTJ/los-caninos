@@ -12,18 +12,21 @@ $num2 = rand(1, 10);
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Los caninos</title>
-  <link rel="shortcut icon" href="/images/logo.png">
+  <link rel="shortcut icon" href="/src/images/logo.png">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="/src/styles/button.css">
 </head>
 
-<body class="container-fluid h-100">
+<body class="container-fluid h-100 p-0 d-flex flex-column">
 
-  <main class="container-md h-100 d-flex justify-content-center">
-    <form class="row m-4" style="max-width: 1000px;" method="POST" action="/controllers/singup.php">
+  <?php require(__DIR__ . "/../components/header.php"); ?>
 
-      <h2 class="text-center pb-3">Crear una cuenta</h2>
+  <main class="container-md flex-grow-1 d-flex justify-content-center">
+    <form class="d-flex flex-column w-100 gap-4 m-4" style="max-width: 1000px;" method="POST" action="/controllers/singup.php">
 
-      <div data-mdb-input-init class="form-outline mb-4">
+      <h2 class="text-center pb-3 fw-bold">Crear una cuenta</h2>
+
+      <div data-mdb-input-init class="form-outline">
         <label class="form-label fw-bold" for="nombre">Nombre</label>
         <input type="text" name="nombre" class="form-control" placeholder="Nombre" />
         <div class="input-group mt-4">
@@ -32,38 +35,41 @@ $num2 = rand(1, 10);
         </div>
       </div>
 
-      <div class="form-floating mb-4">
-        <select class="form-select" id="sexo" aria-label="sexo" name="sexo">
-          <option value="M">Masculino</option>
-          <option value="F">Femenino</option>
-          <option value="O" selected>Otro</option>
-        </select>
-        <label for="sexo">Sexo</label>
+      <div data-mdb-input-init class="form-outline">
+        <label class="form-label fw-bold" for="sexo">Sexo</label>
+        <div class="form-floating">
+          <select class="form-select" id="sexo" aria-label="sexo" name="sexo">
+            <option value="M">Masculino</option>
+            <option value="F">Femenino</option>
+            <option value="O" selected>Otro</option>
+          </select>
+          <label for="sexo">Sexo</label>
+        </div>
       </div>
 
-      <div data-mdb-input-init class="form-outline mb-4">
+      <div data-mdb-input-init class="form-outline">
         <label class="form-label fw-bold" for="username">Nombre de usuario</label>
         <input type="text" name="username" class="form-control" placeholder="Nombre de usuario" />
       </div>
 
-      <div data-mdb-input-init class="form-outline mb-4">
+      <div data-mdb-input-init class="form-outline">
         <label class="form-label fw-bold" for="password">Contraseña</label>
         <input type="password" name="password" class="form-control" placeholder="Contraseña" />
         <input type="password" name="rpassword" class="form-control mt-4" placeholder="Repetir contraseña" />
       </div>
 
-      <div data-mdb-input-init class="form-outline mb-4">
+      <div data-mdb-input-init class="form-outline">
         <label class="form-label fw-bold" for="operacion">Validación</label>
         <div class="input-group">
           <span class="input-group-text"><?php echo "$num1 × $num2" ?></span>
-          <input type="number" name="operacion" class="form-control" />
+          <input type="number" name="operacion" class="form-control" placeholder="Validación" />
           <input type="hidden" name="resultado" value="<?php echo $num1 * $num2 ?>">
         </div>
       </div>
 
-      <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4">Registrar</button>
+      <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-orange-primary btn-block">Registrar</button>
 
-      <div class="row mb-4">
+      <div class="row">
         <div class="col d-flex justify-content-center">
           <div class="text-center">
             <p>Ya tienes una cuenta? <a href="/login/">Inicia sesión</a></p>
@@ -74,14 +80,14 @@ $num2 = rand(1, 10);
     </form>
   </main>
 
-  <div class="toast-container position-fixed top-0 end-0 p-3">
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
     <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-      <div class="toast-header">
+      <div class="toast-header" style="background-color: #fcbc73 !important;">
         <strong class="me-auto">Los Caninos</strong>
         <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
       </div>
-      <div class="toast-body">
-        <?php echo htmlspecialchars($_GET["error"]) ?>
+      <div class="toast-body fw-medium">
+        <?php if (isset($_GET["error"])) echo htmlspecialchars($_GET["error"]) ?>
       </div>
     </div>
   </div>
