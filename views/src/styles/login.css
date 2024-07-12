@@ -1,0 +1,36 @@
+@media only screen and (max-width: 850px) {
+  body {
+    overflow: scroll;
+    flex-direction: column-reverse !important;
+    justify-content: start
+  }
+
+  .form-header {
+    flex-direction: column-reverse;
+    height: 200px;
+    flex: 0;
+  }
+
+  .form-background-header {
+    justify-content: normal !important;
+    height: 100%;
+    padding: 5px;
+  }
+
+  .form-header-title {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    padding: 10px;
+  }
+
+  svg {
+    display: none;
+  }
+
+  img {
+    aspect-ratio: 1 !important;
+    height: 50% !important;
+    padding: 10px;
+  }
+}
