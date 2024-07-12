@@ -1,0 +1,33 @@
+.landing-page-background {
+  background-color: #f9d6af;
+}
+
+.landing-divider-svg-container {
+  padding: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.landing-divider-svg-container1720740850 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 56px;
+}
+
+.landing-divider-svg-container .shape-fill {
+  fill: #FFFFFF;
+}
+
+.image-perro-landing img {
+  user-select: none;
+}
+
+@media screen and (max-width: 768px) {
+  .image-perro-landing {
+    display: none;
+  }
+  
+}
