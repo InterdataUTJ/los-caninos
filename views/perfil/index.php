@@ -1,3 +1,14 @@
+<?php
+
+require_once(__DIR__ . "/../../middlewares/session.php");
+
+if (!isLoged()) {
+  header("Location: /login/", true, 301);
+  exit();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="es" class="h-100">
 
