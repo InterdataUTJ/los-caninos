@@ -1,5 +1,5 @@
 <?php
-if (session_status() == PHP_SESSION_DISABLED) session_start();
+if (session_status() != PHP_SESSION_ACTIVE) session_start();
 
 function isActive(...$paths) {
   $current = strtok($_SERVER['REQUEST_URI'], "?");
