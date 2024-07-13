@@ -4,8 +4,8 @@ En esta página se documentan los diferentes enlaces de la app, su descripción,
 
 > [!IMPORTANT]  
 > La pagina implementa el modelo de diseño MVC, por lo que todas las URLs aquí documentadas representan una vista.
-> Dichas vistas cuentan con su propio controlador alojado en la ruta `/controllers/[url].php`. Ejemplo:
-> `/controllers/perfil/editar.php`
+> Dichas vistas cuentan con su propio controlador alojado en la ruta `/controllers/[url]/`. Ejemplo:
+> `/controllers/perfil/editar/`
 
 ### Tabla de contenido
 
