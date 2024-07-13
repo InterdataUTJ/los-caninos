@@ -5,6 +5,10 @@
     justify-content: start
   }
 
+  main.overflow-y-scroll {
+    overflow-y: visible !important;
+  }
+
   .form-header {
     flex-direction: column-reverse;
     height: 200px;

@@ -21,7 +21,7 @@ $num2 = rand(1, 10);
 
 <body class="container-fluid h-100 p-0 d-flex">
 
-  <main style="flex: 1;" class="p-5 container-md d-flex justify-content-center align-items-center">
+  <main style="flex: 1;" class="p-5 container-md d-flex justify-content-center overflow-y-scroll">
     <form class="d-flex flex-column w-100 gap-4 m-4" style="max-width: 1000px;" method="POST" action="/controllers/singup/">
 
       <h2 class="text-center pb-3 fw-bold">Crear una cuenta</h2>
