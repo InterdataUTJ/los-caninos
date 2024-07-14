@@ -10,11 +10,11 @@
   <link rel="stylesheet" href="/src/styles/landing.css">
 </head>
 
-<body class="container-fluid h-100 m-0 p-0">
+<body class="container-fluid m-0 p-0">
   <?php require(__DIR__ . "/../components/header.php"); ?>
 
   <section class="container-fluid landing-page-background p-0">
-    <section class="d-flex p-5 gap-5 mx-auto" style="max-width: 1100px;">
+    <section class="d-flex p-5 gap-5 mx-auto resume-container" style="max-width: 1100px;">
       <div style="flex: 1;" class="d-flex flex-column gap-3 justify-content-center">
         <h1 class="fw-bold">Veterinaria: Los caninos</h1>
         <p>
@@ -23,7 +23,8 @@
         </p>
       </div>
       <div style="flex: 1;" class="image-perro-landing">
-        <img src="/src/images/perro.webp" alt="Caninos" class="img-fluid">
+        <img class="lg" src="/src/images/perro.webp" alt="Caninos" class="img-fluid">
+        <img class="sm" src="/src/images/perros.webp" alt="Caninos" class="img-fluid">
       </div>
     </section>
 

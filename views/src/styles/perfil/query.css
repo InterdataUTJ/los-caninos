@@ -1,0 +1,19 @@
+@media screen and (max-width: 768px) {
+  main.container {
+    flex-direction: column !important;
+  }
+
+  section.card-resume-container {
+    width: 100% !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  section.card-resume-container img {
+    height: 50% !important;
+    width: auto !important;
+    max-height: 100px !important;
+    margin: 1em !important;
+  }
+}

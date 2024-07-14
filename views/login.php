@@ -53,10 +53,6 @@ $num2 = rand(1, 10);
             <p>No tienes una cuenta? <a class="custom-a-link" href="/singup/">Registrate</a></p>
           </div>
         </div>
-
-        <div class="col text-center d-flex justify-content-center">
-          <a class="custom-a-link" href="#">Olvidate la contraseña?</a>
-        </div>
       </div>
 
     </form>

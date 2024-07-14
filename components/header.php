@@ -34,7 +34,7 @@ function isActive(...$paths) {
           ?>
 
         <li class="nav-item dropdown">
-          <a class='nav-link dropdown-toggle <?php echo isActive("/login/", "/singup/", "/logout/", "/perfil/") ?>' href="#" role='button' data-bs-toggle='dropdown' aria-expanded='false'>
+          <a class='nav-link dropdown-toggle <?php echo isActive("/perfil/", "/perfil/editar/") ?>' href="#" role='button' data-bs-toggle='dropdown' aria-expanded='false'>
             Mi cuenta
           </a>
           <ul class="dropdown-menu">

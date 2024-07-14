@@ -23,11 +23,33 @@
 
 .image-perro-landing img {
   user-select: none;
+  max-width: 380px;
+  margin: auto;
+  display: block;
 }
 
-@media screen and (max-width: 768px) {
+.image-perro-landing img.sm {
+  display: none;
+}
+
+@media screen and (max-width: 992px) {
+
   .image-perro-landing {
+    width: 100%;
+  }
+
+  .image-perro-landing img.lg {
     display: none;
+  }
+  
+  .image-perro-landing img.sm {
+    display: block;
+    width: 100%;
+    max-width: 550px;
+  }
+
+  .resume-container {
+    flex-direction: column !important;
   }
   
 }

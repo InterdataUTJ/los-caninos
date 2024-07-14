@@ -15,6 +15,7 @@ require_once(__DIR__ . "/../../controllers/perfil/index.php");
   <link rel="shortcut icon" href="/src/images/logo.png">
   <link rel="stylesheet" href="/src/styles/index.css">
   <link rel="stylesheet" href="/src/styles/landing.css">
+  <link rel="stylesheet" href="/src/styles/perfil/query.css">
 </head>
 
 <body class="d-flex flex-column container-fluid m-0 p-0">
@@ -23,24 +24,26 @@ require_once(__DIR__ . "/../../controllers/perfil/index.php");
 
   <main class="container flex-grow-1 d-flex h-100 mx-auto p-3 gap-3" style="max-width: 1000px;">
 
-    <section class="w-25 d-flex flex-column rounded p-3" style="background-color: #f5f3f1;">
+    <section class="w-25 d-flex flex-column rounded p-3 shadow card-resume-container">
       <img class="mb-3 w-75 mx-auto rounded-circle" style="user-select: none; max-width: 500px" src="https://cdn.iconscout.com/icon/free/png-256/free-avatar-370-456322.png" alt="">
-      <p class="m-0 text-center fw-bold">
-        <?php echo "{$usuario->nombre} {$usuario->apellidoPaterno} {$usuario->apellidoMaterno}"; ?>
-      </p>
-      <?php
-        if ($_SESSION["rol"] != "CLIENTE") {
-          echo '<p class="m-0 text-center">';
-          $fechaNac = new DateTime($usuario->fechaNac);
-          $hoy = new DateTime('now', new DateTimeZone('America/Mexico_city'));;            
-          $edad = $hoy->diff($fechaNac);
-          echo $edad->y;
-          echo ' años </p>';
-        }
-      ?>
-      <p class="m-0 text-center fst-italic">
-        <?php echo ucfirst(strtolower($_SESSION["rol"])); ?>
-      </p>
+      <section>
+        <p class="m-0 text-center fw-bold">
+          <?php echo "{$usuario->nombre} {$usuario->apellidoPaterno} {$usuario->apellidoMaterno}"; ?>
+        </p>
+        <?php
+          if ($_SESSION["rol"] != "CLIENTE") {
+            echo '<p class="m-0 text-center">';
+            $fechaNac = new DateTime($usuario->fechaNac);
+            $hoy = new DateTime('now', new DateTimeZone('America/Mexico_city'));;            
+            $edad = $hoy->diff($fechaNac);
+            echo $edad->y;
+            echo ' años </p>';
+          }
+        ?>
+        <p class="m-0 text-center fst-italic">
+          <?php echo ucfirst(strtolower($_SESSION["rol"])); ?>
+        </p>
+      </section>
     </section>
 
     <form class="flex-grow-1 d-flex flex-column gap-3 p-3" onsubmit="noEnviar(event);">
