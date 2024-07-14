@@ -52,7 +52,7 @@ $query = isset($_SERVER['QUERY_STRING']) ? "?".$_SERVER['QUERY_STRING'] : '';
 $url = str_replace($query, '', $_SERVER['REQUEST_URI']);
 
 function get_mime($url) {
-  $extension = pathinfo($url, PATHINFO_EXTENSION);
+  $extension = explode("?", pathinfo($url, PATHINFO_EXTENSION))[0];
   if (isset(CUSTOM_MIME_TYPES[$extension])) return CUSTOM_MIME_TYPES[$extension];
   else return 'text/plain';
 }
@@ -67,6 +67,13 @@ function asFile($path) {
   header('Content-Length: '.filesize(__DIR__.$path));
   header('Content-Type: '.get_mime($path));
   readfile(__DIR__.$path);
+}
+
+if (preg_match('/^\/phpmyadmin$/', $url)) {
+  header("Location: /phpmyadmin/index.php");
+  exit();
+} else if (preg_match('/^\/phpmyadmin/', $url)) {
+  return false;
 }
 
 // Match unallowed paths
