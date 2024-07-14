@@ -25,7 +25,12 @@ require_once(__DIR__ . "/../../controllers/perfil/index.php");
   <main class="container flex-grow-1 d-flex h-100 mx-auto p-3 gap-3" style="max-width: 1000px;">
 
     <section class="w-25 d-flex flex-column rounded p-3 shadow card-resume-container">
-      <img class="mb-3 w-75 mx-auto rounded-circle" style="user-select: none; max-width: 500px" src="https://cdn.iconscout.com/icon/free/png-256/free-avatar-370-456322.png" alt="">
+      <img 
+        alt="avatar"
+        class="mb-3 w-75 mx-auto rounded-circle" 
+        style="user-select: none; max-width: 500px" 
+        src="/src/images/avatar/<?php echo $usuario->sexo; ?>.svg"
+      >
       <section>
         <p class="m-0 text-center fw-bold">
           <?php echo "{$usuario->nombre} {$usuario->apellidoPaterno} {$usuario->apellidoMaterno}"; ?>
@@ -84,6 +89,7 @@ require_once(__DIR__ . "/../../controllers/perfil/index.php");
       <div data-mdb-input-init class="form-outline">
         <label class="form-label fw-bold" for="username">Telefono(s)</label>
         <?php
+          if (count($usuario->telefonos) == 0) echo "<p>Sin telefonos registrados.</p>";
           foreach ($usuario->telefonos as $telefono) {
             echo "<input type='text' name='telefono' class='form-control mb-2' value='{$telefono}' disabled />";
           }
@@ -93,6 +99,7 @@ require_once(__DIR__ . "/../../controllers/perfil/index.php");
       <div data-mdb-input-init class="form-outline">
         <label class="form-label fw-bold" for="username">Correo(s)</label>
         <?php
+          if (count($usuario->correos) == 0) echo "<p>Sin correos registrados.</p>";
           foreach ($usuario->correos as $correo) {
             echo "<input type='text' name='correo' class='form-control mb-2' value='{$correo}' disabled />";
           }
@@ -142,6 +149,7 @@ require_once(__DIR__ . "/../../controllers/perfil/index.php");
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <?php require_once(__DIR__ . "/../../components/error.php") ?>
 </body>
 
 </html>

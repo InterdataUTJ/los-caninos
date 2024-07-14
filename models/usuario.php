@@ -36,5 +36,18 @@ class Usuario {
 
     return $this->login($usuario, $contrasena);
   }
+
+  public function cambiarUsername($nuevoNombreUsuario) {
+    if (!isset($_SESSION["idUsuario"]) || !isset($_SESSION["usuario"])) {
+      return false;
+    }
+
+    DB::query(
+      "UPDATE usuario SET nombreUsuario = ? WHERE idUsuario = ? AND nombreUsuario = ?;",
+      $nuevoNombreUsuario, $_SESSION["idUsuario"], $_SESSION["usuario"]
+    );
+
+    return true;
+  }
 }
 ?>

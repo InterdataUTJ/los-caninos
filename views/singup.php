@@ -93,22 +93,8 @@ $num2 = rand(1, 10);
     </a>
   </section>
 
-  <div class="toast-container position-fixed bottom-0 end-0 p-3">
-    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-      <div class="toast-header" style="background-color: #fcbc73 !important;">
-        <strong class="me-auto">Los Caninos</strong>
-        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-      </div>
-      <div class="toast-body fw-medium">
-        <?php if (isset($_GET["error"])) echo htmlspecialchars($_GET["error"]) ?>
-      </div>
-    </div>
-  </div>
-
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  <?php
-  if (isset($_GET["error"])) echo "<script>bootstrap.Toast.getOrCreateInstance(document.getElementById('liveToast')).show()</script>";
-  ?>
+  <?php require_once(__DIR__ . "/../components/error.php") ?>
 </body>
 
 </html>

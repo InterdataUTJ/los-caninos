@@ -41,6 +41,7 @@ function Telefono() {
   input.setAttribute("type", "text");
   input.setAttribute("class", "form-control");
   input.setAttribute("placeholder", "Telefono");
+  input.setAttribute("name", "telefono[]");
   button.setAttribute("class", "btn btn-outline-danger");
   button.setAttribute("type", "button");
   button.setAttribute("onclick", `removeTelefono('${id}');`);
