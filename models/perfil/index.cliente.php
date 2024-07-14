@@ -27,7 +27,7 @@ class Cliente {
   }
 
   private function cargarTelefonos($idCliente) {
-    $resultado = DB::query("SELECT telefono FROM telefonocliente WHERE idCliente = ?;", $idCliente);
+    $resultado = DB::query("SELECT telefono FROM telefonoCliente WHERE idCliente = ?;", $idCliente);
     if (count($resultado) == 0) return false;
 
     foreach ($resultado as $telefono) {
@@ -38,7 +38,7 @@ class Cliente {
   }
 
   private function cargarCorreos($idCliente) {
-    $resultado = DB::query("SELECT email FROM emailcliente WHERE idCliente = ?;", $idCliente);
+    $resultado = DB::query("SELECT email FROM emailCliente WHERE idCliente = ?;", $idCliente);
     if (count($resultado) == 0) return false;
 
     foreach ($resultado as $email) {

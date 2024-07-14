@@ -33,7 +33,7 @@ class Empleado {
   }
 
   private function cargarTelefonos($idEmpleado) {
-    $resultado = DB::query("SELECT telefono FROM telefonoempleado WHERE idEmpleado = ?;", $idEmpleado);
+    $resultado = DB::query("SELECT telefono FROM telefonoEmpleado WHERE idEmpleado = ?;", $idEmpleado);
     if (count($resultado) == 0) return false;
 
     foreach ($resultado as $telefono) {
@@ -44,7 +44,7 @@ class Empleado {
   }
 
   private function cargarCorreos($idEmpleado) {
-    $resultado = DB::query("SELECT email FROM emailempleado WHERE idEmpleado = ?;", $idEmpleado);
+    $resultado = DB::query("SELECT email FROM emailEmpleado WHERE idEmpleado = ?;", $idEmpleado);
     if (count($resultado) == 0) return false;
 
     foreach ($resultado as $email) {
