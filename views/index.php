@@ -27,8 +27,8 @@ session_start();
         </p>
       </div>
       <div style="flex: 1;" class="image-perro-landing">
-        <img class="lg" src="/src/images/perro.webp" alt="Caninos" class="img-fluid">
-        <img class="sm" src="/src/images/perros.webp" alt="Caninos" class="img-fluid">
+        <img class="lg" loading="lazy" src="/src/images/perro.webp" alt="Caninos" class="img-fluid">
+        <img class="sm" loading="lazy" src="/src/images/perros.webp" alt="Caninos" class="img-fluid">
       </div>
     </section>
 
