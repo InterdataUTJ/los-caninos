@@ -1,6 +1,4 @@
 <?php
-if (session_status() != PHP_SESSION_ACTIVE) session_start();
-
 function isActive(...$paths) {
   $current = strtok($_SERVER['REQUEST_URI'], "?");
   foreach ($paths as $path) {
