@@ -1,5 +1,8 @@
 <?php
 session_start();
+require_once(__DIR__ . "/../middlewares/session.php");
+require_once(__DIR__ . "/../controllers/perfil/index.php");
+
 ?>
 
 <!DOCTYPE html>
@@ -17,8 +20,56 @@ session_start();
 <body class="container-fluid m-0 p-0">
   <?php require(__DIR__ . "/../components/header.php"); ?>
 
-  <main>
-    Panel de administración
+  <main class="container p-3">
+    
+    <h2 class="fw-bold pb-2 mb-3" style="border-bottom: 2px solid #fcbc73;">Panel de Control</h2>
+
+    <div class="d-flex flex-row gap-4">
+      <section style="width: 18rem;" class="card shadow d-flex flex-row p-3 gap-4 align-items-center">
+        <img 
+          alt="avatar"
+          class="mb-3 ms-3 h-50 rounded-circle" 
+          style="user-select: none; max-height: 100px" 
+          src="/src/images/avatar/<?php echo $usuario->sexo; ?>.svg"
+        >
+        <article class="d-flex flex-column align-items-start">
+          <p class="m-0 text-center fw-bold">
+            <?php echo "{$usuario->nombre} {$usuario->apellidoPaterno} {$usuario->apellidoMaterno}"; ?>
+          </p>
+          <?php
+            if ($_SESSION["rol"] != "CLIENTE") {
+              echo '<p class="m-0 text-center">';
+              $fechaNac = new DateTime($usuario->fechaNac);
+              $hoy = new DateTime('now', new DateTimeZone('America/Mexico_city'));;            
+              $edad = $hoy->diff($fechaNac);
+              echo $edad->y;
+              echo ' años </p>';
+            }
+          ?>
+          <p class="m-0 text-center fst-italic">
+            <?php echo ucfirst(strtolower($_SESSION["rol"])); ?>
+          </p>
+        </article>
+      </section>
+
+      <section style="width: 18rem;" class="card shadow">
+            <div class="card-body d-flex justify-content-center flex-column align-items-center">
+              <p class="text-center fw-bold">Perfil</p>
+              <article class="d-flex gap-3">
+                <a href="/perfil/" class="btn btn-primary fw-bold">Ver</a>
+                <a href="/perfil/editar/" class="btn btn-success fw-bold">Editar</a>
+              </article>
+            </div>
+      </section>
+    </div>
+    
+
+    <h2 class="fw-bold pb-2 my-4" style="border-bottom: 2px solid #fcbc73;">Servicios</h2>
+    <h2 class="fw-bold pb-2 my-4" style="border-bottom: 2px solid #fcbc73;">Mascotas</h2>
+    <h2 class="fw-bold pb-2 my-4" style="border-bottom: 2px solid #fcbc73;">Empleados</h2>
+    <h2 class="fw-bold pb-2 my-4" style="border-bottom: 2px solid #fcbc73;">Clientes</h2>
+    <h2 class="fw-bold pb-2 my-4" style="border-bottom: 2px solid #fcbc73;">Reportes</h2>
+
   </main>
 
   <?php require(__DIR__ . "/../components/footer.php") ?>
