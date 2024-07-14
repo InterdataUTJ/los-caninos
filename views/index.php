@@ -42,11 +42,30 @@ session_start();
   </section>
 
   <main class="container p-5 mt-5 d-flex flex-column gap-5">
-    <section>
-      <h2 class="fw-bold">Nuestros Servicios</h2>
-      <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur laborum tenetur dolores, maiores non rem facilis, amet dignissimos repellat deserunt dicta quia commodi fuga ratione ullam eius quaerat mollitia id!
-      </p>
+    <section class="landig-content-container">
+      <div class="landing-content">
+        <h2 class="fw-bold">Nuestros Servicios</h2>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus dolor ab ipsam magni! Maiores, impedit iure harum inventore quaerat, quam perspiciatis sequi ratione ullam dolorum nulla pariatur ab nihil esse.</p>
+
+        <h5 class="fw-bold">Consulta</h5>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus dolor ab ipsam magni! Maiores, impedit iure harum inventore quaerat, quam perspiciatis sequi ratione ullam dolorum nulla pariatur ab nihil esse.</p>
+
+        <h5 class="fw-bold">Vacuna</h5>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus dolor ab ipsam magni! Maiores, impedit iure harum inventore quaerat, quam perspiciatis sequi ratione ullam dolorum nulla pariatur ab nihil esse.</p>
+
+        <h5 class="fw-bold">Desparacitación</h5>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus dolor ab ipsam magni! Maiores, impedit iure harum inventore quaerat, quam perspiciatis sequi ratione ullam dolorum nulla pariatur ab nihil esse.</p>
+
+        <h5 class="fw-bold">Cirugia</h5>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus dolor ab ipsam magni! Maiores, impedit iure harum inventore quaerat, quam perspiciatis sequi ratione ullam dolorum nulla pariatur ab nihil esse.</p>
+
+        <h5 class="fw-bold">Estetica</h5>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus dolor ab ipsam magni! Maiores, impedit iure harum inventore quaerat, quam perspiciatis sequi ratione ullam dolorum nulla pariatur ab nihil esse.</p>
+
+        <h5 class="fw-bold">Estadia</h5>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus dolor ab ipsam magni! Maiores, impedit iure harum inventore quaerat, quam perspiciatis sequi ratione ullam dolorum nulla pariatur ab nihil esse.</p>
+      </div>
+      <!-- <img src="/src/images/perro.webp" alt="image"> -->
     </section>
 
     <section>

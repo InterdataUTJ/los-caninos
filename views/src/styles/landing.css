@@ -32,6 +32,22 @@
   display: none;
 }
 
+.landig-content-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.landing-content {
+  flex: 1 !important;
+}
+
+.landig-content-container img {
+  width: 30%;
+  max-width: 400px;
+  height: auto;
+  object-fit: scale-down;
+}
+
 @media screen and (max-width: 992px) {
 
   .image-perro-landing {
@@ -50,6 +66,10 @@
 
   .resume-container {
     flex-direction: column !important;
+  }
+
+  .landig-content-container img {
+    display: none;
   }
   
 }
