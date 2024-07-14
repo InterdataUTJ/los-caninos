@@ -1,6 +1,47 @@
-
+const nombre = document.querySelector("input#nombre");
+const apellidoPaterno = document.querySelector("input#apellidoPaterno");
+const apellidoMaterno = document.querySelector("input#apellidoMaterno");
+const telefono = document.querySelectorAll("input[name='telefono[]']");
+const email = document.querySelectorAll("input[name='email[]']");
+const fechaNac = document.querySelector("input#fechaNac");
 const username = document.querySelector("input#username");
 const usernameBtn = document.querySelector("button#username-btn");
+
+nombre.addEventListener("input", (e) => {
+  if (!validaciones.longitud(nombre.value, 3, 50)) nombre.classList.add("is-invalid");
+  else nombre.classList.remove("is-invalid");
+});
+
+apellidoPaterno.addEventListener("input", (e) => {
+  if (!validaciones.longitud(apellidoPaterno.value, 3, 50)) apellidoPaterno.classList.add("is-invalid");
+  else apellidoPaterno.classList.remove("is-invalid");
+});
+
+apellidoMaterno.addEventListener("input", (e) => {
+  if (!apellidoMaterno.value) return apellidoMaterno.classList.remove("is-invalid");
+  if (!validaciones.longitudMax(apellidoMaterno.value, 50)) apellidoMaterno.classList.add("is-invalid");
+  else apellidoMaterno.classList.remove("is-invalid");
+});
+
+telefono.forEach(elemento => {
+  elemento.addEventListener("input", () => {
+    if (!validaciones.telefono(elemento.value)) elemento.classList.add("is-invalid");
+    else elemento.classList.remove("is-invalid");
+  });
+});
+
+email.forEach(elemento => {
+  elemento.addEventListener("input", () => {
+    if (!validaciones.email(elemento.value)) elemento.classList.add("is-invalid");
+    else elemento.classList.remove("is-invalid");
+  });
+});
+
+username.addEventListener("input", (e) => {
+  if (!validaciones.longitud(username.value, 8, 25)) username.classList.add("is-invalid");
+  else username.classList.remove("is-invalid");
+});
+
 usernameBtn.addEventListener("click", async () => {
   if (!validaciones.longitud(username.value, 8, 25)) {
     showErrorToast("El campo 'Nombre de usuario' debe de tener una longitud de entre 8 y 25 caracteres.");
@@ -28,13 +69,6 @@ usernameBtn.addEventListener("click", async () => {
 });
 
 function enviarDatos(event) {
-  const nombre = document.querySelector("input#nombre");
-  const apellidoPaterno = document.querySelector("input#apellidoPaterno");
-  const apellidoMaterno = document.querySelector("input#apellidoMaterno");
-  const telefono = document.querySelectorAll("input[name='telefono[]']");
-  const email = document.querySelectorAll("input[name='email[]']");
-  const fechaNac = document.querySelector("input#fechaNac");
-
   if (!validaciones.longitud(nombre.value, 3, 50)) {
     showErrorToast("El campo 'nombre' debe de tener una longitud de entre 3 y 50 caracteres.");
     event.preventDefault();
@@ -45,7 +79,7 @@ function enviarDatos(event) {
     event.preventDefault();
   }
 
-  if (!validaciones.longitud(apellidoMaterno.value, 3, 50)) {
+  if (apellidoMaterno.value != '' && !validaciones.longitud(apellidoMaterno.value, 3, 50)) {
     showErrorToast("El campo 'Apellido Materno' debe de tener una longitud de entre 3 y 50 caracteres.");
     event.preventDefault();
   }

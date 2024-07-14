@@ -60,22 +60,25 @@ require_once(__DIR__ . "/../../controllers/perfil/index.php");
       <h2 class="fw-bold pb-2 mb-3" style="border-bottom: 2px solid #fcbc73;">Información Personal</h2>
 
       <div data-mdb-input-init class="form-outline">
-        <label class="form-label fw-bold" for="nombre">Nombre</label>
-        <input type="text" name="nombre" id="nombre" class="form-control" value="<?php echo $usuario->nombre; ?>"/>
+        <label class="form-label fw-bold" for="nombre">Nombre *</label>
+        <input placeholder="Nombre" type="text" name="nombre" id="nombre" class="form-control" value="<?php echo $usuario->nombre; ?>"/>
+        <div class="form-text invalid-feedback">El nombre debe tener una longitud entre 3 y 50 caracteres.</div>
       </div>
 
       <div data-mdb-input-init class="form-outline">
-        <label class="form-label fw-bold" for="apellidoPaterno">Apellido Paterno</label>
-        <input type="text" name="apellidoPaterno" id="apellidoPaterno" class="form-control" value="<?php echo $usuario->apellidoPaterno; ?>"/>
+        <label class="form-label fw-bold" for="apellidoPaterno">Apellido Paterno *</label>
+        <input placeholder="Apellido Paterno" type="text" name="apellidoPaterno" id="apellidoPaterno" class="form-control" value="<?php echo $usuario->apellidoPaterno; ?>"/>
+        <div class="form-text invalid-feedback">El apellido paterno debe tener una longitud entre 3 y 50 caracteres.</div>
       </div>
 
       <div data-mdb-input-init class="form-outline">
         <label class="form-label fw-bold" for="apellidoMaterno">Apellido Materno</label>
-        <input type="text" name="apellidoMaterno" id="apellidoMaterno" class="form-control" value="<?php echo $usuario->apellidoMaterno; ?>"/>
+        <input placeholder="Apellido Materno" type="text" name="apellidoMaterno" id="apellidoMaterno" class="form-control" value="<?php echo $usuario->apellidoMaterno; ?>"/>
+        <div class="form-text invalid-feedback">El apellido paterno puede tener una longitud maxima de 50 caracteres.</div>
       </div>
 
       <div data-mdb-input-init class="form-outline">
-        <label class="form-label fw-bold" for="sexo">Sexo</label>
+        <label class="form-label fw-bold" for="sexo">Sexo *</label>
         <select class="form-select" id="sexo" aria-label="sexo" name="sexo">
           <option value="M" <?php echo $usuario->sexo == "M" ? "selected" : ""; ?>>Masculino</option>
           <option value="F" <?php echo $usuario->sexo == "F" ? "selected" : ""; ?>>Femenino</option>
@@ -84,10 +87,11 @@ require_once(__DIR__ . "/../../controllers/perfil/index.php");
       </div>
 
       <div data-mdb-input-init class="form-outline">
-        <label class="form-label fw-bold" for="username">Nombre de usuario</label>
+        <label class="form-label fw-bold" for="username">Nombre de usuario *</label>
         <div class="input-group mb-3">
           <input value="<?php echo $_SESSION["usuario"]; ?>" type="text" class="form-control" id="username" placeholder="Nombre de usuario">
           <button id="username-btn" class="btn btn-outline-warning fw-bold" type="button">Cambiar</button>
+          <div class="invalid-feedback">El nombre de usuario debe de tener una longitud de entre 8 y 25 caracteres.</div>
         </div>
       </div>
 
@@ -102,7 +106,8 @@ require_once(__DIR__ . "/../../controllers/perfil/index.php");
             echo '<input value="'.$telefono.'" type="text" class="form-control" name="telefono[]" placeholder="Telefono">';
             echo '<button class="btn btn-outline-danger" type="button" onclick="removeTelefono(\''.$telefono.'-phone-id\');">';
             require(__DIR__ . "/../../components/icons/trash.php");
-            echo '</button></div>';
+            echo '</button>';
+            echo '<div class="invalid-feedback">Telefno debe de tener entre 7 y 15 digitos.</div></div>';
           }
         ?>
         <button id="new-phone" onclick="nuevoTelefono();" type="button" class="mb-4 fw-bold btn btn-primary w-100 d-flex gap-2 justify-content-center align-items-center">
@@ -120,7 +125,8 @@ require_once(__DIR__ . "/../../controllers/perfil/index.php");
             echo '<input value="'.$correo.'" type="text" name="email[]" class="form-control" placeholder="Correo">';
             echo '<button class="btn btn-outline-danger" type="button" onclick="removeEmail(\''.$correo.'-email-id\');">';
             require(__DIR__ . "/../../components/icons/trash.php");
-            echo '</button></div>';
+            echo '</button>';
+            echo '<div class="invalid-feedback">Email debe de ser un correo valido.</div></div>';
           }
         ?>
         <button id="new-email" onclick="nuevoEmail();" type="button" class="fw-bold btn btn-primary w-100 d-flex gap-2 justify-content-center align-items-center">
@@ -134,12 +140,12 @@ require_once(__DIR__ . "/../../controllers/perfil/index.php");
           echo "<h2 class='fw-bold mt-4 pb-2 mb-3' style='border-bottom: 2px solid #fcbc73;'>Información del empleado</h2>";
 
           echo "<div data-mdb-input-init class='form-outline'>";
-          echo "<label class='form-label fw-bold' for='fechaNac'>Fecha de Nacimiento</label>";
+          echo "<label class='form-label fw-bold' for='fechaNac'>Fecha de Nacimiento *</label>";
           echo "<input type='date' name='fechaNac' id='fechaNac' class='form-control' value='{$usuario->fechaNac}'/>";
           echo "</div>";
 
           echo "<div data-mdb-input-init class='form-outline'>";
-          echo "<label class='form-label fw-bold'>Salario</label>";
+          echo "<label class='form-label fw-bold'>Salario *</label>";
           echo '<div class="input-group mb-3">';
           echo '<span class="input-group-text" id="basic-addon1">$</span>';
           echo "<input type='number' class='form-control' value='{$usuario->salario}' disabled/> ";
@@ -147,7 +153,7 @@ require_once(__DIR__ . "/../../controllers/perfil/index.php");
           echo "</div></div>";
 
           echo '<div data-mdb-input-init class="form-outline">
-            <label class="form-label fw-bold">Estado</label>
+            <label class="form-label fw-bold">Estado *</label>
             <select class="form-select" aria-label="estado" disabled>
               <option value="ACTIVO" '.($usuario->estado == "ACTIVO" ? "selected" : "").'>Activo</option>
               <option value="INACTIVO" '.($usuario->estado == "INACTIVO" ? "selected" : "").'>Inactivo</option>

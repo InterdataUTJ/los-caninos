@@ -36,18 +36,26 @@ function Telefono() {
   const contenedor = document.createElement("div");
   const input = document.createElement("input");
   const button = document.createElement("button");
+  const feedback = document.createElement("div");
   contenedor.setAttribute("class", "input-group mb-3");
   contenedor.setAttribute("id", id);
   input.setAttribute("type", "text");
   input.setAttribute("class", "form-control");
   input.setAttribute("placeholder", "Telefono");
   input.setAttribute("name", "telefono[]");
+  input.addEventListener("input", () => {
+    if (!validaciones.telefono(input.value)) input.classList.add("is-invalid");
+    else input.classList.remove("is-invalid");
+  });
   button.setAttribute("class", "btn btn-outline-danger");
   button.setAttribute("type", "button");
   button.setAttribute("onclick", `removeTelefono('${id}');`);
   button.appendChild(Trash());
+  feedback.setAttribute("class", "invalid-feedback");
+  feedback.innerText = "Telefno debe de tener entre 7 y 15 digitos.";
   contenedor.appendChild(input);
   contenedor.appendChild(button);
+  contenedor.appendChild(feedback);
   return contenedor;
 }
 

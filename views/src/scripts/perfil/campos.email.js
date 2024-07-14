@@ -3,18 +3,26 @@ function Email() {
   const contenedor = document.createElement("div");
   const input = document.createElement("input");
   const button = document.createElement("button");
+  const feedback = document.createElement("div");
   contenedor.setAttribute("class", "input-group mb-3");
   contenedor.setAttribute("id", id);
   input.setAttribute("type", "text");
   input.setAttribute("class", "form-control");
   input.setAttribute("placeholder", "Correo");
   input.setAttribute("name", "email[]");
+  input.addEventListener("input", () => {
+    if (!validaciones.email(input.value)) input.classList.add("is-invalid");
+    else input.classList.remove("is-invalid");
+  });
   button.setAttribute("class", "btn btn-outline-danger");
   button.setAttribute("type", "button");
   button.setAttribute("onclick", `removeEmail('${id}');`);
   button.appendChild(Trash());
+  feedback.setAttribute("class", "invalid-feedback");
+  feedback.innerText = "Email debe de ser un correo valido.";
   contenedor.appendChild(input);
   contenedor.appendChild(button);
+  contenedor.appendChild(feedback);
   return contenedor;
 }
 

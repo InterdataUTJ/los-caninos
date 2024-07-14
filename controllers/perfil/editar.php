@@ -39,6 +39,7 @@ $usuario->cargar($_SESSION["idRegistro"]);
 if (isset($_POST["nombre"])) $usuario->nombre = $_POST["nombre"];
 if (isset($_POST["apellidoPaterno"])) $usuario->apellidoPaterno = $_POST["apellidoPaterno"];
 if (isset($_POST["apellidoMaterno"])) $usuario->apellidoMaterno = $_POST["apellidoMaterno"];
+if (isset($_POST["apellidoMaterno"]) && $_POST["apellidoMaterno"] == '') $usuario->apellidoMaterno = null;
 if (isset($_POST["sexo"])) $usuario->sexo = $_POST["sexo"];
 
 if (isset($_POST["fechaNac"]) && $_SESSION["rol"] != "CLIENTE") {

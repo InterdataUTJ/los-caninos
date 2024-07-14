@@ -10,7 +10,7 @@ main {
   flex: 1;
 }
 
-input:focus, select:focus {
+input:focus:not(.is-invalid), select:focus:not(.is-invalid) {
   border-color: #fcbc73 !important;
   box-shadow: 0 0 0 0.25rem #f0bf8661 !important;
   accent-color: #fcbc73 !important;
