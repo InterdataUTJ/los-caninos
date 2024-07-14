@@ -30,6 +30,7 @@ if (!isset($usr_operacion)) error("Validacion Incorrecta!");
 if (!isset($usr_resultado)) error("Validacion Incorrecta!");
 if ($usr_operacion != $usr_resultado) error("Validacion Incorrecta!");
 if ($usr_password != $usr_rpassword) error("Las contraseñas deben de coincidir!");
+if ($usr_apellidoMaterno == '') $usr_apellidoMaterno = null;
 
 $usuario = new Usuario();
 $login_state = $usuario->singup($usr_nombre, $usr_apellidoPaterno, $usr_apellidoMaterno, $usr_sexo, $usr_username, $usr_password);

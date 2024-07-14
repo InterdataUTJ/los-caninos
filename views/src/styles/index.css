@@ -16,6 +16,14 @@ input:focus:not(.is-invalid), select:focus:not(.is-invalid) {
   accent-color: #fcbc73 !important;
 }
 
+a.custom-a-link {
+  color: #eda44f !important;
+}
+
+a.custom-a-link:hover {
+  color: #fcbc73 !important;
+}
+
 .nav-link.active {
   font-weight: bold;
 }

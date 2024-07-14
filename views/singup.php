@@ -15,8 +15,11 @@ $num2 = rand(1, 10);
   <link rel="shortcut icon" href="/src/images/logo.png">
   <link rel="stylesheet" href="/src/styles/index.css">
   <link rel="stylesheet" href="/src/styles/button.css">
-  <link rel="stylesheet" href="/src/styles/input.css">
   <link rel="stylesheet" href="/src/styles/login.css">
+
+  <script src="/src/scripts/validaciones.js"></script>
+  <script src="/src/scripts/singup/validar.js" defer></script>
+  <script src="/src/scripts/singup/enviar.js" defer></script>
 </head>
 
 <body class="container-fluid h-100 p-0 d-flex">
@@ -27,16 +30,18 @@ $num2 = rand(1, 10);
       <h2 class="text-center pb-3 fw-bold">Crear una cuenta</h2>
 
       <div data-mdb-input-init class="form-outline">
-        <label class="form-label fw-bold" for="nombre">Nombre</label>
-        <input type="text" name="nombre" class="form-control" placeholder="Nombre" />
+        <label class="form-label fw-bold" for="nombre">Nombre *</label>
+        <input type="text" name="nombre" class="form-control" placeholder="Nombre *" id="nombre" />
+        <div class="form-text invalid-feedback">El nombre debe tener una longitud entre 3 y 50 caracteres.</div>
         <div class="input-group mt-4">
-          <input type="text" aria-label="apellidoPaterno" name="apellidoPaterno" class="form-control" placeholder="Apellido paterno">
-          <input type="text" aria-label="apellidoMaterno" name="apellidoMaterno" class="form-control" placeholder="Apellido materno">
+          <input id="apellidoPaterno" type="text" aria-label="apellidoPaterno" name="apellidoPaterno" class="form-control" placeholder="Apellido paterno *">
+          <input id="apellidoMaterno" type="text" aria-label="apellidoMaterno" name="apellidoMaterno" class="form-control" placeholder="Apellido materno">
+          <div class="form-text invalid-feedback">El apellido debe tener una longitud entre 3 y 50 caracteres.</div>
         </div>
       </div>
 
       <div data-mdb-input-init class="form-outline">
-        <label class="form-label fw-bold" for="sexo">Sexo</label>
+        <label class="form-label fw-bold" for="sexo">Sexo *</label>
         <div class="form-floating">
           <select class="form-select" id="sexo" aria-label="sexo" name="sexo">
             <option value="M">Masculino</option>
@@ -48,22 +53,26 @@ $num2 = rand(1, 10);
       </div>
 
       <div data-mdb-input-init class="form-outline">
-        <label class="form-label fw-bold" for="username">Nombre de usuario</label>
-        <input type="text" name="username" class="form-control" placeholder="Nombre de usuario" />
+        <label class="form-label fw-bold" for="username">Nombre de usuario *</label>
+        <input type="text" name="username" class="form-control" placeholder="Nombre de usuario" id="nombreUsuario" />
+        <div class="form-text invalid-feedback">El nombre de usuario debe tener una longitud entre 8 y 25 caracteres alfanumericos.</div>
       </div>
 
       <div data-mdb-input-init class="form-outline">
         <label class="form-label fw-bold" for="password">Contraseña</label>
-        <input type="password" name="password" class="form-control" placeholder="Contraseña" />
-        <input type="password" name="rpassword" class="form-control mt-4" placeholder="Repetir contraseña" />
+        <input type="password" id="password" name="password" class="form-control" placeholder="Contraseña" />
+        <input type="password" id="rpassword" name="rpassword" class="form-control mt-4" placeholder="Repetir contraseña" />
+        <div class="form-text invalid-feedback">La contraseña debe tener una longitud de entre 8 y 25 caracteres alfanumericos.</div>
+        <div class="form-text invalid-feedback">Las contraseñas deben de coincidir.</div>
       </div>
 
       <div data-mdb-input-init class="form-outline">
         <label class="form-label fw-bold" for="operacion">Validación</label>
         <div class="input-group">
           <span class="input-group-text"><?php echo "$num1 × $num2" ?></span>
-          <input type="number" name="operacion" class="form-control" placeholder="Validación" />
+          <input type="number" id="operacion" name="operacion" class="form-control" placeholder="Validación" />
           <input type="hidden" name="resultado" value="<?php echo $num1 * $num2 ?>">
+          <div class="form-text invalid-feedback">La respuesta debe de ser un numero positivo.</div>
         </div>
       </div>
 

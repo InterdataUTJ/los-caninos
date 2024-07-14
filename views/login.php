@@ -15,7 +15,6 @@ $num2 = rand(1, 10);
   <link rel="shortcut icon" href="/src/images/logo.png">
   <link rel="stylesheet" href="/src/styles/index.css">
   <link rel="stylesheet" href="/src/styles/button.css">
-  <link rel="stylesheet" href="/src/styles/input.css">
   <link rel="stylesheet" href="/src/styles/login.css">
 </head>
 
