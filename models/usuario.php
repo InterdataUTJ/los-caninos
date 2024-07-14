@@ -49,5 +49,18 @@ class Usuario {
 
     return true;
   }
+
+
+  public function cambiarPassword($contrasena, $nuevaContrasena) {
+    if (!isset($_SESSION["idUsuario"]) || !isset($_SESSION["usuario"])) {
+      return false;
+    }
+
+    $resultado = DB::query("CALL cambiar_contrasena(?, ?, ?);", $_SESSION["idUsuario"], $contrasena, $nuevaContrasena);
+    if (count($resultado) != 1) return false;
+    if (count($resultado[0]) != 1) return false;
+    if (!isset($resultado[0]["resultado"])) return false;
+    return boolval($resultado[0]["resultado"]);
+  }
 }
 ?>

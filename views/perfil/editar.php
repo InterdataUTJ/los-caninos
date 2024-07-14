@@ -21,6 +21,7 @@ require_once(__DIR__ . "/../../controllers/perfil/index.php");
   <script src="/src/scripts/perfil/enviar.js" defer></script>
   <script src="/src/scripts/perfil/campos.telefono.js" defer></script>
   <script src="/src/scripts/perfil/campos.email.js" defer></script>
+  <script src="/src/scripts/perfil/password.js" defer></script>
 </head>
 
 <body class="d-flex flex-column container-fluid m-0 p-0">
@@ -86,6 +87,8 @@ require_once(__DIR__ . "/../../controllers/perfil/index.php");
         </select>
       </div>
 
+      <h2 class="fw-bold pb-2 mb-3" style="border-bottom: 2px solid #fcbc73;">Información de ingreso</h2>
+
       <div data-mdb-input-init class="form-outline">
         <label class="form-label fw-bold" for="username">Nombre de usuario *</label>
         <div class="input-group mb-3">
@@ -93,6 +96,18 @@ require_once(__DIR__ . "/../../controllers/perfil/index.php");
           <button id="username-btn" class="btn btn-outline-warning fw-bold" type="button">Cambiar</button>
           <div class="invalid-feedback">El nombre de usuario debe de tener una longitud de entre 8 y 25 caracteres.</div>
         </div>
+      </div>
+
+      <div data-mdb-input-init class="form-outline">
+        <button 
+          class="btn btn-warning fw-bold w-100 d-flex gap-2 justify-content-center align-items-center" 
+          type="button"
+          data-bs-toggle="modal" 
+          data-bs-target="#changePasswordModal"
+        >
+          <?php include(__DIR__."/../../components/icons/repeat.php") ?>
+          Cambiar contraseña
+        </button>
       </div>
 
       
@@ -178,6 +193,7 @@ require_once(__DIR__ . "/../../controllers/perfil/index.php");
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <?php require_once(__DIR__ . "/../../components/error.php") ?>
+  <?php require_once(__DIR__ . "/../../components/changePassword.php") ?>
 </body>
 
 </html>

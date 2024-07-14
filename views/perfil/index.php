@@ -78,9 +78,18 @@ require_once(__DIR__ . "/../../controllers/perfil/index.php");
         </select>
       </div>
 
+      <h2 class="fw-bold pb-2 mb-3" style="border-bottom: 2px solid #fcbc73;">Información de ingreso</h2>
+
       <div data-mdb-input-init class="form-outline">
         <label class="form-label fw-bold" for="username">Nombre de usuario</label>
         <input type="text" name="username" class="form-control" value="<?php echo $_SESSION["usuario"]; ?>" disabled />
+      </div>
+
+      <div data-mdb-input-init class="form-outline">
+        <button class="btn btn-warning fw-bold w-100 d-flex gap-2 justify-content-center align-items-center disabled" type="button">
+          <?php include(__DIR__."/../../components/icons/repeat.php") ?>
+          Cambiar contraseña
+        </button>
       </div>
 
       

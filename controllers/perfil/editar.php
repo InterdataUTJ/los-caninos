@@ -32,6 +32,25 @@ if (isset($_POST["username"])) {
     exit();
 }
 
+
+if (isset($_POST["contrasena"]) && isset($_POST["nuevaContrasena"])) {
+    if ($_POST["contrasena"] == $_SESSION["nuevaContrasena"]) {
+        echo "Igual";
+        exit();
+    }
+
+    require_once(__DIR__ . "/../../models/usuario.php");
+    $usuario = new Usuario();
+    if (!$usuario->cambiarPassword($_POST["contrasena"], $_POST["nuevaContrasena"])) {
+        echo "Error";
+        exit();
+    }
+
+    echo "Exito";
+    exit();
+}
+
+
 $usuario = new Cliente();
 if ($_SESSION["rol"] != "CLIENTE") $usuario = new Empleado();
 $usuario->cargar($_SESSION["idRegistro"]);
