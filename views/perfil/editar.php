@@ -15,6 +15,7 @@ require_once(__DIR__ . "/../../controllers/perfil/index.php");
   <link rel="shortcut icon" href="/src/images/logo.png">
   <link rel="stylesheet" href="/src/styles/index.css">
   <link rel="stylesheet" href="/src/styles/landing.css">
+  <script src="/src/scripts/perfil/campos.js" defer></script>
 </head>
 
 <body class="d-flex flex-column container-fluid m-0 p-0">
@@ -23,7 +24,7 @@ require_once(__DIR__ . "/../../controllers/perfil/index.php");
 
   <main class="container flex-grow-1 d-flex h-100 mx-auto p-3 gap-3" style="max-width: 1000px;">
 
-    <section class="w-25 d-flex flex-column rounded p-3" style="background-color: #f5f3f1;">
+    <section class="w-25 d-flex flex-column rounded p-3 shadow">
       <img class="mb-3 w-75 mx-auto rounded-circle" style="user-select: none; max-width: 500px" src="https://cdn.iconscout.com/icon/free/png-256/free-avatar-370-456322.png" alt="">
       <p class="m-0 text-center fw-bold">
         <?php echo "{$usuario->nombre} {$usuario->apellidoPaterno} {$usuario->apellidoMaterno}"; ?>
@@ -48,22 +49,22 @@ require_once(__DIR__ . "/../../controllers/perfil/index.php");
 
       <div data-mdb-input-init class="form-outline">
         <label class="form-label fw-bold" for="username">Nombre</label>
-        <input type="text" name="username" class="form-control" value="<?php echo $usuario->nombre; ?>" disabled />
+        <input type="text" name="username" class="form-control" value="<?php echo $usuario->nombre; ?>"/>
       </div>
 
       <div data-mdb-input-init class="form-outline">
         <label class="form-label fw-bold" for="apellidoPaterno">Apellido Paterno</label>
-        <input type="text" name="apellidoPaterno" class="form-control" value="<?php echo $usuario->apellidoPaterno; ?>" disabled />
+        <input type="text" name="apellidoPaterno" class="form-control" value="<?php echo $usuario->apellidoPaterno; ?>"/>
       </div>
 
       <div data-mdb-input-init class="form-outline">
         <label class="form-label fw-bold" for="apellidoMaterno">Apellido Materno</label>
-        <input type="text" name="apellidoMaterno" class="form-control" value="<?php echo $usuario->apellidoMaterno; ?>" disabled />
+        <input type="text" name="apellidoMaterno" class="form-control" value="<?php echo $usuario->apellidoMaterno; ?>"/>
       </div>
 
       <div data-mdb-input-init class="form-outline">
         <label class="form-label fw-bold" for="sexo">Sexo</label>
-        <select class="form-select" id="sexo" aria-label="sexo" name="sexo" disabled>
+        <select class="form-select" id="sexo" aria-label="sexo" name="sexo">
           <option value="M" <?php echo $usuario->sexo == "M" ? "selected" : ""; ?>>Masculino</option>
           <option value="F" <?php echo $usuario->sexo == "F" ? "selected" : ""; ?>>Femenino</option>
           <option value="O" <?php echo $usuario->sexo == "O" ? "selected" : ""; ?>>Otro</option>
@@ -72,28 +73,48 @@ require_once(__DIR__ . "/../../controllers/perfil/index.php");
 
       <div data-mdb-input-init class="form-outline">
         <label class="form-label fw-bold" for="username">Nombre de usuario</label>
-        <input type="text" name="username" class="form-control" value="<?php echo $_SESSION["usuario"]; ?>" disabled />
+        <div class="input-group mb-3">
+          <input value="<?php echo $_SESSION["usuario"]; ?>" type="text" class="form-control" placeholder="Nombre de usuario">
+          <button class="btn btn-outline-warning fw-bold" type="button">Cambiar</button>
+        </div>
       </div>
 
       
       <h2 class="fw-bold mt-4 pb-2 mb-3" style="border-bottom: 2px solid #fcbc73;">Contacto</h2>
 
-      <div data-mdb-input-init class="form-outline">
+      <div data-mdb-input-init class="form-outline" id="container-phone">
         <label class="form-label fw-bold" for="username">Telefono(s)</label>
         <?php
           foreach ($usuario->telefonos as $telefono) {
-            echo "<input type='text' name='telefono' class='form-control mb-2' value='{$telefono}' disabled />";
+            echo '<div class="input-group mb-3" id="'.$telefono.'-phone-id">';
+            echo '<input value="'.$telefono.'" type="text" class="form-control" placeholder="Telefono">';
+            echo '<button class="btn btn-outline-danger" type="button" onclick="removeTelefono(\''.$telefono.'-phone-id\');">';
+            require(__DIR__ . "/../../components/icons/trash.php");
+            echo '</button></div>';
           }
         ?>
+        <button id="new-phone" onclick="nuevoTelefono();" type="button" class="mb-4 fw-bold btn btn-primary w-100 d-flex gap-2 justify-content-center align-items-center">
+          <?php require(__DIR__."/../../components/icons/new.php") ?>
+          Nuevo
+        </button>
       </div>
 
-      <div data-mdb-input-init class="form-outline">
+      <div data-mdb-input-init class="form-outline mb-3">
         <label class="form-label fw-bold" for="username">Correo(s)</label>
         <?php
           foreach ($usuario->correos as $correo) {
-            echo "<input type='text' name='correo' class='form-control mb-2' value='{$correo}' disabled />";
+            
+            echo '<div class="input-group mb-3">';
+            echo '<input value="'.$correo.'" type="text" class="form-control" placeholder="Correo">';
+            echo '<button class="btn btn-outline-danger" type="button">';
+            require(__DIR__ . "/../../components/icons/trash.php");
+            echo '</button></div>';
           }
         ?>
+        <button type="button" class="fw-bold btn btn-primary w-100 d-flex gap-2 justify-content-center align-items-center">
+          <?php require(__DIR__."/../../components/icons/new.php") ?>
+          Nuevo
+        </button>
       </div>
 
       <?php
@@ -102,14 +123,14 @@ require_once(__DIR__ . "/../../controllers/perfil/index.php");
 
           echo "<div data-mdb-input-init class='form-outline'>";
           echo "<label class='form-label fw-bold' for='fechaNac'>Fecha de Nacimiento</label>";
-          echo "<input type='date' name='fechaNac' class='form-control' value='{$usuario->fechaNac}' disabled />";
+          echo "<input type='date' name='fechaNac' class='form-control' value='{$usuario->fechaNac}'/>";
           echo "</div>";
 
           echo "<div data-mdb-input-init class='form-outline'>";
           echo "<label class='form-label fw-bold' for='salario'>Salario</label>";
           echo '<div class="input-group mb-3">';
           echo '<span class="input-group-text" id="basic-addon1">$</span>';
-          echo "<input type='number' name='salario' class='form-control' value='{$usuario->salario}' disabled/>";
+          echo "<input type='number' name='salario' class='form-control' value='{$usuario->salario}' disabled/> ";
           echo '<span class="input-group-text" id="basic-addon1">MXN</span>';
           echo "</div></div>";
 
@@ -123,9 +144,14 @@ require_once(__DIR__ . "/../../controllers/perfil/index.php");
         }
       ?>
 
-      <a class="fw-bold btn btn-outline-success mt-4" type="submit" href="/perfil/editar/">
-        Editar
-      </a>
+      <div class="d-flex gap-3">
+        <button class="flex-grow-1 fw-bold btn btn-success mt-4" type="submit">
+          Guardar
+        </button>
+        <a class="flex-grow-1 fw-bold btn btn-outline-danger mt-4" type="submit" href="/perfil/">
+          Cancelar
+        </a>
+      </div>
 
     </form>
   </main>
