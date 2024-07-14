@@ -6,6 +6,7 @@ RedirectMatch 403 ^/middlewares/.*$
 RedirectMatch 404 /views/error/404.php
 
 RewriteRule ^$ /views/index.php [END]
+RewriteRule ^/router.php$ /views/index.php [R=301,L]
 
 
 RewriteCond %{REQUEST_URI} /$
