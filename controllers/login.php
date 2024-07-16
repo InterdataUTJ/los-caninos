@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] != "POST") error("Error, intenta de nuevo!");
 $usr_username = htmlspecialchars($_POST['username']);
 $usr_password = htmlspecialchars($_POST['password']);
 $usr_operacion = htmlspecialchars($_POST['operacion']);
-$usr_resultado = htmlspecialchars($_POST['resultado']);
+$usr_resultado = $_SESSION["resultadoOperacionValidacion"];
 
 if (!isset($usr_username)) error("Credenciales incorrectas!");
 if (!isset($usr_password)) error("Credenciales incorrectas!");

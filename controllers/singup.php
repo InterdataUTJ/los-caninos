@@ -17,7 +17,7 @@ $usr_username = htmlspecialchars($_POST['username']);
 $usr_password = htmlspecialchars($_POST['password']);
 $usr_rpassword = htmlspecialchars($_POST['rpassword']);
 $usr_operacion = htmlspecialchars($_POST['operacion']);
-$usr_resultado = htmlspecialchars($_POST['resultado']);
+$usr_resultado = $_SESSION["resultadoOperacionValidacion"];
 
 if (!isset($usr_nombre)) error("Credenciales incorrectas!");
 if (!isset($usr_apellidoPaterno)) error("Credenciales incorrectas!");

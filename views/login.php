@@ -3,6 +3,7 @@ session_start();
 
 $num1 = rand(1, 10);
 $num2 = rand(1, 10);
+$_SESSION["resultadoOperacionValidacion"] = $num1 * $num2;
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +41,6 @@ $num2 = rand(1, 10);
         <div class="input-group">
           <span class="input-group-text"><?php echo "$num1 × $num2" ?></span>
           <input type="number" name="operacion" class="form-control" placeholder="Validación" />
-          <input type="hidden" name="resultado" value="<?php echo $num1 * $num2 ?>">
         </div>
       </div>
 
