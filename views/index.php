@@ -12,6 +12,9 @@ session_start();
   <link rel="shortcut icon" href="/src/images/logo.png">
   <link rel="stylesheet" href="/src/styles/index.css">
   <link rel="stylesheet" href="/src/styles/landing.css">
+
+  <link rel="preload" as="image" href="/src/images/perro.webp">
+  <link rel="preload" as="image" href="/src/images/perros.webp">
 </head>
 
 <body class="container-fluid m-0 p-0">
