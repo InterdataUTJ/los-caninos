@@ -21,6 +21,7 @@ $_SESSION["resultadoOperacionValidacion"] = $num1 * $num2;
   <script src="/src/scripts/validaciones.js"></script>
   <script src="/src/scripts/singup/validar.js" defer></script>
   <script src="/src/scripts/singup/enviar.js" defer></script>
+  <script src="/src/scripts/password.js" defer></script>
 </head>
 
 <body class="container-fluid h-100 p-0 d-flex">
@@ -61,10 +62,16 @@ $_SESSION["resultadoOperacionValidacion"] = $num1 * $num2;
 
       <div data-mdb-input-init class="form-outline">
         <label class="form-label fw-bold" for="password">Contraseña</label>
-        <input type="password" id="password" name="password" class="form-control" placeholder="Contraseña" />
-        <input type="password" id="rpassword" name="rpassword" class="form-control mt-4" placeholder="Repetir contraseña" />
-        <div class="form-text invalid-feedback">La contraseña debe tener una longitud de entre 8 y 25 caracteres alfanumericos.</div>
-        <div class="form-text invalid-feedback">Las contraseñas deben de coincidir.</div>
+        <div class="input-group mb-3">
+          <input type="password" name="password" id="password" class="form-control" placeholder="Contraseña" />
+          <button type="button" class="btn btn-orange-primary password-toggle"><?php include(__DIR__."/../components/icons/eye.php"); ?></button>
+          <div class="form-text invalid-feedback">La contraseña debe tener una longitud de entre 8 y 25 caracteres alfanumericos.</div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="password" name="rpassword" id="rpassword" class="form-control" placeholder="Repetir contraseña" />
+          <button type="button" class="btn btn-orange-primary password-toggle"><?php include(__DIR__."/../components/icons/eye.php"); ?></button>
+          <div class="form-text invalid-feedback">Las contraseñas deben de coincidir.</div>
+        </div>
       </div>
 
       <div data-mdb-input-init class="form-outline">

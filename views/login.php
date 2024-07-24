@@ -17,6 +17,8 @@ $_SESSION["resultadoOperacionValidacion"] = $num1 * $num2;
   <link rel="stylesheet" href="/src/styles/index.css">
   <link rel="stylesheet" href="/src/styles/button.css">
   <link rel="stylesheet" href="/src/styles/login.css">
+
+  <script src="/src/scripts/password.js" defer></script>
 </head>
 
 <body class="container-fluid h-100 p-0 d-flex">
@@ -33,7 +35,10 @@ $_SESSION["resultadoOperacionValidacion"] = $num1 * $num2;
 
       <div data-mdb-input-init class="form-outline">
         <label class="form-label fw-bold" for="password">Contraseña</label>
-        <input type="password" name="password" class="form-control" placeholder="Contraseña" />
+        <div class="input-group mb-3">
+          <input type="password" name="password" class="form-control" placeholder="Contraseña" />
+          <button type="button" class="btn btn-orange-primary password-toggle"><?php include(__DIR__."/../components/icons/eye.php"); ?></button>
+        </div>
       </div>
 
       <div data-mdb-input-init class="form-outline">

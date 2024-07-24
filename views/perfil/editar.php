@@ -15,6 +15,7 @@ require_once(__DIR__ . "/../../controllers/perfil/index.php");
   <link rel="shortcut icon" href="/src/images/logo.png">
   <link rel="stylesheet" href="/src/styles/index.css">
   <link rel="stylesheet" href="/src/styles/landing.css">
+  <link rel="stylesheet" href="/src/styles/button.css">
   <link rel="stylesheet" href="/src/styles/perfil/query.css">
   
   <script src="/src/scripts/validaciones.js"></script>
@@ -35,16 +36,16 @@ require_once(__DIR__ . "/../../controllers/perfil/index.php");
         alt="avatar"
         class="mb-3 w-75 mx-auto rounded-circle" 
         style="user-select: none; max-width: 500px" 
-        src="/src/images/avatar/<?php echo $usuario->sexo; ?>.svg"
+        src="/src/images/avatar/<?php echo $usuario->getSexo(); ?>.svg"
       >
       <section>
         <p class="m-0 text-center fw-bold">
-          <?php echo "{$usuario->nombre} {$usuario->apellidoPaterno} {$usuario->apellidoMaterno}"; ?>
+          <?php echo "{$usuario->getNombre()} {$usuario->getApellidoPaterno()} {$usuario->getApellidoMaterno()}"; ?>
         </p>
         <?php
           if ($_SESSION["rol"] != "CLIENTE") {
             echo '<p class="m-0 text-center">';
-            $fechaNac = new DateTime($usuario->fechaNac);
+            $fechaNac = new DateTime($usuario->getFechaNac());
             $hoy = new DateTime('now', new DateTimeZone('America/Mexico_city'));;            
             $edad = $hoy->diff($fechaNac);
             echo $edad->y;
@@ -62,28 +63,28 @@ require_once(__DIR__ . "/../../controllers/perfil/index.php");
 
       <div data-mdb-input-init class="form-outline">
         <label class="form-label fw-bold" for="nombre">Nombre *</label>
-        <input placeholder="Nombre" type="text" name="nombre" id="nombre" class="form-control" value="<?php echo $usuario->nombre; ?>"/>
+        <input placeholder="Nombre" type="text" name="nombre" id="nombre" class="form-control" value="<?php echo $usuario->getNombre(); ?>"/>
         <div class="form-text invalid-feedback">El nombre debe tener una longitud entre 3 y 50 caracteres.</div>
       </div>
 
       <div data-mdb-input-init class="form-outline">
         <label class="form-label fw-bold" for="apellidoPaterno">Apellido Paterno *</label>
-        <input placeholder="Apellido Paterno" type="text" name="apellidoPaterno" id="apellidoPaterno" class="form-control" value="<?php echo $usuario->apellidoPaterno; ?>"/>
+        <input placeholder="Apellido Paterno" type="text" name="apellidoPaterno" id="apellidoPaterno" class="form-control" value="<?php echo $usuario->getApellidoPaterno(); ?>"/>
         <div class="form-text invalid-feedback">El apellido paterno debe tener una longitud entre 3 y 50 caracteres.</div>
       </div>
 
       <div data-mdb-input-init class="form-outline">
         <label class="form-label fw-bold" for="apellidoMaterno">Apellido Materno</label>
-        <input placeholder="Apellido Materno" type="text" name="apellidoMaterno" id="apellidoMaterno" class="form-control" value="<?php echo $usuario->apellidoMaterno; ?>"/>
+        <input placeholder="Apellido Materno" type="text" name="apellidoMaterno" id="apellidoMaterno" class="form-control" value="<?php echo $usuario->getApellidoMaterno(); ?>"/>
         <div class="form-text invalid-feedback">El apellido paterno puede tener una longitud maxima de 50 caracteres.</div>
       </div>
 
       <div data-mdb-input-init class="form-outline">
         <label class="form-label fw-bold" for="sexo">Sexo *</label>
         <select class="form-select" id="sexo" aria-label="sexo" name="sexo">
-          <option value="M" <?php echo $usuario->sexo == "M" ? "selected" : ""; ?>>Masculino</option>
-          <option value="F" <?php echo $usuario->sexo == "F" ? "selected" : ""; ?>>Femenino</option>
-          <option value="O" <?php echo $usuario->sexo == "O" ? "selected" : ""; ?>>Otro</option>
+          <option value="M" <?php echo $usuario->getSexo() == "M" ? "selected" : ""; ?>>Masculino</option>
+          <option value="F" <?php echo $usuario->getSexo() == "F" ? "selected" : ""; ?>>Femenino</option>
+          <option value="O" <?php echo $usuario->getSexo() == "O" ? "selected" : ""; ?>>Otro</option>
         </select>
       </div>
 
@@ -116,7 +117,7 @@ require_once(__DIR__ . "/../../controllers/perfil/index.php");
       <div data-mdb-input-init class="form-outline" id="container-phone">
         <label class="form-label fw-bold" for="telefono">Telefono(s)</label>
         <?php
-          foreach ($usuario->telefonos as $telefono) {
+          foreach ($usuario->getTelefonos() as $telefono) {
             echo '<div class="input-group mb-3" id="'.$telefono.'-phone-id">';
             echo '<input value="'.$telefono.'" type="text" class="form-control" name="telefono[]" placeholder="Telefono">';
             echo '<button class="btn btn-outline-danger" type="button" onclick="removeTelefono(\''.$telefono.'-phone-id\');">';
@@ -134,11 +135,11 @@ require_once(__DIR__ . "/../../controllers/perfil/index.php");
       <div data-mdb-input-init class="form-outline mb-3" id="container-email">
         <label class="form-label fw-bold" for="email">Correo(s)</label>
         <?php
-          foreach ($usuario->correos as $correo) {
+          foreach ($usuario->getEmails() as $email) {
             
-            echo '<div class="input-group mb-3" id="'.$correo.'-email-id">';
-            echo '<input value="'.$correo.'" type="text" name="email[]" class="form-control" placeholder="Correo">';
-            echo '<button class="btn btn-outline-danger" type="button" onclick="removeEmail(\''.$correo.'-email-id\');">';
+            echo '<div class="input-group mb-3" id="'.$email.'-email-id">';
+            echo '<input value="'.$email.'" type="text" name="email[]" class="form-control" placeholder="Correo">';
+            echo '<button class="btn btn-outline-danger" type="button" onclick="removeEmail(\''.$email.'-email-id\');">';
             require(__DIR__ . "/../../components/icons/trash.php");
             echo '</button>';
             echo '<div class="invalid-feedback">Email debe de ser un correo valido.</div></div>';
@@ -156,22 +157,22 @@ require_once(__DIR__ . "/../../controllers/perfil/index.php");
 
           echo "<div data-mdb-input-init class='form-outline'>";
           echo "<label class='form-label fw-bold' for='fechaNac'>Fecha de Nacimiento *</label>";
-          echo "<input type='date' name='fechaNac' id='fechaNac' class='form-control' value='{$usuario->fechaNac}'/>";
+          echo "<input type='date' name='fechaNac' id='fechaNac' class='form-control' value='{$usuario->getFechaNac()}'/>";
           echo "</div>";
 
           echo "<div data-mdb-input-init class='form-outline'>";
           echo "<label class='form-label fw-bold'>Salario *</label>";
           echo '<div class="input-group mb-3">';
           echo '<span class="input-group-text" id="basic-addon1">$</span>';
-          echo "<input type='number' class='form-control' value='{$usuario->salario}' disabled/> ";
+          echo "<input type='number' class='form-control' value='{$usuario->getSalario()}' disabled/> ";
           echo '<span class="input-group-text" id="basic-addon1">MXN</span>';
           echo "</div></div>";
 
           echo '<div data-mdb-input-init class="form-outline">
             <label class="form-label fw-bold">Estado *</label>
             <select class="form-select" aria-label="estado" disabled>
-              <option value="ACTIVO" '.($usuario->estado == "ACTIVO" ? "selected" : "").'>Activo</option>
-              <option value="INACTIVO" '.($usuario->estado == "INACTIVO" ? "selected" : "").'>Inactivo</option>
+              <option value="ACTIVO" '.($usuario->getEstado() == "ACTIVO" ? "selected" : "").'>Activo</option>
+              <option value="INACTIVO" '.($usuario->getEstado() == "INACTIVO" ? "selected" : "").'>Inactivo</option>
             </select>
           </div>';
         }

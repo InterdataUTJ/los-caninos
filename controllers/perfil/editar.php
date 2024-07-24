@@ -1,8 +1,8 @@
 <?php
 
 session_start();
-require_once(__DIR__ . "/../../models/perfil/index.php");
-require_once(__DIR__ . "/../../models/perfil/index.cliente.php");
+require_once(__DIR__ . "/../../models/perfil/empleado.php");
+require_once(__DIR__ . "/../../models/perfil/cliente.php");
 
 if (!isset($_SESSION["usuario"])) {
     header("Location: /");
@@ -55,23 +55,23 @@ $usuario = new Cliente();
 if ($_SESSION["rol"] != "CLIENTE") $usuario = new Empleado();
 $usuario->cargar($_SESSION["idRegistro"]);
 
-if (isset($_POST["nombre"])) $usuario->nombre = $_POST["nombre"];
-if (isset($_POST["apellidoPaterno"])) $usuario->apellidoPaterno = $_POST["apellidoPaterno"];
-if (isset($_POST["apellidoMaterno"])) $usuario->apellidoMaterno = $_POST["apellidoMaterno"];
-if (isset($_POST["apellidoMaterno"]) && $_POST["apellidoMaterno"] == '') $usuario->apellidoMaterno = null;
-if (isset($_POST["sexo"])) $usuario->sexo = $_POST["sexo"];
+if (isset($_POST["nombre"])) $usuario->setNombre($_POST["nombre"]);
+if (isset($_POST["apellidoPaterno"])) $usuario->setApellidoPaterno($_POST["apellidoPaterno"]);
+if (isset($_POST["apellidoMaterno"])) $usuario->setApellidoMaterno($_POST["apellidoMaterno"]);
+if (isset($_POST["apellidoMaterno"]) && $_POST["apellidoMaterno"] == '') $usuario->setApellidoMaterno(null);
+if (isset($_POST["sexo"])) $usuario->setSexo($_POST["sexo"]);
 
 if (isset($_POST["fechaNac"]) && $_SESSION["rol"] != "CLIENTE") {
-    $usuario->fechaNac = $_POST["fechaNac"];
+    $usuario->setFechaNac($_POST["fechaNac"]);
 }
 
 $telefonos = [];
-$correos = [];
+$emails = [];
 
 if (isset($_POST["telefono"])) $telefonos = $_POST["telefono"];
-if (isset($_POST["email"])) $correos = $_POST["email"];
+if (isset($_POST["email"])) $emails = $_POST["email"];
 
-$usuario->actualizar($_SESSION["idRegistro"], $telefonos, $correos);
+$usuario->actualizar($_SESSION["idUsuario"], $_SESSION["idRegistro"], $telefonos, $emails);
 header("Location: /perfil/?error=Datos actualizados");
 exit();
 
