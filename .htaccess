@@ -1,9 +1,10 @@
 RewriteEngine on
 
-RedirectMatch 403 ^/models/.*$
-RedirectMatch 403 ^/components/.*$
-RedirectMatch 403 ^/middlewares/.*$
+RedirectMatch 404 ^/models/.*$
+RedirectMatch 404 ^/components/.*$
+RedirectMatch 404 ^/middlewares/.*$
 RedirectMatch 404 /views/error/404.php
+RedirectMatch 403 /views/error/403.php
 
 RewriteRule ^$ /views/index.php [END]
 RewriteRule ^/router.php$ /views/index.php [R=301,L]
