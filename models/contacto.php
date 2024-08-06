@@ -5,12 +5,14 @@ require_once(__DIR__."/db.php");
 class Contacto {
     protected $idUsuario;
     protected $nombreUsuario;
+    protected $rol;
     protected $emails = [];
     protected $telefonos = [];
 
     public function setIdUsuario($_idUsuario) { $this->idUsuario = $_idUsuario; }
-    public function setNombreUsuario($_nombreUsuario) { $this->nombreUsuario = $_nombreUsuario; }
-    protected function setTelefonos() {
+    public function setNombreUsuario($nombreUsuario) { $this->nombreUsuario = $nombreUsuario; }
+    public function setRol($rol) { $this->rol = $rol; }
+    public function setTelefonos() {
         $resultado = DB::query("SELECT telefono FROM telefono WHERE idUsuario = ?;", $this->idUsuario);
         if (count($resultado) == 0) return true;
     
@@ -20,8 +22,8 @@ class Contacto {
         }
         return true;
     }
-
-    protected function setEmails() {
+  
+    public function setEmails() {
         $resultado = DB::query("SELECT email FROM email WHERE idUsuario = ?;", $this->idUsuario);
         if (count($resultado) == 0) return true;
     
@@ -33,6 +35,7 @@ class Contacto {
     }
 
     public function getIdUsuario() { return $this->idUsuario; }
+    public function getRol() { return $this->rol; }
     public function getNombreUsuario() { return $this->nombreUsuario; }
     public function getEmails() { return $this->emails; }
     public function getTelefonos() { return $this->telefonos; }

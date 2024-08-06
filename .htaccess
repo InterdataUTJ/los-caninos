@@ -3,12 +3,9 @@ RewriteEngine on
 RedirectMatch 404 ^/models/.*$
 RedirectMatch 404 ^/components/.*$
 RedirectMatch 404 ^/middlewares/.*$
-RedirectMatch 404 /views/error/404.php
-RedirectMatch 403 /views/error/403.php
 
 RewriteRule ^$ /views/index.php [END]
 RewriteRule ^/router.php$ /views/index.php [R=301,L]
-
 
 RewriteCond %{REQUEST_URI} /$
 RewriteCond %{REQUEST_URI} !^/controllers
@@ -35,3 +32,7 @@ RewriteRule (.+?)/$ /$1.php [END]
 RewriteCond %{DOCUMENT_ROOT}/%{REQUEST_URI} -d
 RewriteCond %{DOCUMENT_ROOT}/%{REQUEST_URI}/index.php -f
 RewriteRule (.+?)/$ $1/index.php [END]
+
+
+ErrorDocument 403 /views/error/403.php
+ErrorDocument 404 /views/error/404.php

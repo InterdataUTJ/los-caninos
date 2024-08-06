@@ -76,7 +76,7 @@ require_once(__DIR__ . "/../../controllers/perfil/index.php");
       <div data-mdb-input-init class="form-outline">
         <label class="form-label fw-bold" for="apellidoMaterno">Apellido Materno</label>
         <input placeholder="Apellido Materno" type="text" name="apellidoMaterno" id="apellidoMaterno" class="form-control" value="<?php echo $usuario->getApellidoMaterno(); ?>"/>
-        <div class="form-text invalid-feedback">El apellido paterno puede tener una longitud maxima de 50 caracteres.</div>
+        <div class="form-text invalid-feedback">El apellido materno puede tener una longitud maxima de 50 caracteres.</div>
       </div>
 
       <div data-mdb-input-init class="form-outline">
@@ -192,7 +192,7 @@ require_once(__DIR__ . "/../../controllers/perfil/index.php");
 
   <?php require(__DIR__ . "/../../components/footer.php") ?>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="/src/bootstrap/bootstrap.bundle.min.js"></script>
   <?php require_once(__DIR__ . "/../../components/error.php") ?>
   <?php require_once(__DIR__ . "/../../components/changePassword.php") ?>
 </body>

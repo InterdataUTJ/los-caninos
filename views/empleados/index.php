@@ -1,7 +1,9 @@
 <?php
 session_start();
-require_once(__DIR__ . "/../../middlewares/session.php");
-require_once(__DIR__ . "/../../controllers/perfil/index.php");
+require_once(__DIR__ . "/../../middlewares/gerente.php");
+require_once(__DIR__ . "/../../components/empleados/index.php");
+
+$empleados = require_once(__DIR__ . "/../../controllers/empleados/index.php");
 
 ?>
 
@@ -31,7 +33,7 @@ require_once(__DIR__ . "/../../controllers/perfil/index.php");
     </a>
 
     <table class="table table-striped table-bordered">
-        <thead>
+        <thead class="text-center">
             <tr>
               <th>#</th>
               <th>Nombre</th>
@@ -40,24 +42,25 @@ require_once(__DIR__ . "/../../controllers/perfil/index.php");
               <th>Sexo</th>
               <th>Estado</th>
               <th>Rol</th>
+              <th>Nombre de usuario</th>
               <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-              <th>1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-              <td>
-                <a class="btn btn-primary fw-bold">Ver</a>
-                <a class="btn btn-success fw-bold">Editar</a>
-                <a class="btn btn-danger fw-bold">Eliminar</a>
-              </td>
-            </tr>
+            <?php 
+              foreach ($empleados as $empleado) {
+                echo empleadoTable(
+                  $empleado->getId(),
+                  $empleado->getNombre(),
+                  $empleado->getApellidoPaterno(),
+                  $empleado->getApellidoMaterno(),
+                  $empleado->getSexo(),
+                  $empleado->getEstatus(),
+                  $empleado->getRol(),
+                  $empleado->getNombreUsuario()
+                );
+              }
+            ?>
         </tbody>
     </table>
 
@@ -65,7 +68,7 @@ require_once(__DIR__ . "/../../controllers/perfil/index.php");
 
   <?php require(__DIR__ . "/../../components/footer.php") ?>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="/src/bootstrap/bootstrap.bundle.min.js"></script>
   <?php require_once(__DIR__ . "/../../components/error.php") ?>
 </body>
 

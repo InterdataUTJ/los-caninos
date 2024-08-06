@@ -67,6 +67,7 @@ require_once(__DIR__ . "/../controllers/perfil/index.php");
     <h2 class="fw-bold pb-2 my-4" style="border-bottom: 2px solid #fcbc73;">Servicios</h2>
     <h2 class="fw-bold pb-2 my-4" style="border-bottom: 2px solid #fcbc73;">Mascotas</h2>
     <h2 class="fw-bold pb-2 my-4" style="border-bottom: 2px solid #fcbc73;">Empleados</h2>
+    <a href="/empleados/">Ver</a>
     <h2 class="fw-bold pb-2 my-4" style="border-bottom: 2px solid #fcbc73;">Clientes</h2>
     <h2 class="fw-bold pb-2 my-4" style="border-bottom: 2px solid #fcbc73;">Reportes</h2>
 
@@ -74,7 +75,7 @@ require_once(__DIR__ . "/../controllers/perfil/index.php");
 
   <?php require(__DIR__ . "/../components/footer.php") ?>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="/src/bootstrap/bootstrap.bundle.min.js"></script>
   
 </body>
 
