@@ -10,10 +10,19 @@ main {
   flex: 1;
 }
 
+input:not(.is-invalid) {
+  accent-color: #fcbc73 !important;
+}
+
+input[type=checkbox]:checked:not(.is-invalid) {
+  accent-color: #fcbc73 !important;
+  background-color: #f1952a !important;
+  border-color: #df851e !important;
+}
+
 input:focus:not(.is-invalid), select:focus:not(.is-invalid) {
   border-color: #fcbc73 !important;
   box-shadow: 0 0 0 0.25rem #f0bf8661 !important;
-  accent-color: #fcbc73 !important;
 }
 
 a.custom-a-link {

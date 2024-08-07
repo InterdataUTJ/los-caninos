@@ -4,6 +4,7 @@ require_once(__DIR__ . "/../../middlewares/session_start.php");
 require_once(__DIR__ . "/../../middlewares/gerente.php");
 
 // Componentes
+require_once(__DIR__."/../../components/empleados/filtros/filtros.back.php");
 require_once(__DIR__ . "/../../components/empleados/index.php");
 
 // Controladores
@@ -36,37 +37,41 @@ $empleados = require_once(__DIR__ . "/../../controllers/empleados/index.php");
       Nuevo empleado
     </a>
 
-    <table class="table table-striped table-bordered">
-        <thead class="text-center">
-            <tr>
-              <th>#</th>
-              <th>Nombre</th>
-              <th>Apellidos Paterno</th>
-              <th>Apellidos Materno</th>
-              <th>Sexo</th>
-              <th>Estado</th>
-              <th>Rol</th>
-              <th>Nombre de usuario</th>
-              <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php 
-              foreach ($empleados as $empleado) {
-                echo empleadoTable(
-                  $empleado->getId(),
-                  $empleado->getNombre(),
-                  $empleado->getApellidoPaterno(),
-                  $empleado->getApellidoMaterno(),
-                  $empleado->getSexo(),
-                  $empleado->getEstatus(),
-                  $empleado->getRol(),
-                  $empleado->getNombreUsuario()
-                );
-              }
-            ?>
-        </tbody>
-    </table>
+    <?php require_once(__DIR__."/../../components/empleados/filtros/filtros.html.php"); ?>
+
+    <div class="overflow-x-auto">
+      <table class="table table-striped table-bordered">
+          <thead class="text-center">
+              <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Apellidos Paterno</th>
+                <th>Apellidos Materno</th>
+                <th>Sexo</th>
+                <th>Estado</th>
+                <th>Rol</th>
+                <th>Nombre de usuario</th>
+                <th>Acciones</th>
+              </tr>
+          </thead>  
+          <tbody>
+              <?php 
+                foreach ($empleados as $empleado) {
+                  echo empleadoTable(
+                    $empleado->getId(),
+                    $empleado->getNombre(),
+                    $empleado->getApellidoPaterno(),
+                    $empleado->getApellidoMaterno(),
+                    $empleado->getSexo(),
+                    $empleado->getEstatus(),
+                    $empleado->getRol(),
+                    $empleado->getNombreUsuario()
+                  );
+                }
+              ?>
+          </tbody>
+      </table>
+    </div>
 
   </main>
 
