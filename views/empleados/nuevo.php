@@ -1,7 +1,9 @@
 <?php
-session_start();
+// Midlewares
+require_once(__DIR__ . "/../../middlewares/session_start.php");
 require_once(__DIR__ . "/../../middlewares/gerente.php");
 
+// Controladores
 $clientes = require_once(__DIR__ . "/../../controllers/empleados/nuevo.clientes.php");
 
 ?>

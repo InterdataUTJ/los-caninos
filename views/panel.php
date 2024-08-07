@@ -1,6 +1,9 @@
 <?php
-session_start();
+// Middlewares
+require_once(__DIR__ . "/../middlewares/session_start.php");
 require_once(__DIR__ . "/../middlewares/session.php");
+
+// Controlador
 require_once(__DIR__ . "/../controllers/perfil/index.php");
 
 ?>

@@ -1,9 +1,11 @@
 <?php
-session_start();
+
+require_once(__DIR__ . "/../middlewares/session_start.php");
 
 $num1 = rand(1, 10);
 $num2 = rand(1, 10);
 $_SESSION["resultadoOperacionValidacion"] = $num1 * $num2;
+
 ?>
 
 <!DOCTYPE html>

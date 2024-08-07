@@ -1,5 +1,7 @@
 <?php
-session_start();
+
+require_once(__DIR__ . "/../middlewares/session_start.php");
+
 ?>
 
 <!DOCTYPE html>
