@@ -6,6 +6,7 @@ class Usuario {
   public $idRegistro;
   public $nombreUsuario;
   public $rol;
+  public $estado;
 
   public function login($usr_username, $usr_password) {
     $resultado = DB::query("CALL verificar_usuario(?, ?);", $usr_username, $usr_password);
@@ -17,6 +18,16 @@ class Usuario {
     $this->idRegistro = $resultado[0]["idRegistro"];
     $this->rol = $resultado[0]["rol"];
     $this->nombreUsuario = $usr_username;
+
+    if ($this->rol == "CLIENTE") $this->estado = "ACTIVO";
+    else {
+      $resultado = DB::query("SELECT estado FROM empleado WHERE idEmpleado = ?", $this->idRegistro);
+      if (count($resultado) != 1) return false;
+      if (!isset($resultado[0])) return false;
+      if (!isset($resultado[0]["estado"])) return false;
+      $this->estado = $resultado[0]["estado"];
+    }
+
     return true;
   }
 
