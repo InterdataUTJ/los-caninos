@@ -31,7 +31,7 @@ $clientes = require_once(__DIR__ . "/../../controllers/empleados/nuevo.clientes.
   <main class="container flex-grow-1 d-flex flex-column h-100 mx-auto p-3 gap-3" style="max-width: 1000px;">
     <h2 class="fw-bold pb-2 mb-3" style="border-bottom: 2px solid #fcbc73;">Nuevo empleado</h2>
 
-    <form action="/controllers/empleados/nuevo/" method="POST" onsubmit="enviarDatos(evento);">
+    <form action="/controllers/empleados/nuevo/" method="POST" onsubmit="enviarDatos(event);">
 
       <div data-mdb-input-init class="form-outline mb-3">
         <label class="form-label fw-bold" for="idCliente">Id Cliente</label>

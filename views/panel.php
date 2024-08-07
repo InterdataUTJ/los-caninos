@@ -69,6 +69,7 @@ require_once(__DIR__ . "/../controllers/perfil/index.php");
 
     <h2 class="fw-bold pb-2 my-4" style="border-bottom: 2px solid #fcbc73;">Servicios</h2>
     <h2 class="fw-bold pb-2 my-4" style="border-bottom: 2px solid #fcbc73;">Mascotas</h2>
+    <a href="/mascotas/">Ver</a>
     <h2 class="fw-bold pb-2 my-4" style="border-bottom: 2px solid #fcbc73;">Empleados</h2>
     <a href="/empleados/">Ver</a>
     <h2 class="fw-bold pb-2 my-4" style="border-bottom: 2px solid #fcbc73;">Clientes</h2>
