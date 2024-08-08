@@ -17,7 +17,7 @@ if (!isset($_GET["id"])) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eliminar empleado #<?php echo $_GET["id"]; ?></title>
+  <title>Eliminar empleado #<?= $_GET["id"]; ?></title>
   <link rel="shortcut icon" href="/src/images/logo.png">
   <link rel="stylesheet" href="/src/styles/index.css">
 
@@ -30,12 +30,12 @@ if (!isset($_GET["id"])) {
   <?php require(__DIR__ . "/../../components/header.php") ?>
 
   <main class="container flex-grow-1 d-flex flex-column h-100 mx-auto p-3 gap-3" style="max-width: 1000px;">
-    <h2 class="fw-bold pb-2 mb-3" style="border-bottom: 2px solid #fcbc73;">Eliminar empleado #<?php echo $_GET["id"]; ?></h2>
+    <h2 class="fw-bold pb-2 mb-3" style="border-bottom: 2px solid #fcbc73;">Eliminar empleado #<?= $_GET["id"]; ?></h2>
 
-    <p>¿Estas seguro de que deseas eliminar el empleado #<?php echo $_GET["id"];?>? Esta acción no se puede deshacer.</p>
+    <p>¿Estas seguro de que deseas eliminar el empleado #<?= $_GET["id"];?>? Esta acción no se puede deshacer.</p>
 
     <a onclick="history.back();" class="btn btn-success fw-bold">Cancelar y volver</a>
-    <a href="/controllers/empleados/eliminar/?id=<?php echo $_GET["id"];?>" class="btn btn-outline-danger fw-bold">Eliminar</a>
+    <a href="/controllers/empleados/eliminar/?id=<?= $_GET["id"];?>" class="btn btn-outline-danger fw-bold">Eliminar</a>
     
   </main>
 

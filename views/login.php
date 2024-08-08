@@ -39,14 +39,16 @@ $_SESSION["resultadoOperacionValidacion"] = $num1 * $num2;
         <label class="form-label fw-bold" for="password">Contraseña</label>
         <div class="input-group mb-3">
           <input type="password" name="password" class="form-control" placeholder="Contraseña" />
-          <button type="button" class="btn btn-orange-primary password-toggle"><?php include(__DIR__."/../components/icons/eye.php"); ?></button>
+          <button type="button" class="btn btn-orange-primary password-toggle">
+            <?php include(__DIR__."/../components/icons/eye.php"); ?>
+          </button>
         </div>
       </div>
 
       <div data-mdb-input-init class="form-outline">
         <label class="form-label fw-bold" for="operacion">Validación</label>
         <div class="input-group">
-          <span class="input-group-text"><?php echo "$num1 × $num2" ?></span>
+          <span class="input-group-text"><?= "$num1 × $num2" ?></span>
           <input type="number" name="operacion" class="form-control" placeholder="Validación" />
         </div>
       </div>

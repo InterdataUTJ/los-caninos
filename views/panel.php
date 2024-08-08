@@ -6,6 +6,11 @@ require_once(__DIR__ . "/../middlewares/session.php");
 // Controlador
 require_once(__DIR__ . "/../controllers/perfil/index.php");
 
+// Edad
+$fechaNac = new DateTime($usuario->getFechaNac());
+$hoy = new DateTime('now', new DateTimeZone('America/Mexico_city'));;
+$edad = $hoy->diff($fechaNac)->y;
+
 ?>
 
 <!DOCTYPE html>
@@ -34,23 +39,18 @@ require_once(__DIR__ . "/../controllers/perfil/index.php");
           alt="avatar"
           class="mb-3 ms-3 h-50 rounded-circle"
           style="user-select: none; max-height: 100px"
-          src="/src/images/avatar/<?php echo $usuario->getSexo(); ?>.svg">
+          src="/src/images/avatar/<?= $usuario->getSexo(); ?>.svg">
         <article class="d-flex flex-column align-items-start">
           <p class="m-0 text-center fw-bold">
-            <?php echo "{$usuario->getNombre()} {$usuario->getApellidoPaterno()} {$usuario->getApellidoMaterno()}"; ?>
+            <?= "{$usuario->getNombre()} {$usuario->getApellidoPaterno()} {$usuario->getApellidoMaterno()}"; ?>
           </p>
-          <?php
-          if ($_SESSION["rol"] != "CLIENTE") {
-            echo '<p class="m-0 text-center">';
-            $fechaNac = new DateTime($usuario->getFechaNac());
-            $hoy = new DateTime('now', new DateTimeZone('America/Mexico_city'));;
-            $edad = $hoy->diff($fechaNac);
-            echo $edad->y;
-            echo ' años </p>';
-          }
-          ?>
+
+          <?php if ($_SESSION["rol"] != "CLIENTE") :?>
+            <p class="m-0 text-center"> <?= $edad; ?> años </p>
+          <?php endif; ?>
+
           <p class="m-0 text-center fst-italic">
-            <?php echo ucfirst(strtolower($_SESSION["rol"])); ?>
+            <?= ucfirst(strtolower($_SESSION["rol"])); ?>
           </p>
         </article>
       </section>

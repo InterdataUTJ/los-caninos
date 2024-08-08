@@ -124,7 +124,7 @@ $edad = $hoy->diff($fechaNac)->y;
       </div>
 
       
-      <?php if ($_SESSION["rol"] == "CLIENTE") : ?>
+      <?php if ($_SESSION["rol"] != "CLIENTE") : ?>
         <h2 class='fw-bold mt-4 pb-2 mb-3' style='border-bottom: 2px solid #fcbc73;'>Información del empleado</h2>
 
         <div data-mdb-input-init class='form-outline'>

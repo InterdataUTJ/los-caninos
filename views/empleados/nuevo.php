@@ -36,11 +36,11 @@ $clientes = require_once(__DIR__ . "/../../controllers/empleados/nuevo.clientes.
       <div data-mdb-input-init class="form-outline mb-3">
         <label class="form-label fw-bold" for="idCliente">Id Cliente</label>
         <select class="form-select" id="idCliente" aria-label="idCliente" name="idCliente">
-          <?php
-            foreach ($clientes as $cliente) {
-              echo "<option value='{$cliente->getId()}'>#{$cliente->getId()} - {$cliente->getNombreUsuario()}</option>";
-            }
-          ?>
+          <?php foreach ($clientes as $cliente) : ?>
+            <option value='{$cliente->getId()}'>
+              #<?= $cliente->getId() ?> - <?= $cliente->getNombreUsuario() ?>
+            </option>
+          <?php endforeach; ?>
         </select>
       </div>
       

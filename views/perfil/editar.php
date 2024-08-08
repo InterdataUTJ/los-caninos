@@ -6,6 +6,11 @@ require_once(__DIR__ . "/../../middlewares/session.php");
 // Controladores
 require_once(__DIR__ . "/../../controllers/perfil/index.php");
 
+// Edad
+$fechaNac = new DateTime($usuario->getFechaNac());
+$hoy = new DateTime('now', new DateTimeZone('America/Mexico_city'));;            
+$edad = $hoy->diff($fechaNac)->y;
+
 ?>
 
 <!DOCTYPE html>
@@ -114,8 +119,8 @@ require_once(__DIR__ . "/../../controllers/perfil/index.php");
         <label class="form-label fw-bold" for="telefono">Telefono(s)</label>
 
         <?php foreach ($usuario->getTelefonos() as $telefono) : ?>
-          <div class="input-group mb-3" id="'.$telefono.'-phone-id">
-            <input value="'.$telefono.'" type="text" class="form-control" name="telefono[]" placeholder="Telefono">
+          <div class="input-group mb-3" id="<?= $telefono; ?>-phone-id">
+            <input value="<?= $telefono; ?>" type="text" class="form-control" name="telefono[]" placeholder="Telefono">
             <button class="btn btn-outline-danger" type="button" onclick="removeTelefono('<?= $telefono; ?>-phone-id');">
               <?php require(__DIR__ . "/../../components/icons/trash.php"); ?>
             </button>
@@ -133,8 +138,8 @@ require_once(__DIR__ . "/../../controllers/perfil/index.php");
         <label class="form-label fw-bold" for="email">Correo(s)</label>
 
         <?php foreach ($usuario->getEmails() as $email) : ?>
-          <div class="input-group mb-3" id="' . $email . '-email-id">
-            <input value="' . $email . '" type="text" name="email[]" class="form-control" placeholder="Correo">
+          <div class="input-group mb-3" id="<?= $email ?>-email-id">
+            <input value="<?= $email ?>" type="text" name="email[]" class="form-control" placeholder="Correo">
             <button class="btn btn-outline-danger" type="button" onclick="removeEmail('<?= $email ?>-email-id');">
               <?php require(__DIR__ . "/../../components/icons/trash.php"); ?>
             </button>
