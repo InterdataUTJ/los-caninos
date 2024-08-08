@@ -7,6 +7,7 @@ function noSession() {
 
 function notAllowed() {
   http_response_code(403);
+  require_once(__DIR__."/../views/error/403.php");
   exit();
 }
 
