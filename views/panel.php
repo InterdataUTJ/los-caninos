@@ -153,9 +153,13 @@ $edad = $hoy->diff($fechaNac)->y;
           <div class="card-body d-flex flex-column gap-2 align-items-center">
             <h5 class="card-title fw-bold">Reportes</h5>
             <?php require(__DIR__ . "/../components/icons/clipboard-data.php"); ?>
-            <a href="/reportes/" class="btn btn-primary fw-bold mt-3 d-flex justify-content-center align-items-center gap-2">
-              <?php require(__DIR__ . "/../components/icons/eye.php") ?>
-              Ver
+            <a href="/reporte/servicios/" class="btn btn-primary fw-bold mt-3 d-flex justify-content-center align-items-center gap-2">
+              <?php require(__DIR__ . "/../components/icons/heartbeat.php") ?>
+              Servicios
+            </a>
+            <a href="/reporte/mascotas/" class="btn btn-primary fw-bold d-flex justify-content-center align-items-center gap-2">
+              <?php require(__DIR__ . "/../components/icons/dog.php") ?>
+              Mascotas
             </a>
           </div>
         </section>
