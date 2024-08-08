@@ -1,0 +1,9 @@
+section.panel-module.card > div.card-body > svg.icon.icon-tabler {
+  width: 100px;
+  height: 100px;
+  margin-right: 0.5em;
+  background-color: #fcbc73;
+  border-radius: 100%;
+  padding: 10px;
+  box-shadow: 4px 4px 0px 2px #ce924c;
+}
