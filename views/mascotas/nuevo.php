@@ -47,21 +47,25 @@ $clientes = require_once(__DIR__ . "/../../controllers/mascotas/nuevo.clientes.p
       <div class="mb-3">
         <label class="form-label fw-bold" for="nombre">Nombre</label>
         <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre">
+        <div class="form-text invalid-feedback">El nombre debe tener una longitud entre 3 y 50 caracteres.</div>
       </div>
 
       <div class="mb-3">
         <label class="form-label fw-bold" for="raza">Raza</label>
         <input type="text" class="form-control" name="raza" id="raza" placeholder="Raza">
+        <div class="form-text invalid-feedback">La raza debe tener una longitud entre 3 y 50 caracteres.</div>
       </div>
 
       <div class="mb-3">
         <label class="form-label fw-bold" for="tipoMascota">Tipo de mascota</label>
         <input type="text" class="form-control" name="tipoMascota" id="tipoMascota" placeholder="Tipo de mascota">
+        <div class="form-text invalid-feedback">El tipo de mascota debe tener una longitud entre 3 y 50 caracteres.</div>
       </div>
 
       <div class="mb-3">
         <label class="form-label fw-bold" for="fechaNac">Fecha de Nacimiento</label>
         <input type="date" class="form-control" name="fechaNac" id="fechaNac">
+        <div class="form-text invalid-feedback">La fecha de nacimiento debe de ser una fecha valida.</div>
       </div>
 
       <div data-mdb-input-init class="form-outline mb-3">
@@ -85,6 +89,7 @@ $clientes = require_once(__DIR__ . "/../../controllers/mascotas/nuevo.clientes.p
       <div class="mb-3">
         <label class="form-label fw-bold" for="peso">Peso</label>
         <input type="number" step="any" class="form-control" name="peso" id="peso" placeholder="Peso">
+        <div class="form-text invalid-feedback">El peso debe ser un numero mayor a 0.</div>
       </div>
 
       <div class="d-flex gap-3 mt-5">
