@@ -1,7 +1,6 @@
 <?php
 
-if (session_status() != PHP_SESSION_ACTIVE) session_start();
-require_once(__DIR__ . "/../../middlewares/gerente.php");
+require_once(__DIR__ . "/../../middlewares/session_start.php");
 require_once(__DIR__ . "/../../models/mascotas/ver.php");
 require_once(__DIR__ . "/../../models/mascotas/empleados.php");
 require_once(__DIR__ . "/../../models/mascotas/clientes.php");
