@@ -1,3 +1,9 @@
+<?php
+
+require_once(__DIR__ . "/../../middlewares/session_start.php");
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
