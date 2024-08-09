@@ -1,9 +1,11 @@
 <?php
-session_start();
+
+require_once(__DIR__ . "/../middlewares/session_start.php");
 
 $num1 = rand(1, 10);
 $num2 = rand(1, 10);
 $_SESSION["resultadoOperacionValidacion"] = $num1 * $num2;
+
 ?>
 
 <!DOCTYPE html>
@@ -37,14 +39,16 @@ $_SESSION["resultadoOperacionValidacion"] = $num1 * $num2;
         <label class="form-label fw-bold" for="password">Contraseña</label>
         <div class="input-group mb-3">
           <input type="password" name="password" class="form-control" placeholder="Contraseña" />
-          <button type="button" class="btn btn-orange-primary password-toggle"><?php include(__DIR__."/../components/icons/eye.php"); ?></button>
+          <button type="button" class="btn btn-orange-primary password-toggle">
+            <?php include(__DIR__."/../components/icons/eye.php"); ?>
+          </button>
         </div>
       </div>
 
       <div data-mdb-input-init class="form-outline">
         <label class="form-label fw-bold" for="operacion">Validación</label>
         <div class="input-group">
-          <span class="input-group-text"><?php echo "$num1 × $num2" ?></span>
+          <span class="input-group-text"><?= "$num1 × $num2" ?></span>
           <input type="number" name="operacion" class="form-control" placeholder="Validación" />
         </div>
       </div>
@@ -76,7 +80,7 @@ $_SESSION["resultadoOperacionValidacion"] = $num1 * $num2;
   </section>
 
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="/src/bootstrap/bootstrap.bundle.min.js"></script>
   <?php require_once(__DIR__ . "/../components/error.php") ?>
 </body>
 

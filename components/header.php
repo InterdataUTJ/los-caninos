@@ -1,5 +1,6 @@
 <?php
-function isActive(...$paths) {
+function isActive(...$paths)
+{
   $current = strtok($_SERVER['REQUEST_URI'], "?");
   foreach ($paths as $path) {
     if ($current == $path) return "active";
@@ -21,30 +22,28 @@ function isActive(...$paths) {
 
     <div class="collapse navbar-collapse me-5" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item" >
-          <a class="nav-link <?php echo isActive("/") ?>" aria-current="page" href="/">Inicio</a>
+        <li class="nav-item">
+          <a class="nav-link <?= isActive("/"); ?>" aria-current="page" href="/">Inicio</a>
         </li>
 
-        <?php
-            if (isset($_SESSION["usuario"])) {
-              echo '<li class="nav-item"><a class="nav-link '.isActive("/panel/").'" aria-current="page" href="/panel/">Panel</a></li>';
-            }
-          ?>
+        <?php if (isset($_SESSION["usuario"])) : ?>
+          <li class="nav-item">
+            <a class="nav-link <?= isActive("/panel/"); ?>" aria-current="page" href="/panel/">Panel</a>
+          </li>
+        <?php endif; ?>
 
         <li class="nav-item dropdown">
-          <a class='nav-link dropdown-toggle <?php echo isActive("/perfil/", "/perfil/editar/") ?>' href="#" role='button' data-bs-toggle='dropdown' aria-expanded='false'>
+          <a class='nav-link dropdown-toggle <?= isActive("/perfil/", "/perfil/editar/"); ?>' href="#" role='button' data-bs-toggle='dropdown' aria-expanded='false'>
             Mi cuenta
           </a>
           <ul class="dropdown-menu">
-            <?php
-              if (isset($_SESSION["usuario"])) {
-                echo '<li><a class="dropdown-item" href="/perfil/">Ver perfil</a></li>';
-                echo '<li><a class="dropdown-item" href="/logout/">Cerrar sesión</a></li>';
-              } else {
-                echo '<li><a class="dropdown-item" href="/login/">Iniciar Sesión</a></li>';
-                echo '<li><a class="dropdown-item" href="/singup/">Crear cuenta</a></li>';
-              }
-            ?>
+            <?php if (isset($_SESSION["usuario"])) : ?>
+              <li><a class="dropdown-item" href="/perfil/">Ver perfil</a></li>
+              <li><a class="dropdown-item" href="/logout/">Cerrar sesión</a></li>
+            <?php else : ?>
+              <li><a class="dropdown-item" href="/login/">Iniciar Sesión</a></li>
+              <li><a class="dropdown-item" href="/singup/">Crear cuenta</a></li>
+            <?php endif; ?>
           </ul>
         </li>
       </ul>

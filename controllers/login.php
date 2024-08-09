@@ -28,4 +28,5 @@ $_SESSION["usuario"] = $usuario->nombreUsuario;
 $_SESSION["rol"] = $usuario->rol;
 $_SESSION["idUsuario"] = $usuario->idUsuario;
 $_SESSION["idRegistro"] = $usuario->idRegistro;
+$_SESSION["estado"] = $usuario->estado;
 header("Location: /", true, 301);

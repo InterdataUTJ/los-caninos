@@ -1,7 +1,16 @@
 <?php
-session_start();
+
+// Middlewares
+require_once(__DIR__ . "/../../middlewares/session_start.php");
 require_once(__DIR__ . "/../../middlewares/session.php");
+
+// Controlador
 require_once(__DIR__ . "/../../controllers/perfil/index.php");
+
+// Edad
+$fechaNac = new DateTime($usuario->getFechaNac());
+$hoy = new DateTime('now', new DateTimeZone('America/Mexico_city'));;            
+$edad = $hoy->diff($fechaNac)->y;
 
 ?>
 
@@ -29,24 +38,19 @@ require_once(__DIR__ . "/../../controllers/perfil/index.php");
         alt="avatar"
         class="mb-3 w-75 mx-auto rounded-circle" 
         style="user-select: none; max-width: 500px" 
-        src="/src/images/avatar/<?php echo $usuario->getSexo(); ?>.svg"
+        src="/src/images/avatar/<?= $usuario->getSexo(); ?>.svg"
       >
       <section>
         <p class="m-0 text-center fw-bold">
-          <?php echo "{$usuario->getNombre()} {$usuario->getApellidoPaterno()} {$usuario->getApellidoMaterno()}"; ?>
+          <?= "{$usuario->getNombre()} {$usuario->getApellidoPaterno()} {$usuario->getApellidoMaterno()}"; ?>
         </p>
-        <?php
-          if ($_SESSION["rol"] != "CLIENTE") {
-            echo '<p class="m-0 text-center">';
-            $fechaNac = new DateTime($usuario->getFechaNac());
-            $hoy = new DateTime('now', new DateTimeZone('America/Mexico_city'));;            
-            $edad = $hoy->diff($fechaNac);
-            echo $edad->y;
-            echo ' años </p>';
-          }
-        ?>
+
+        <?php if ($_SESSION["rol"] != "CLIENTE") :?>
+          <p class="m-0 text-center"> <?= $edad; ?> años </p>
+        <?php endif; ?>
+        
         <p class="m-0 text-center fst-italic">
-          <?php echo ucfirst(strtolower($_SESSION["rol"])); ?>
+          <?= ucfirst(strtolower($_SESSION["rol"])); ?>
         </p>
       </section>
     </section>
@@ -56,25 +60,25 @@ require_once(__DIR__ . "/../../controllers/perfil/index.php");
 
       <div data-mdb-input-init class="form-outline">
         <label class="form-label fw-bold" for="username">Nombre</label>
-        <input type="text" name="username" class="form-control" value="<?php echo $usuario->getNombre(); ?>" disabled />
+        <input type="text" name="username" class="form-control" value="<?= $usuario->getNombre(); ?>" disabled />
       </div>
 
       <div data-mdb-input-init class="form-outline">
         <label class="form-label fw-bold" for="apellidoPaterno">Apellido Paterno</label>
-        <input type="text" name="apellidoPaterno" class="form-control" value="<?php echo $usuario->getApellidoPaterno(); ?>" disabled />
+        <input type="text" name="apellidoPaterno" class="form-control" value="<?= $usuario->getApellidoPaterno(); ?>" disabled />
       </div>
 
       <div data-mdb-input-init class="form-outline">
         <label class="form-label fw-bold" for="apellidoMaterno">Apellido Materno</label>
-        <input type="text" name="apellidoMaterno" class="form-control" value="<?php echo $usuario->getApellidoMaterno(); ?>" disabled />
+        <input type="text" name="apellidoMaterno" class="form-control" value="<?= $usuario->getApellidoMaterno(); ?>" disabled />
       </div>
 
       <div data-mdb-input-init class="form-outline">
         <label class="form-label fw-bold" for="sexo">Sexo</label>
         <select class="form-select" id="sexo" aria-label="sexo" name="sexo" disabled>
-          <option value="M" <?php echo $usuario->getSexo() == "M" ? "selected" : ""; ?>>Masculino</option>
-          <option value="F" <?php echo $usuario->getSexo() == "F" ? "selected" : ""; ?>>Femenino</option>
-          <option value="O" <?php echo $usuario->getSexo() == "O" ? "selected" : ""; ?>>Otro</option>
+          <option value="M" <?= $usuario->getSexo() == "M" ? "selected" : ""; ?>>Masculino</option>
+          <option value="F" <?= $usuario->getSexo() == "F" ? "selected" : ""; ?>>Femenino</option>
+          <option value="O" <?= $usuario->getSexo() == "O" ? "selected" : ""; ?>>Otro</option>
         </select>
       </div>
 
@@ -82,7 +86,7 @@ require_once(__DIR__ . "/../../controllers/perfil/index.php");
 
       <div data-mdb-input-init class="form-outline">
         <label class="form-label fw-bold" for="username">Nombre de usuario</label>
-        <input type="text" name="username" class="form-control" value="<?php echo $_SESSION["usuario"]; ?>" disabled />
+        <input type="text" name="username" class="form-control" value="<?= $_SESSION["usuario"]; ?>" disabled />
       </div>
 
       <div data-mdb-input-init class="form-outline">
@@ -97,50 +101,54 @@ require_once(__DIR__ . "/../../controllers/perfil/index.php");
 
       <div data-mdb-input-init class="form-outline">
         <label class="form-label fw-bold" for="username">Telefono(s)</label>
-        <?php
-          if (count($usuario->getTelefonos()) == 0) echo "<p>Sin telefonos registrados.</p>";
-          foreach ($usuario->getTelefonos() as $telefono) {
-            echo "<input type='text' name='telefono' class='form-control mb-2' value='{$telefono}' disabled />";
-          }
-        ?>
+
+        <?php if (count($usuario->getTelefonos()) == 0) : ?>
+          <p>Sin telefonos registrados.</p>
+        <?php endif; ?>
+        
+        <?php foreach ($usuario->getTelefonos() as $telefono) : ?>
+          <input type='text' name='telefono' class='form-control mb-2' value='<?= $telefono ?>' disabled />
+        <?php endforeach; ?>
       </div>
 
       <div data-mdb-input-init class="form-outline">
         <label class="form-label fw-bold" for="username">Correo(s)</label>
-        <?php
-          if (count($usuario->getEmails()) == 0) echo "<p>Sin correos registrados.</p>";
-          foreach ($usuario->getEmails() as $email) {
-            echo "<input type='text' name='correo' class='form-control mb-2' value='{$email}' disabled />";
-          }
-        ?>
+
+        <?php if (count($usuario->getEmails()) == 0) : ?>
+          <p>Sin correos registrados.</p>
+        <?php endif; ?>
+        
+        <?php foreach ($usuario->getEmails() as $email) : ?>
+          <input type='text' name='correo' class='form-control mb-2' value='<?= $email ?>' disabled />
+        <?php endforeach; ?>
       </div>
 
-      <?php
-        if ($_SESSION["rol"] != "CLIENTE") {
-          echo "<h2 class='fw-bold mt-4 pb-2 mb-3' style='border-bottom: 2px solid #fcbc73;'>Información del empleado</h2>";
+      
+      <?php if ($_SESSION["rol"] != "CLIENTE") : ?>
+        <h2 class='fw-bold mt-4 pb-2 mb-3' style='border-bottom: 2px solid #fcbc73;'>Información del empleado</h2>
 
-          echo "<div data-mdb-input-init class='form-outline'>";
-          echo "<label class='form-label fw-bold' for='fechaNac'>Fecha de Nacimiento</label>";
-          echo "<input type='date' name='fechaNac' class='form-control' value='{$usuario->getFechaNac()}' disabled />";
-          echo "</div>";
+        <div data-mdb-input-init class='form-outline'>
+          <label class='form-label fw-bold' for='fechaNac'>Fecha de Nacimiento</label>
+          <input type='date' name='fechaNac' class='form-control' value='<?= $usuario->getFechaNac() ?>' disabled />
+        </div>
 
-          echo "<div data-mdb-input-init class='form-outline'>";
-          echo "<label class='form-label fw-bold' for='salario'>Salario</label>";
-          echo '<div class="input-group mb-3">';
-          echo '<span class="input-group-text" id="basic-addon1">$</span>';
-          echo "<input type='number' name='salario' class='form-control' value='{$usuario->getSalario()}' disabled/>";
-          echo '<span class="input-group-text" id="basic-addon1">MXN</span>';
-          echo "</div></div>";
+        <div data-mdb-input-init class='form-outline'>
+          <label class='form-label fw-bold' for='salario'>Salario</label>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">$</span>
+            <input type='number' name='salario' class='form-control' value='<?= $usuario->getSalario() ?>' disabled/>
+            <span class="input-group-text" id="basic-addon1">MXN</span>
+          </div>
+        </div>
 
-          echo '<div data-mdb-input-init class="form-outline">
-            <label class="form-label fw-bold" for="estado">Estado</label>
-            <select class="form-select" id="estado" aria-label="estado" name="estado" disabled>
-              <option value="ACTIVO" '.($usuario->getEstado() == "ACTIVO" ? "selected" : "").'>Activo</option>
-              <option value="INACTIVO" '.($usuario->getEstado() == "INACTIVO" ? "selected" : "").'>Inactivo</option>
-            </select>
-          </div>';
-        }
-      ?>
+        <div data-mdb-input-init class="form-outline">
+          <label class="form-label fw-bold" for="estado">Estado</label>
+          <select class="form-select" id="estado" aria-label="estado" name="estado" disabled>
+            <option value="ACTIVO" <?= $usuario->getEstado() == "ACTIVO" ? "selected" : "" ?>>Activo</option>
+            <option value="INACTIVO" <?= $usuario->getEstado() == "INACTIVO" ? "selected" : "" ?>>Inactivo</option>
+          </select>
+        </div>
+      <?php endif; ?>
 
       <a class="fw-bold btn btn-outline-success mt-4" type="submit" href="/perfil/editar/">
         Editar
@@ -157,7 +165,7 @@ require_once(__DIR__ . "/../../controllers/perfil/index.php");
     }
   </script>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="/src/bootstrap/bootstrap.bundle.min.js"></script>
   <?php require_once(__DIR__ . "/../../components/error.php") ?>
 </body>
 

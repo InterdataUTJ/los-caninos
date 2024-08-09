@@ -5,7 +5,7 @@ require_once(__DIR__ . "/../models/usuario.php");
 function error($msg) {
     header("Location: /singup/?error=$msg", true, 301);
     die();
-  }
+}
   
 if ($_SERVER["REQUEST_METHOD"] != "POST") error("Error, intenta de nuevo!");
 
@@ -40,4 +40,5 @@ $_SESSION["usuario"] = $usuario->nombreUsuario;
 $_SESSION["rol"] = $usuario->rol;
 $_SESSION["idUsuario"] = $usuario->idUsuario;
 $_SESSION["idRegistro"] = $usuario->idRegistro;
+$_SESSION["estado"] = $usuario->estado;
 header("Location: /", true, 301);

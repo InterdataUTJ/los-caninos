@@ -13,18 +13,21 @@ class DB {
 
   public static function query($query, ...$params) {
     $mysql_conn = self::getConnection();
-
     $sentencia = $mysql_conn->prepare($query);
-    $types = "";
 
-    foreach ($params as $param) {
-      if (is_int($param)) $types .= "i";
-      else if (is_float($param)) $types .= "d";
-      else if (is_string($param)) $types .= "s";
-      else $types .= "b";
+    if (count($params) > 0) {
+      $types = "";
+
+      foreach ($params as $param) {
+        if (is_int($param)) $types .= "i";
+        else if (is_float($param)) $types .= "d";
+        else if (is_string($param)) $types .= "s";
+        else $types .= "b";
+      }
+  
+      $sentencia->bind_param($types, ...$params);
     }
 
-    $sentencia->bind_param($types, ...$params);
     if (!$sentencia->execute()) return NULL;
 
     $result = $sentencia->get_result();

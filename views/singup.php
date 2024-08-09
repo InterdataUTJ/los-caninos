@@ -1,9 +1,11 @@
 <?php
-session_start();
+
+require_once(__DIR__ . "/../middlewares/session_start.php");
 
 $num1 = rand(1, 10);
 $num2 = rand(1, 10);
 $_SESSION["resultadoOperacionValidacion"] = $num1 * $num2;
+
 ?>
 
 <!DOCTYPE html>
@@ -109,7 +111,7 @@ $_SESSION["resultadoOperacionValidacion"] = $num1 * $num2;
     </a>
   </section>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="/src/bootstrap/bootstrap.bundle.min.js"></script>
   <?php require_once(__DIR__ . "/../components/error.php") ?>
 </body>
 

@@ -29,7 +29,6 @@ En esta página se documentan los diferentes enlaces de la app, su descripción,
   - [Detalle mascota](#detalle-mascota)
   - [Editar mascota](#editar-mascota)
   - [Nueva mascota](#nueva-mascota)
-  - [Eliminar mascota](#eliminar-mascota)
 - [Empleados](#empleados)
   - [Ver empleados](#ver-empleados)
   - [Detalle empleado](#detalle-empleado)
@@ -389,27 +388,6 @@ En esta página se documentan los diferentes enlaces de la app, su descripción,
     <td><b>Descripción</b></td>
     <td>
       Le permite al empleado registrar una nueva mascota. El cliente debe de haberse registrado con anterioridad.
-    </td>
-  </tr>
-</table>
-
-
-### Eliminar mascota
-
-<table>
-  <tr>
-    <td><b>URL</b></td>
-    <td><code>/mascotas/eliminar/?id=[idMascota]</code></td>
-  </tr>
-  <tr>
-    <td><b>ROL</b></td>
-    <td>Veterinario y Gerente <i>(sesión requerida)</i></td>
-  </tr>
-  <tr>
-    <td><b>Descripción</b></td>
-    <td>
-      Le permite al empleado eliminar el registro de una mascota. Este proceso requiere confirmación para asegurar que
-      la acción deseada no es un error. 
     </td>
   </tr>
 </table>
