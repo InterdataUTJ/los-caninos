@@ -2,8 +2,8 @@
 
 <?php
 session_start();
-require_once(__DIR__ . "/../middlewares/session.php");
-require_once(__DIR__ . "/../controllers/perfil/index.php");
+require(__DIR__ . "/../../middlewares/session.php");
+require_once(__DIR__ . "/../../controllers/perfil/index.php");
 
 ?>
 
@@ -20,7 +20,7 @@ require_once(__DIR__ . "/../controllers/perfil/index.php");
 </head>
 
 <body>
-<?php require(__DIR__ . "/../components/header.php"); ?>
+<?php require(__DIR__ . "/../../components/header.php"); ?>
 
 
 
