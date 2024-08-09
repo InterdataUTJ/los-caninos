@@ -1,0 +1,12 @@
+div.overflow-x-auto:has(table.table.table-striped.table-bordered) {
+  transform: rotateX(180deg) !important;
+  overflow-x: auto !important;
+}
+
+div.overflow-x-auto > table.table.table-striped.table-bordered {
+  transform: rotateX(180deg) !important;
+}
+
+div.overflow-x-auto > table.table.table-striped.table-bordered > * {
+  vertical-align: middle !important;
+}
