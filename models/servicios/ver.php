@@ -67,6 +67,8 @@ class Servicio {
     protected $fechaSalida;
     protected $estatus;
     protected $empleados = [];
+    protected $idEmpleados = [];
+    protected $nombreUsuarioEmpleados = [];
 
     public function setId($_id) { $this->id = $_id; }
     public function setIdPaciente($_idPaciente) { $this->idPaciente = $_idPaciente; }
@@ -77,6 +79,8 @@ class Servicio {
     public function setFechaIngreso($_fechaIngreso) { $this->fechaIngreso = $_fechaIngreso; }
     public function setFechaSalida($_fechaSalida) { $this->fechaSalida = $_fechaSalida; }
     public function setEstatus($_estatus) { $this->estatus = $_estatus; }
+    public function changeEmpleados($_empleados) { $this->empleados = $_empleados; }
+    public function changeIdEmpleados($_idEmpleados) { $this->idEmpleados = $_idEmpleados; }
 
     public function getId() { return $this->id; }
     public function getIdPaciente() { return $this->idPaciente; }
@@ -88,6 +92,8 @@ class Servicio {
     public function getFechaSalida() { return $this->fechaSalida; }
     public function getEstatus() { return $this->estatus; }
     public function getEmpleados() { return $this->empleados; }
+    public function getIdEmpleados() { return $this->idEmpleados; }
+    public function getNombreUsuarioEmpleados() { return $this->nombreUsuarioEmpleados; }
 
     public function setEmpleados() {
         $query = <<<QUERY
@@ -101,6 +107,8 @@ class Servicio {
         if (count($resultado) == 0) return false;
         foreach ($resultado as $empleado) {
             $this->empleados[] = "#{$empleado["idEmpleado"]} - {$empleado["nombreUsuario"]}";
+            $this->idEmpleados[] = $empleado["idEmpleado"];
+            $this->nombreUsuarioEmpleados[$empleado["idEmpleado"]] = $empleado["nombreUsuario"];
         }
 
         return true;
