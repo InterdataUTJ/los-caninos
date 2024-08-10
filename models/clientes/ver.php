@@ -3,17 +3,15 @@
 require_once(__DIR__."/../db.php");
 require_once(__DIR__."/../contacto.php");
 
+
+//Aqui debo de poner los atributos que tiene la clase cliente
+//que no estan en mi clase contacto, vaya los que hacen falta.
 class Empleado extends Contacto {
     //Atributos de la clase
     protected $id;
-    protected $nombre;
-    protected $apellidoPaterno;
-    protected $apellidoMaterno;
-    protected $estatus;
-    protected $fechaNac;
-    protected $salario;
-    protected $sexo;
 
+
+    //en conjunto con sus getters y setters
     public function setId($_id) { $this->id = $_id; }
     public function setNombre($_nombre) { $this->nombre = $_nombre; }
     public function setApellidoPaterno($_apellidoPaterno) { $this->apellidoPaterno = $_apellidoPaterno; }
@@ -32,6 +30,9 @@ class Empleado extends Contacto {
     public function getSalario() { return $this->salario; }
     public function getSexo() { return $this->sexo; }
 
+
+
+    //Funcion para obtener datos de la tabla de clientes mediante la tabla de usuario por la idusuario
     public function getData() {
         $query = "SELECT e.*, rol, nombreUsuario FROM empleado e JOIN usuario u ON u.idUsuario = e.idUsuario WHERE e.idEmpleado = ?;";
         $resultado = DB::query($query, $this->id);

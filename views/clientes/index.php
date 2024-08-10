@@ -47,8 +47,8 @@ $clientes = require_once(__DIR__ . "/../../controllers/clientes/index.php");
           <thead class="text-center">
               <tr>
                 <th>#</th>
-                <th>Nombre</th>
-                <th>Apellidos Paterno</th>
+                <th>id</th>
+                <th>nombreUsuario</th>
                 <th>Apellidos Materno</th>
                 <th>Sexo</th>
                 <th>Nombre de usuario</th>
@@ -58,13 +58,7 @@ $clientes = require_once(__DIR__ . "/../../controllers/clientes/index.php");
               <?php 
                 foreach ($clientes as $cliente) {
                   echo clienteTable(
-                    $$cliente->getId(),
-                    $cliente->getNombre(),
-                    $cliente->getApellidoPaterno(),
-                    $cliente->getApellidoMaterno(),
-                    $cliente->getSexo(),
-                    $cliente->getEstatus(),
-                    $cliente->getRol(),
+                    $cliente->getId(),
                     $cliente->getNombreUsuario()
                   );
                 }
