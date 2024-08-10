@@ -7,9 +7,11 @@ require_once(__DIR__ . "/../../middlewares/session.php");
 require_once(__DIR__ . "/../../controllers/perfil/index.php");
 
 // Edad
-$fechaNac = new DateTime($usuario->getFechaNac());
-$hoy = new DateTime('now', new DateTimeZone('America/Mexico_city'));;            
-$edad = $hoy->diff($fechaNac)->y;
+if ($_SESSION["rol"] != "CLIENTE") {
+  $fechaNac = new DateTime($usuario->getFechaNac());
+  $hoy = new DateTime('now', new DateTimeZone('America/Mexico_city'));;            
+  $edad = $hoy->diff($fechaNac)->y;
+}
 
 ?>
 

@@ -1,7 +1,7 @@
 <?php
 // Midlewares
 require_once(__DIR__ . "/../../middlewares/session_start.php");
-require_once(__DIR__ . "/../../middlewares/veterinario.php");
+require_once(__DIR__ . "/../../middlewares/session.php");
 
 if (!isset($_GET["id"])) {
   header("Location: /servicios/?error=Factura no encontrado");
@@ -165,7 +165,9 @@ if (!isset($_GET["id"])) {
 
       <div class="d-flex gap-3">
         <a href='/servicios/' class='btn btn-primary fw-bold'>Volver</a>
-        <a href='/servicios/editar/?id=<?= $factura->getId(); ?>' class='btn btn-success fw-bold'>Editar</a>
+        <?php if ($_SESSION["rol"] != "CLIENTE" && $_SESSION["estado"] == "ACTIVO") : ?>
+          <a href='/servicios/editar/?id=<?= $factura->getId(); ?>' class='btn btn-success fw-bold'>Editar</a>
+        <?php endif; ?>
       </div>
 
     </form>

@@ -8,8 +8,22 @@ $facturas = new Facturas();
 $facturasFiltrado = array_filter($facturas->getFacturas(), function($factura) {
 
   $serviciosFIltrados = array_filter($factura->getServicios(), function($servicio) {
+
+    $permitido = true;
+
+    if ($_SESSION["rol"] == "CLIENTE" && $servicio->getIdCliente() != $_SESSION["idRegistro"]) {
+      $permitido = false;
+    }
+
+    if ($_SESSION["rol"] != "CLIENTE" && $_SESSION["estado"] == "INACTIVO") {
+      if (!in_array($_SESSION["idRegistro"], $servicio->getIdEmpleados())) {
+        $permitido = false;
+      }
+    }
+
     return in_array($servicio->getTipoServicio(), $_GET["filterTipo"])
-        && in_array($servicio->getEstatus(), $_GET["filterEstatus"]);
+        && in_array($servicio->getEstatus(), $_GET["filterEstatus"])
+        && $permitido;
   });
 
   $factura->changeServicios($serviciosFIltrados);

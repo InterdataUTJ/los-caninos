@@ -59,6 +59,7 @@ class Factura {
 class Servicio {
     protected $id;
     protected $idPaciente;
+    protected $idCliente;
     protected $idFactura;
     protected $diagnostico;
     protected $tratamiento;
@@ -72,6 +73,7 @@ class Servicio {
 
     public function setId($_id) { $this->id = $_id; }
     public function setIdPaciente($_idPaciente) { $this->idPaciente = $_idPaciente; }
+    public function setIdCliente($_idCliente) { $this->idCliente = $_idCliente; }
     public function setIdFactura($_idFactura) { $this->idFactura = $_idFactura; }
     public function setDiagnostico($_diagnostico) { $this->diagnostico = $_diagnostico; }
     public function setTratamiento($_tratamiento) { $this->tratamiento = $_tratamiento; }
@@ -84,6 +86,7 @@ class Servicio {
 
     public function getId() { return $this->id; }
     public function getIdPaciente() { return $this->idPaciente; }
+    public function getIdCliente() { return $this->idCliente; }
     public function getIdFactura() { return $this->idFactura; }
     public function getDiagnostico() { return $this->diagnostico; }
     public function getTratamiento() { return $this->tratamiento; }
@@ -115,7 +118,7 @@ class Servicio {
     }
 
     public function getData() {
-        $query = "SELECT * FROM servicio WHERE idServicio = ?;";
+        $query = "SELECT s.*, p.idCliente FROM servicio s JOIN paciente p ON p.idPaciente = s.idPaciente WHERE s.idServicio = ?;";
         $resultado = DB::query($query, $this->id);
         if (count($resultado) == 0) return false;
         if (!isset($resultado[0])) return false;
@@ -123,6 +126,7 @@ class Servicio {
 
         $this->setId($resultado[0]["idServicio"]);
         $this->setIdPaciente($resultado[0]["idPaciente"]);
+        $this->setIdCliente($resultado[0]["idCliente"]);
         $this->setIdFactura($resultado[0]["idFactura"]);
         $this->setDiagnostico($resultado[0]["diagnostico"]);
         $this->setTratamiento($resultado[0]["tratamiento"]);

@@ -120,7 +120,9 @@ if (!isset($_GET["id"]) || !$mascota) {
 
       <div class="d-flex gap-3">
         <a href='/mascotas/' class='btn btn-primary fw-bold'>Volver</a>
-        <a href='/mascotas/editar/?id=<?= $mascota->getId(); ?>' class='btn btn-success fw-bold'>Editar</a>
+        <?php if ($_SESSION["rol"] != "CLIENTE" && $_SESSION["estado"] == "ACTIVO") : ?>
+          <a href='/mascotas/editar/?id=<?= $mascota->getId(); ?>' class='btn btn-success fw-bold'>Editar</a>
+        <?php endif; ?>
       </div>
 
     </form>

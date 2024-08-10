@@ -7,6 +7,14 @@ function serviciosTable($factura) {
   $isFirstServicio = true;
 
   foreach ($servicios as $servicio) {
+
+    $editar = "";
+    if ($_SESSION["rol"] != "CLIENTE" && $_SESSION["estado"] == "ACTIVO") {
+      $editar = <<<EOD
+        <a href='/servicios/editar/?id={$factura->getId()}' class='btn btn-success fw-bold'>Editar</a>
+      EOD;
+    }
+
     $htmlElement .= "<tr>";
     $descuento = floatval($factura->getDescuento()) + 0;
     $subtotal = floatval($factura->getSubtotal()) + 0;
@@ -32,7 +40,7 @@ function serviciosTable($factura) {
         <td rowspan="$numServicios">
           <div class='d-flex gap-3 flex-column'>
             <a href='/servicios/ver/?id={$factura->getId()}' class='btn btn-primary fw-bold'>Ver</a>
-            <a href='/servicios/editar/?id={$factura->getId()}' class='btn btn-success fw-bold'>Editar</a>
+            $editar
           </div>
         </td>
       SERVICIOS_ELEMENT;

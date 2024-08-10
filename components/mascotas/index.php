@@ -1,6 +1,13 @@
 <?php
 
 function mascotaTable($id, $nombre, $raza, $tipoMascota, $fechaNac, $tamano, $sexo, $peso) {
+  $editar = "";
+  if ($_SESSION["rol"] != "CLIENTE" && $_SESSION["estado"] == "ACTIVO") {
+    $editar = <<<EOD
+      <a href='/mascotas/editar/?id=$id' class='btn btn-success fw-bold'>Editar</a>
+    EOD;
+  }
+  
   return <<<EOD
     <tr>
       <th>$id</th>
@@ -13,7 +20,7 @@ function mascotaTable($id, $nombre, $raza, $tipoMascota, $fechaNac, $tamano, $se
       <td>$peso</td>
       <td class='d-flex gap-2'>
         <a href='/mascotas/ver/?id=$id' class='btn btn-primary fw-bold'>Ver</a>
-        <a href='/mascotas/editar/?id=$id' class='btn btn-success fw-bold'>Editar</a>
+        $editar
       </td>
     </tr>
   EOD;

@@ -32,10 +32,12 @@ $mascotas = require_once(__DIR__ . "/../../controllers/mascotas/index.php");
   <main class="container flex-grow-1 d-flex flex-column h-100 mx-auto p-3 gap-3" style="max-width: 1000px;">
     <h2 class="fw-bold pb-2 mb-3" style="border-bottom: 2px solid #fcbc73;">Ver mascotas</h2>
 
-    <a href="/mascotas/nuevo/" class="mb-4 fw-bold btn btn-primary w-100 d-flex gap-2 justify-content-center align-items-center">
-      <?php require(__DIR__."/../../components/icons/new.php") ?>
-      Nueva mascota
-    </a>
+    <?php if ($_SESSION["rol"] != "CLIENTE" && $_SESSION["estado"] == "ACTIVO") : ?>
+      <a href="/mascotas/nuevo/" class="mb-4 fw-bold btn btn-primary w-100 d-flex gap-2 justify-content-center align-items-center">
+        <?php require(__DIR__."/../../components/icons/new.php") ?>
+        Nueva mascota
+      </a>
+    <?php endif; ?>
 
     <?php require_once(__DIR__."/../../components/mascotas/filtros/filtros.html.php"); ?>
 
