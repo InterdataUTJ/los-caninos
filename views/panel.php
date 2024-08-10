@@ -89,7 +89,7 @@ if ($_SESSION["rol"] != "CLIENTE") {
           </a>
           <?php if ($_SESSION["rol"] != "CLIENTE" && $_SESSION["estado"] == "ACTIVO"): ?>
             <a href="/mascotas/nuevo/" class="btn btn-success fw-bold mt-3 d-flex justify-content-center align-items-center gap-2">
-              <?php require(__DIR__ . "/../components/icons/eye.php") ?>
+              <?php require(__DIR__ . "/../components/icons/new.php") ?>
               Nueva
             </a>
           <?php endif; ?>
@@ -106,7 +106,7 @@ if ($_SESSION["rol"] != "CLIENTE") {
           </a>
           <?php if ($_SESSION["rol"] != "CLIENTE" && $_SESSION["estado"] == "ACTIVO"): ?>
             <a href="/servicios/nuevo/" class="btn btn-success fw-bold mt-3 d-flex justify-content-center align-items-center gap-2">
-              <?php require(__DIR__ . "/../components/icons/eye.php") ?>
+              <?php require(__DIR__ . "/../components/icons/new.php") ?>
               Nuevo
             </a>
           <?php endif; ?>
