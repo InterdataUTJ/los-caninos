@@ -9,7 +9,7 @@ function isActive(...$paths)
 }
 ?>
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top" style="background-color: #fcbc73 !important;">
+<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
   <div class="container-fluid">
     <a class="navbar-brand d-flex gap-2 fw-bold" href="/">
       <img src="/src/images/logo.svg" alt="logo" width="30px">

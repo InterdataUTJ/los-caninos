@@ -23,7 +23,6 @@ En esta página se documentan los diferentes enlaces de la app, su descripción,
   - [Detalle servicio](#detalle-servicio)
   - [Editar servicio](#editar-servicio)
   - [Nuevo servicio](#nuevo-servicio)
-  - [Eliminar servicio](#eliminar-servicio)
 - [Mascotas](#mascotas)
   - [Ver mascotas](#ver-mascotas)
   - [Detalle mascota](#detalle-mascota)
@@ -40,9 +39,7 @@ En esta página se documentan los diferentes enlaces de la app, su descripción,
   - [Detalle ciente](#detalle-cliente)
 - [Reportes](#reportes)
   - [Reporte: servicios](#reporte-servicios)
-  - [Reporte: clientes](#reporte-clientes)
   - [Reporte: mascotas](#reporte-mascotas)
-  - [Reporte: empleados](#reporte-empleados)
 
 
 
@@ -280,27 +277,6 @@ En esta página se documentan los diferentes enlaces de la app, su descripción,
     <td><b>Descripción</b></td>
     <td>
       Le permite al empleado registrar un nuevo servicio. Las mascotas deben de estar previamente registradas.
-    </td>
-  </tr>
-</table>
-
-
-### Eliminar servicio
-
-<table>
-  <tr>
-    <td><b>URL</b></td>
-    <td><code>/servicios/eliminar/?id=[idServicio]</code></td>
-  </tr>
-  <tr>
-    <td><b>ROL</b></td>
-    <td>Veterinario y Gerente <i>(sesión requerida)</i></td>
-  </tr>
-  <tr>
-    <td><b>Descripción</b></td>
-    <td>
-      Le permite al empleado eliminar el registro de un servicio. Este proceso requiere confirmación para asegurar que
-      la acción deseada no es un error. 
     </td>
   </tr>
 </table>
@@ -570,26 +546,6 @@ En esta página se documentan los diferentes enlaces de la app, su descripción,
 </table>
 
 
-### Reporte: clientes
-
-<table>
-  <tr>
-    <td><b>URL</b></td>
-    <td><code>/reporte/clientes/</code></td>
-  </tr>
-  <tr>
-    <td><b>ROL</b></td>
-    <td>Gerente <i>(sesión requerida)</i></td>
-  </tr>
-  <tr>
-    <td><b>Descripción</b></td>
-    <td>
-      Le permite ver al gerente un reporte de los clientes registrados. Además le permite aplicar filtros para ajustar la infromación mostrada.
-    </td>
-  </tr>
-</table>
-
-
 ### Reporte: mascotas
 
 <table>
@@ -605,26 +561,6 @@ En esta página se documentan los diferentes enlaces de la app, su descripción,
     <td><b>Descripción</b></td>
     <td>
       Le permite ver al gerente un reporte de las mascotas registradas. Además le permite aplicar filtros para ajustar la infromación mostrada.
-    </td>
-  </tr>
-</table>
-
-
-### Reporte: empleados
-
-<table>
-  <tr>
-    <td><b>URL</b></td>
-    <td><code>/reporte/empleados/</code></td>
-  </tr>
-  <tr>
-    <td><b>ROL</b></td>
-    <td>Gerente <i>(sesión requerida)</i></td>
-  </tr>
-  <tr>
-    <td><b>Descripción</b></td>
-    <td>
-      Le permite ver al gerente un reporte de los empleados registrados. Además le permite aplicar filtros para ajustar la infromación mostrada.
     </td>
   </tr>
 </table>

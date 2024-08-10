@@ -1,0 +1,25 @@
+@media print {
+  button.navbar-toggler, button.btn, button.print > * {
+    display: none !important;
+  }
+
+  footer, .footer-socialmedia, .footer-copyright {
+    display: none !important;
+  }
+
+  nav.navbar {
+    position: static !important;
+    background-color: #ffffff !important;
+  }
+
+  div.long-chart {
+    width: 100% !important;
+    max-width: 100% !important;
+    aspect-ratio: 2/1 !important;
+  }
+
+  print-page-break {
+    display: block;
+    page-break-before: always;
+  }
+}
