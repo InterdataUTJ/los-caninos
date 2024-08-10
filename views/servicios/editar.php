@@ -173,8 +173,8 @@ if (!isset($_GET["id"])) {
       <?php endforeach; ?>
 
       <div class="d-flex gap-3 mt-5">
-        <button type="submit" class='flex-grow-1 btn btn-success fw-bold'>Guardar</button>
         <a onclick="history.back();" class='flex-grow-1 btn btn-outline-danger fw-bold'>Cancelar</a>
+        <button type="submit" class='flex-grow-1 btn btn-success fw-bold'>Guardar</button>
       </div>
 
     </form>

@@ -1,7 +1,7 @@
 <div class="modal fade" id="changePasswordModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content">
-      <div class="modal-header justify-content-center">
+      <div class="modal-header justify-content-center" style="background-color: #fcbc73 !important;">
         <h1 class="modal-title fs-5 fw-bold" id="staticBackdropLabel">Cambiar contraseña</h1>
       </div>
       <div class="modal-body">
@@ -41,8 +41,8 @@
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" id="changePassword-btn" class="btn btn-primary">Cambiar</button>
+        <button type="button" class="fw-bold btn btn-outline-danger" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" id="changePassword-btn" class="fw-bold btn btn-success">Cambiar</button>
       </div>
     </div>
   </div>

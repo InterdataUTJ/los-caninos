@@ -155,11 +155,11 @@ if ($_SESSION["rol"] != "CLIENTE") {
           <div class="card-body d-flex flex-column gap-2 align-items-center">
             <h5 class="card-title fw-bold">Reportes</h5>
             <?php require(__DIR__ . "/../components/icons/clipboard-data.php"); ?>
-            <a href="/reporte/servicios/" class="btn btn-primary fw-bold mt-3 d-flex justify-content-center align-items-center gap-2">
+            <a href="/reporte/servicios/" class="btn btn-secondary fw-bold mt-3 d-flex justify-content-center align-items-center gap-2">
               <?php require(__DIR__ . "/../components/icons/heartbeat.php") ?>
               Servicios
             </a>
-            <a href="/reporte/mascotas/" class="btn btn-primary fw-bold d-flex justify-content-center align-items-center gap-2">
+            <a href="/reporte/mascotas/" class="btn btn-secondary fw-bold d-flex justify-content-center align-items-center gap-2">
               <?php require(__DIR__ . "/../components/icons/dog.php") ?>
               Mascotas
             </a>

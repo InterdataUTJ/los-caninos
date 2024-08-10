@@ -98,7 +98,10 @@ if ($_SESSION["rol"] != "CLIENTE") {
         <label class="form-label fw-bold" for="username">Nombre de usuario *</label>
         <div class="input-group mb-3">
           <input value="<?= $_SESSION["usuario"]; ?>" type="text" class="form-control" id="username" placeholder="Nombre de usuario">
-          <button id="username-btn" class="btn btn-outline-warning fw-bold" type="button">Cambiar</button>
+          <button id="username-btn" class="btn btn-outline-warning fw-bold d-flex gap-2 justify-content-center align-items-center" type="button">
+            <?php include(__DIR__ . "/../../components/icons/repeat.php") ?>  
+            Cambiar
+          </button>
           <div class="invalid-feedback">El nombre de usuario debe de tener una longitud de entre 8 y 25 caracteres.</div>
         </div>
       </div>
@@ -182,12 +185,12 @@ if ($_SESSION["rol"] != "CLIENTE") {
       <?php endif; ?>
 
       <div class="d-flex gap-3">
-        <button class="flex-grow-1 fw-bold btn btn-success mt-4" type="submit">
-          Guardar
-        </button>
         <a class="flex-grow-1 fw-bold btn btn-outline-danger mt-4" type="submit" href="/perfil/">
           Cancelar
         </a>
+        <button class="flex-grow-1 fw-bold btn btn-success mt-4" type="submit">
+          Guardar
+        </button>
       </div>
 
     </form>

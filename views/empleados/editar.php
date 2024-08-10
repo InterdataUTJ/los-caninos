@@ -143,8 +143,8 @@ if (!isset($_GET["id"]) || !$empleado) {
       <h3 class="fw-bold py-2 my-3" style="border-bottom: 2px solid #fcbc73;">Acciones</h3>
 
       <div class="d-flex gap-3">
-        <button type="submit" class='flex-grow-1 btn btn-success fw-bold'>Guardar</button>
         <a onclick="history.back();" class='flex-grow-1 btn btn-outline-danger fw-bold'>Cancelar</a>
+        <button type="submit" class='flex-grow-1 btn btn-success fw-bold'>Guardar</button>
       </div>
 
     </form>

@@ -152,7 +152,8 @@ if ($_SESSION["rol"] != "CLIENTE") {
         </div>
       <?php endif; ?>
 
-      <a class="fw-bold btn btn-outline-success mt-4" type="submit" href="/perfil/editar/">
+      <a class="fw-bold btn btn-success mt-4 d-flex gap-2 justify-content-center align-items-center" href="/perfil/editar/">
+        <?php require(__DIR__."/../../components/icons/new.php"); ?>
         Editar
       </a>
 

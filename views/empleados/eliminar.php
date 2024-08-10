@@ -34,8 +34,8 @@ if (!isset($_GET["id"])) {
 
     <p>¿Estas seguro de que deseas eliminar el empleado #<?= $_GET["id"];?>? Esta acción no se puede deshacer.</p>
 
-    <a onclick="history.back();" class="btn btn-success fw-bold">Cancelar y volver</a>
-    <a href="/controllers/empleados/eliminar/?id=<?= $_GET["id"];?>" class="btn btn-outline-danger fw-bold">Eliminar</a>
+    <a onclick="history.back();" class="btn btn-outline-success fw-bold">Cancelar y volver</a>
+    <a href="/controllers/empleados/eliminar/?id=<?= $_GET["id"];?>" class="btn btn-danger fw-bold">Eliminar</a>
     
   </main>
 
