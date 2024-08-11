@@ -26,10 +26,14 @@ require_once(__DIR__ . "/../middlewares/session_start.php");
     <section class="d-flex p-5 gap-5 mx-auto resume-container" style="max-width: 1100px;">
       <div style="flex: 1;" class="d-flex flex-column gap-3 justify-content-center">
         <h1 class="fw-bold">Veterinaria: Los caninos</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt error quasi dolore explicabo consequatur rerum voluptatum iusto impedit voluptate quidem expedita ut, vitae hic unde quia repellat aliquam officiis asperiores.
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis dignissimos, quia nihil repudiandae obcaecati hic recusandae perspiciatis ut voluptate omnis praesentium, quas, exercitationem nostrum quos blanditiis mollitia assumenda tempore illo.
-        </p>
+        <div>
+          <p class="fw-semibold fst-italic fs-5">
+            Cuidado integral y amor incondicional para tu mascota.
+          </p>
+          <p>
+            En Los Caninos, nos dedicamos a brindar el mejor cuidado para tu mascota con servicios de consulta, desparasitación, cirugía, estética y estadía. Nuestro equipo de expertos y nuestro innovador software aseguran que tanto clientes como empleados puedan gestionar toda la información y operaciones de manera eficiente, garantizando la salud y felicidad de tu compañero peludo. ¡Confía en nosotros para cuidar a quienes más amas!
+          </p>
+        </div>
       </div>
       <div style="flex: 1;" class="image-perro-landing">
         <img class="lg" loading="lazy" src="/src/images/perro.webp" alt="Caninos" class="img-fluid">
@@ -46,38 +50,100 @@ require_once(__DIR__ . "/../middlewares/session_start.php");
     </div>
   </section>
 
-  <main class="container p-5 mt-5 d-flex flex-column gap-5">
-    <section class="landig-content-container">
-      <div class="landing-content">
-        <h2 class="fw-bold">Nuestros Servicios</h2>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus dolor ab ipsam magni! Maiores, impedit iure harum inventore quaerat, quam perspiciatis sequi ratione ullam dolorum nulla pariatur ab nihil esse.</p>
-
-        <h5 class="fw-bold">Consulta</h5>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus dolor ab ipsam magni! Maiores, impedit iure harum inventore quaerat, quam perspiciatis sequi ratione ullam dolorum nulla pariatur ab nihil esse.</p>
-
-        <h5 class="fw-bold">Vacuna</h5>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus dolor ab ipsam magni! Maiores, impedit iure harum inventore quaerat, quam perspiciatis sequi ratione ullam dolorum nulla pariatur ab nihil esse.</p>
-
-        <h5 class="fw-bold">Desparacitación</h5>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus dolor ab ipsam magni! Maiores, impedit iure harum inventore quaerat, quam perspiciatis sequi ratione ullam dolorum nulla pariatur ab nihil esse.</p>
-
-        <h5 class="fw-bold">Cirugia</h5>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus dolor ab ipsam magni! Maiores, impedit iure harum inventore quaerat, quam perspiciatis sequi ratione ullam dolorum nulla pariatur ab nihil esse.</p>
-
-        <h5 class="fw-bold">Estetica</h5>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus dolor ab ipsam magni! Maiores, impedit iure harum inventore quaerat, quam perspiciatis sequi ratione ullam dolorum nulla pariatur ab nihil esse.</p>
-
-        <h5 class="fw-bold">Estadia</h5>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus dolor ab ipsam magni! Maiores, impedit iure harum inventore quaerat, quam perspiciatis sequi ratione ullam dolorum nulla pariatur ab nihil esse.</p>
-      </div>
-      <!-- <img src="/src/images/perro.webp" alt="image"> -->
-    </section>
+  <main class="container my-4 d-flex flex-column gap-5">
 
     <section>
-      <h2 class="fw-bold">Nuestro Equipo</h2>
-      <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur laborum tenetur dolores, maiores non rem facilis, amet dignissimos repellat deserunt dicta quia commodi fuga ratione ullam eius quaerat mollitia id!
-      </p>
+      <h2 class="fw-bold pb-2 mb-3" style="border-bottom: 2px solid #fcbc73;">Nuestras Instalaciones</h2>
+      <p class="mb-3">En Los Caninos, contamos con instalaciones modernas y totalmente equipadas para proporcionar el mejor cuidado a tu mascota. Nuestro espacio ha sido diseñado pensando en la comodidad y seguridad de tus compañeros peludos, creando un ambiente acogedor y libre de estrés.</p>
+      <div id="carouselInstalaciones" class="carousel slide rounded overflow-hidden" style="aspect-ratio: 5/3;">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselInstalaciones" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselInstalaciones" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselInstalaciones" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button type="button" data-bs-target="#carouselInstalaciones" data-bs-slide-to="3" aria-label="Slide 4"></button>
+          <button type="button" data-bs-target="#carouselInstalaciones" data-bs-slide-to="4" aria-label="Slide 5"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active" style="aspect-ratio: 5/3;">
+            <img src="/src/images/instalaciones/1.png" class="d-block w-100 object-fit-cover" style="aspect-ratio: 5/3;">
+          </div>
+          <div class="carousel-item" style="aspect-ratio: 5/3;">
+            <img src="/src/images/instalaciones/2.png" class="d-block w-100 object-fit-cover" style="aspect-ratio: 5/3;">
+          </div>
+          <div class="carousel-item" style="aspect-ratio: 5/3;">
+            <img src="/src/images/instalaciones/3.png" class="d-block w-100 object-fit-cover" style="aspect-ratio: 5/3;">
+          </div>
+          <div class="carousel-item" style="aspect-ratio: 5/3;">
+            <img src="/src/images/instalaciones/4.png" class="d-block w-100 object-fit-cover" style="aspect-ratio: 5/3;">
+          </div>
+          <div class="carousel-item" style="aspect-ratio: 5/3;">
+            <img src="/src/images/instalaciones/5.png" class="d-block w-100 object-fit-cover" style="aspect-ratio: 5/3;">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselInstalaciones" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselInstalaciones" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Siguiente</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="landig-content-container">
+      <div class="landing-content d-flex flex-column gap-4">
+        <h2 class="fw-bold pb-2" style="border-bottom: 2px solid #fcbc73;">Nuestros Servicios</h2>
+        <p>En Los Caninos, nos dedicamos a ofrecer una atención veterinaria integral y de alta calidad para tu mascota. Contamos con un equipo de profesionales altamente capacitados y comprometidos con el bienestar de tus compañeros peludos. A continuación, te presentamos nuestros servicios, diseñados para cubrir todas las necesidades de salud y cuidado de tu mascota.</p>
+
+        <section class="servicio-contenedor border shadow rounded p-4 mb-3 d-flex gap-4 align-items-center">
+          <?php require(__DIR__."/../components/icons/heart-search.php"); ?>
+          <article class="flex-grow-1">
+            <h5 class="fw-bold pb-1" style="border-bottom: 2px solid #fcbc73;">Consulta</h5>
+            <p>En Los Caninos, ofrecemos consultas veterinarias completas para asegurar la salud y bienestar de tu mascota. Nuestro equipo de veterinarios calificados realiza exámenes exhaustivos, diagnostica condiciones y te proporciona el mejor plan de tratamiento. Ya sea para una revisión de rutina o una consulta especializada, estamos aquí para ayudarte.</p>
+          </article>
+        </section>
+        
+        <section class="servicio-contenedor border shadow rounded p-4 mb-3 d-flex gap-4 align-items-center">
+          <?php require(__DIR__."/../components/icons/vaccine.php"); ?>
+          <article>
+            <h5 class="fw-bold pb-1" style="border-bottom: 2px solid #fcbc73;">Vacuna</h5>
+            <p>La vacunación es fundamental para proteger a tu mascota contra diversas enfermedades. En Los Caninos, ofrecemos un programa de vacunación completo y personalizado, adaptado a las necesidades específicas de cada animal. Nuestro equipo de veterinarios administra vacunas seguras y efectivas, asegurándose de mantener al día el calendario de vacunación de tu mascota. Confía en nosotros para mantener a tu compañero sano y protegido.</p>
+          </article>
+        </section>
+        
+        <section class="servicio-contenedor border shadow rounded p-4 mb-3 d-flex gap-4 align-items-center">
+          <?php require(__DIR__."/../components/icons/vaccine-bottle.php"); ?>
+          <article>
+            <h5 class="fw-bold pb-1" style="border-bottom: 2px solid #fcbc73;">Desparasitación</h5>
+            <p>La desparasitación regular es crucial para la salud de tu mascota. En Los Caninos, utilizamos métodos seguros y eficaces para eliminar parásitos internos y externos. Nuestro personal te guiará en el mantenimiento de un programa de desparasitación adecuado para prevenir futuras infestaciones y garantizar una vida saludable para tu compañero.</p>
+          </article>
+        </section>
+        
+        <section class="servicio-contenedor border shadow rounded p-4 mb-3 d-flex gap-4 align-items-center">
+          <?php require(__DIR__."/../components/icons/ambulance.php"); ?>
+          <article>
+            <h5 class="fw-bold pb-1" style="border-bottom: 2px solid #fcbc73;">Cirugía</h5>
+            <p>Nuestro equipo de cirujanos veterinarios está altamente capacitado para realizar una amplia gama de procedimientos quirúrgicos. Desde cirugías de rutina hasta intervenciones más complejas, en Los Caninos utilizamos equipos modernos y técnicas avanzadas para asegurar la recuperación y el bienestar de tu mascota. Nos comprometemos a brindarte la mejor atención pre y postoperatoria.</p>
+          </article>
+        </section>
+        
+        <section class="servicio-contenedor border shadow rounded p-4 mb-3 d-flex gap-4 align-items-center">
+          <?php require(__DIR__."/../components/icons/scissors.php"); ?>
+          <article>
+            <h5 class="fw-bold pb-1" style="border-bottom: 2px solid #fcbc73;">Estética</h5>
+            <p>El cuidado estético es esencial para la salud y la felicidad de tu mascota. Ofrecemos servicios de grooming profesional que incluyen baños, cortes de pelo, limpieza de oídos y cuidado de uñas. En Los Caninos, nos aseguramos de que tu mascota se vea y se sienta genial, utilizando productos de alta calidad y técnicas suaves.</p>
+          </article>
+        </section>
+        
+        <section class="servicio-contenedor border shadow rounded p-4 mb-3 d-flex gap-4 align-items-center">
+          <?php require(__DIR__."/../components/icons/shield.php"); ?>
+          <article>
+            <h5 class="fw-bold pb-1" style="border-bottom: 2px solid #fcbc73;">Estadía</h5>
+            <p>Si necesitas ausentarte y no puedes llevar a tu mascota contigo, Los Caninos ofrece un servicio de estadía cómodo y seguro. Nuestras instalaciones están diseñadas para proporcionar un ambiente acogedor y divertido, con atención personalizada para cada huésped. Nos aseguramos de que tu mascota reciba el amor y cuidado que merece mientras tú estás fuera.</p>
+          </article>
+        </section>
+      </div>
     </section>
   </main>
 

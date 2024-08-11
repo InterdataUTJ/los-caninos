@@ -48,6 +48,18 @@
   object-fit: scale-down;
 }
 
+section.servicio-contenedor > svg.icon.icon-tabler {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 100px;
+  width: 100px;
+  height: 100px;
+  background-color: #fcbc73;
+  border-radius: 100%;
+  padding: 15px;
+  box-shadow: 4px 4px 0px 2px #ce924c;
+}
+
 @media screen and (max-width: 992px) {
 
   .image-perro-landing {
@@ -70,6 +82,10 @@
 
   .landig-content-container img {
     display: none;
+  }
+
+  section.servicio-contenedor {
+    flex-direction: column !important;
   }
   
 }
