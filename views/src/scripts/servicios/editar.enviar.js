@@ -44,6 +44,6 @@ function enviarDatos(event) {
       window.location.replace(`/servicios/ver/?id=${datos.idFactura}&error=${data.message}.`);
     })
     .catch((err) => {
-      showErrorToast("Ocurrio un error al editar el servicio.");
+      showErrorToast("Ocurrió un error al editar el servicio.");
     });
 }

@@ -14,7 +14,7 @@ $_SESSION["resultadoOperacionValidacion"] = $num1 * $num2;
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Iniciar Sesión</title>
+  <title>Iniciar sesión</title>
   <link rel="shortcut icon" href="/src/images/logo.png">
   <link rel="stylesheet" href="/src/styles/index.css">
   <link rel="stylesheet" href="/src/styles/button.css">
@@ -28,7 +28,7 @@ $_SESSION["resultadoOperacionValidacion"] = $num1 * $num2;
   <main style="flex: 1;" class="p-5 container-md d-flex justify-content-center overflow-y-auto">
     <form class="d-flex flex-column w-100 gap-4 m-4" style="max-width: 1000px;" method="POST" action="/controllers/login/">
 
-      <h2 class="text-center pb-3 fw-bold">Iniciar Sesión</h2>
+      <h2 class="text-center pb-3 fw-bold">Iniciar sesión</h2>
 
       <div data-mdb-input-init class="form-outline">
         <label class="form-label fw-bold" for="username">Nombre de usuario</label>
@@ -58,7 +58,7 @@ $_SESSION["resultadoOperacionValidacion"] = $num1 * $num2;
       <div class="row">
         <div class="col d-flex justify-content-center">
           <div class="text-center">
-            <p>No tienes una cuenta? <a class="custom-a-link" href="/singup/">Registrate</a></p>
+            <p>¿No tienes una cuenta? <a class="custom-a-link" href="/singup/">Regístrate</a></p>
           </div>
         </div>
       </div>

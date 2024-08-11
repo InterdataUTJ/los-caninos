@@ -107,15 +107,15 @@ function Servicio(servicioRandId) {
       </div>
 
       <div class="mb-3">
-        <label class="form-label fw-bold" for="diagnostico">Diagnostico</label>
-        <input type="text" class="form-control" name="diagnostico" id="diagnostico" placeholder="Diagnostico">
-        <div class="form-text invalid-feedback">El nombre debe tener una longitud entre 5 y 400 caracteres.</div>
+        <label class="form-label fw-bold" for="diagnostico">Diagnóstico</label>
+        <input type="text" class="form-control" name="diagnostico" id="diagnostico" placeholder="Diagnóstico">
+        <div class="form-text invalid-feedback">El diagnóstico debe tener una longitud entre 5 y 400 caracteres.</div>
       </div>
 
       <div class="mb-3">
         <label class="form-label fw-bold" for="tratamiento">Tratamiento</label>
         <input type="text" class="form-control" name="tratamiento" id="tratamiento" placeholder="Tratamiento">
-        <div class="form-text invalid-feedback">El nombre debe tener una longitud entre 5 y 300 caracteres.</div>
+        <div class="form-text invalid-feedback">El tratamiento debe tener una longitud entre 5 y 300 caracteres.</div>
       </div>
 
       <div data-mdb-input-init class="form-outline mb-3">
@@ -123,10 +123,10 @@ function Servicio(servicioRandId) {
         <select class="form-select" id="tipoServicio" aria-label="tipoServicio" name="tipoServicio" onchange="actualizarDatos()">
           <option value="CONSULTA">Consulta</option>
           <option value="VACUNA">Vacuna</option>
-          <option value="DESPARASITACION">Desparasitacion</option>
-          <option value="CIRUGIA">Cirugia</option>
-          <option value="ESTETICA">Estetica</option>
-          <option value="ESTADIA">Estadia</option>
+          <option value="DESPARASITACION">Desparasitación</option>
+          <option value="CIRUGIA">Cirugía</option>
+          <option value="ESTETICA">Estética</option>
+          <option value="ESTADIA">Estadía</option>
         </select>
       </div>
 

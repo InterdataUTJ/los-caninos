@@ -32,7 +32,7 @@ if (!isset($_GET["id"])) {
   <main class="container flex-grow-1 d-flex flex-column h-100 mx-auto p-3 gap-3" style="max-width: 1000px;">
     <h2 class="fw-bold pb-2 mb-3" style="border-bottom: 2px solid #fcbc73;">Eliminar empleado #<?= $_GET["id"]; ?></h2>
 
-    <p>¿Estas seguro de que deseas eliminar el empleado #<?= $_GET["id"];?>? Esta acción no se puede deshacer.</p>
+    <p>¿Estás seguro de que deseas eliminar el empleado #<?= $_GET["id"];?>? Esta acción no se puede deshacer.</p>
 
     <a onclick="history.back();" class="btn btn-outline-success fw-bold">Cancelar y volver</a>
     <a href="/controllers/empleados/eliminar/?id=<?= $_GET["id"];?>" class="btn btn-danger fw-bold">Eliminar</a>

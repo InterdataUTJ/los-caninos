@@ -42,6 +42,6 @@ function enviarDatos(event) {
       window.location.replace(`/servicios/nuevo/?error=${data.message}.`);
     })
     .catch((err) => {
-      showErrorToast("Ocurrio un error al registrar el servicio.");
+      showErrorToast("Ocurrió un error al registrar el servicio.");
     });
 }

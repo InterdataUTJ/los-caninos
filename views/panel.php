@@ -75,7 +75,7 @@ if ($_SESSION["rol"] != "CLIENTE") {
     </div>
 
 
-    <h2 class="fw-bold pb-2 my-4" style="border-bottom: 2px solid #fcbc73;">Modulos</h2>
+    <h2 class="fw-bold pb-2 my-4" style="border-bottom: 2px solid #fcbc73;">Módulos</h2>
 
     <div class="d-flex flex-wrap gap-4 justify-content-evenly">
 

@@ -25,7 +25,7 @@ function enviarSingup(event) {
     }
 
     if (rpassword.value != password.value) {
-        showErrorToast("Las contraseña deben de coincidir.");
+        showErrorToast("Las contraseñas deben de coincidir.");
         event.preventDefault();
     }
 }

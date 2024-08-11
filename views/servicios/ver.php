@@ -62,7 +62,7 @@ if (!isset($_GET["id"])) {
       </div>
 
       <div data-mdb-input-init class="form-outline mb-3">
-        <label class="form-label fw-bold" for="metodoPago">Metodo de pago</label>
+        <label class="form-label fw-bold" for="metodoPago">Método de pago</label>
         <select class="form-select" id="metodoPago" aria-label="metodoPago" name="metodoPago" disabled>
           <option value="EFECTIVO" <?= $factura->getMetodoPago() === "EFECTIVO" ? "selected" : "";  ?>>Efectivo</option>
           <option value="TARJETA" <?= $factura->getMetodoPago() === "TARJETA" ? "selected" : "";  ?>>Tarjeta</option>
@@ -126,15 +126,15 @@ if (!isset($_GET["id"])) {
           </div>
 
           <div class="mb-3">
-            <label class="form-label fw-bold" for="diagnostico">Diagnostico</label>
-            <input type="text" class="form-control" name="diagnostico" id="diagnostico" placeholder="Diagnostico" disabled value="<?= $servicio->getDiagnostico(); ?>">
-            <div class="form-text invalid-feedback">El nombre debe tener una longitud entre 5 y 400 caracteres.</div>
+            <label class="form-label fw-bold" for="diagnostico">Diagnóstico</label>
+            <input type="text" class="form-control" name="diagnostico" id="diagnostico" placeholder="Diagnóstico" disabled value="<?= $servicio->getDiagnostico(); ?>">
+            <div class="form-text invalid-feedback">El diagnóstico debe tener una longitud entre 5 y 400 caracteres.</div>
           </div>
 
           <div class="mb-3">
             <label class="form-label fw-bold" for="tratamiento">Tratamiento</label>
             <input type="text" class="form-control" name="tratamiento" id="tratamiento" placeholder="Tratamiento" disabled value="<?= $servicio->getTratamiento(); ?>">
-            <div class="form-text invalid-feedback">El nombre debe tener una longitud entre 5 y 300 caracteres.</div>
+            <div class="form-text invalid-feedback">El tratamiento debe tener una longitud entre 5 y 300 caracteres.</div>
           </div>
 
           <div data-mdb-input-init class="form-outline mb-3">
@@ -142,10 +142,10 @@ if (!isset($_GET["id"])) {
             <select class="form-select" id="tipoServicio" disabled aria-label="tipoServicio" name="tipoServicio" onchange="actualizarDatos()">
               <option <?= $servicio->getTipoServicio() === "CONSULTA" ? "selected" : "";  ?> value="CONSULTA">Consulta</option>
               <option <?= $servicio->getTipoServicio() === "VACUNA" ? "selected" : "";  ?> value="VACUNA">Vacuna</option>
-              <option <?= $servicio->getTipoServicio() === "DESPARASITACION" ? "selected" : "";  ?> value="DESPARASITACION">Desparasitacion</option>
-              <option <?= $servicio->getTipoServicio() === "CIRUGIA" ? "selected" : "";  ?> value="CIRUGIA">Cirugia</option>
-              <option <?= $servicio->getTipoServicio() === "ESTETICA" ? "selected" : "";  ?> value="ESTETICA">Estetica</option>
-              <option <?= $servicio->getTipoServicio() === "ESTADIA" ? "selected" : "";  ?> value="ESTADIA">Estadia</option>
+              <option <?= $servicio->getTipoServicio() === "DESPARASITACION" ? "selected" : "";  ?> value="DESPARASITACION">Desparasitación</option>
+              <option <?= $servicio->getTipoServicio() === "CIRUGIA" ? "selected" : "";  ?> value="CIRUGIA">Cirugía</option>
+              <option <?= $servicio->getTipoServicio() === "ESTETICA" ? "selected" : "";  ?> value="ESTETICA">Estética</option>
+              <option <?= $servicio->getTipoServicio() === "ESTADIA" ? "selected" : "";  ?> value="ESTADIA">Estadía</option>
             </select>
           </div>
 

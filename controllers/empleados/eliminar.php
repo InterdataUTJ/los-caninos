@@ -14,14 +14,14 @@ function error($msg, $code = 301) {
   die();
 }
 
-if ($_SERVER["REQUEST_METHOD"] !== "GET") errorNoId("Método no permitido", 405);
-if (!isset($_GET["id"])) errorNoId("Id no proporcionado");
+if ($_SERVER["REQUEST_METHOD"] !== "GET") errorNoId("Método no permitido.", 405);
+if (!isset($_GET["id"])) errorNoId("Id no proporcionado.");
 
 require_once(__DIR__ . "/../../models/empleados/eliminar.php");
 $empleado = new EliminarEmpleado();
 $empleado->setId($_GET["id"]);
 $empleado->eliminar();
 
-header("Location: /empleados/?error=Empleado eliminado con exito.", true, 301);
+header("Location: /empleados/?error=Empleado eliminado con éxito.", true, 301);
 
 ?>

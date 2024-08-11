@@ -44,7 +44,7 @@ function enviarDatos(event) {
   }
 
   if (!validaciones.date(fechaNac.value)) {
-    showErrorToast("El campo 'Fecha de Nacimiento' debe ser una fecha valida.");
+    showErrorToast("El campo 'Fecha de Nacimiento' debe ser una fecha válida.");
     event.preventDefault();
   }
 }

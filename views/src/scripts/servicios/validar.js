@@ -42,7 +42,7 @@ function eventosServicios() {
 
 function validarDatos() {
   if (!validaciones.date(fechaPago.value)) {
-    showErrorToast("El campo 'Fecha de Pago' debe ser una fecha valida.");
+    showErrorToast("El campo 'Fecha de Pago' debe ser una fecha válida.");
     return false;
   }
 
@@ -55,7 +55,7 @@ function validarDatos() {
     const fechaSalida = servicio.querySelector("input[name=fechaSalida]");
 
     if (!validaciones.longitud(diagnostico.value, 5, 400)) {
-      showErrorToast("El campo 'Diagnostico' debe tener una longitud entre 5 y 400 caracteres.");
+      showErrorToast("El campo 'Diagnóstico' debe tener una longitud entre 5 y 400 caracteres.");
       return datosInvalidos = true;
     }
 
@@ -65,12 +65,12 @@ function validarDatos() {
     }
 
     if (!validaciones.date(fechaIngreso.value)) {
-      showErrorToast("El campo 'Fecha de Ingreso' debe ser una fecha valida.");
+      showErrorToast("El campo 'Fecha de Ingreso' debe ser una fecha válida.");
       return datosInvalidos = true;
     }
 
     if (!validaciones.date(fechaSalida.value)) {
-      showErrorToast("El campo 'Fecha de Salida' debe ser una fecha valida.");
+      showErrorToast("El campo 'Fecha de Salida' debe ser una fecha válida.");
       return datosInvalidos = true;
     }
   });

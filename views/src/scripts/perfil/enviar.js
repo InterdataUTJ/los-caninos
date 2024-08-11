@@ -58,13 +58,13 @@ usernameBtn.addEventListener("click", async () => {
     .then(res => res.text())
     .then(data => {
       console.log(data);
-      if (data == "Igual") return showErrorToast("El nombre de usuario debe de ser diferente al actual");
-      if (data == "Exito") return showErrorToast("Nombre de usuario actualizado");
-      showErrorToast("Error al actualizar el nombre de usuario");
+      if (data == "Igual") return showErrorToast("El nombre de usuario debe de ser diferente al actual.");
+      if (data == "Exito") return showErrorToast("Nombre de usuario actualizado.");
+      showErrorToast("Error al actualizar el nombre de usuario.");
     })
     .catch(err => {
       console.log(err);
-      showErrorToast("Error al actualizar el nombre de usuario");
+      showErrorToast("Error al actualizar el nombre de usuario.");
     });
 });
 
@@ -85,20 +85,20 @@ function enviarDatos(event) {
   }
 
   if (!validaciones.date(fechaNac.value)) {
-    showErrorToast("El campo 'Fecha de Nacimiento' debe ser una fecha valida.");
+    showErrorToast("El campo 'Fecha de Nacimiento' debe ser una fecha válida.");
     event.preventDefault();
   }
 
   telefono.forEach(elemento => {
     if (!validaciones.telefono(elemento.value)) {
-      showErrorToast("Los campos 'Telefono' deben de tener una longitud de entre 7 y 15 digitos.");
+      showErrorToast("Los campos 'Teléfono' deben de tener una longitud de entre 7 y 15 dígitos.");
       event.preventDefault();
     }
   });
 
   email.forEach(elemento => {
     if (!validaciones.email(elemento.value)) {
-      showErrorToast("Los campos 'Email' deben de ser un correo valido.");
+      showErrorToast("Los campos 'Email' deben de ser un correo válido.");
       event.preventDefault();
     }
   });

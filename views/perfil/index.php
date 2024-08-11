@@ -58,7 +58,7 @@ if ($_SESSION["rol"] != "CLIENTE") {
     </section>
 
     <form class="flex-grow-1 d-flex flex-column gap-3 p-3" onsubmit="noEnviar(event);">
-      <h2 class="fw-bold pb-2 mb-3" style="border-bottom: 2px solid #fcbc73;">Información Personal</h2>
+      <h2 class="fw-bold pb-2 mb-3" style="border-bottom: 2px solid #fcbc73;">Información personal</h2>
 
       <div data-mdb-input-init class="form-outline">
         <label class="form-label fw-bold" for="username">Nombre</label>
@@ -102,10 +102,10 @@ if ($_SESSION["rol"] != "CLIENTE") {
       <h2 class="fw-bold mt-4 pb-2 mb-3" style="border-bottom: 2px solid #fcbc73;">Contacto</h2>
 
       <div data-mdb-input-init class="form-outline">
-        <label class="form-label fw-bold" for="username">Telefono(s)</label>
+        <label class="form-label fw-bold" for="username">Teléfono(s)</label>
 
         <?php if (count($usuario->getTelefonos()) == 0) : ?>
-          <p>Sin telefonos registrados.</p>
+          <p>Sin teléfonos registrados.</p>
         <?php endif; ?>
         
         <?php foreach ($usuario->getTelefonos() as $telefono) : ?>

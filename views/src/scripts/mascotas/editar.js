@@ -54,12 +54,12 @@ function enviarDatos(event) {
   }
 
   if (!validaciones.date(fechaNac.value)) {
-    showErrorToast("El campo 'Fecha de Nacimiento' debe ser una fecha valida.");
+    showErrorToast("El campo 'Fecha de Nacimiento' debe ser una fecha válida.");
     event.preventDefault();
   }
 
   if (!validaciones.numeroMin(peso.value, 0)) {
-    showErrorToast("El campo 'peso' debe ser un numero mayor a 0.");
+    showErrorToast("El campo 'peso' debe ser un número mayor a 0.");
     event.preventDefault();
   }
 }

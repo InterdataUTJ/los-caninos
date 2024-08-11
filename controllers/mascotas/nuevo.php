@@ -9,15 +9,15 @@ function error($msg, $code = 301) {
   die();
 }
 
-if ($_SERVER["REQUEST_METHOD"] !== "POST") error("Método no permitido", 405);
-if (!isset($_POST["idCliente"])) error("idCliente no proporcionado");
-if (!isset($_POST["nombre"])) error("nombre no proporcionado");
-if (!isset($_POST["raza"])) error("raza no proporcionado");
-if (!isset($_POST["tipoMascota"])) error("tipoMascota no proporcionado");
-if (!isset($_POST["fechaNac"])) error("fechaNac no proporcionado");
-if (!isset($_POST["tamano"])) error("tamano no proporcionado");
-if (!isset($_POST["sexo"])) error("sexo no proporcionado");
-if (!isset($_POST["peso"])) error("peso no proporcionado");
+if ($_SERVER["REQUEST_METHOD"] !== "POST") error("Método no permitido.", 405);
+if (!isset($_POST["idCliente"])) error("Id de cliente no proporcionado.");
+if (!isset($_POST["nombre"])) error("Nombre no proporcionado.");
+if (!isset($_POST["raza"])) error("Raza no proporcionada.");
+if (!isset($_POST["tipoMascota"])) error("Tipo de mascota no proporcionada.");
+if (!isset($_POST["fechaNac"])) error("Fecha de nacimiento no proporcionada.");
+if (!isset($_POST["tamano"])) error("Tamaño no proporcionado.");
+if (!isset($_POST["sexo"])) error("Sexo no proporcionado.");
+if (!isset($_POST["peso"])) error("Seso no proporcionado.");
 
 $nuevaMascota = new NuevaMascota();
 $nuevaMascota->setIdEmpleado($_SESSION["idRegistro"]);
@@ -31,6 +31,6 @@ $nuevaMascota->setSexo($_POST["sexo"]);
 $nuevaMascota->setPeso($_POST["peso"]);
 $nuevaMascota->guardar();
 
-header("Location: /mascotas/?error=Mascota creada con exito.", true, 301);
+header("Location: /mascotas/?error=Mascota creada con éxito.", true, 301);
 
 ?>

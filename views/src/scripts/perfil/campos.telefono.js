@@ -41,7 +41,7 @@ function Telefono() {
   contenedor.setAttribute("id", id);
   input.setAttribute("type", "text");
   input.setAttribute("class", "form-control");
-  input.setAttribute("placeholder", "Telefono");
+  input.setAttribute("placeholder", "Teléfono");
   input.setAttribute("name", "telefono[]");
   input.addEventListener("input", () => {
     if (!validaciones.telefono(input.value)) input.classList.add("is-invalid");
@@ -52,7 +52,7 @@ function Telefono() {
   button.setAttribute("onclick", `removeTelefono('${id}');`);
   button.appendChild(Trash());
   feedback.setAttribute("class", "invalid-feedback");
-  feedback.innerText = "Telefno debe de tener entre 7 y 15 digitos.";
+  feedback.innerText = "Teléfono debe de tener entre 7 y 15 dígitos.";
   contenedor.appendChild(input);
   contenedor.appendChild(button);
   contenedor.appendChild(feedback);

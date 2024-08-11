@@ -49,7 +49,7 @@ $mascotas = require_once(__DIR__ . "/../../controllers/mascotas/index.php");
                 <th>Nombre</th>
                 <th>Raza</th>
                 <th>Tipo</th>
-                <th>Fecha de Nacimiento</th>
+                <th>Fecha de nacimiento</th>
                 <th>Tamaño</th>
                 <th>Sexo</th>
                 <th>Peso</th>

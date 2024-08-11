@@ -16,7 +16,7 @@ newPasswordR.addEventListener("input", () => {
 changePasswordBtn.addEventListener("click", async () => {
     if (password.value == newPassword.value) return showErrorToast("La nueva contraseña debe de ser diferente a la actual.");
 
-    if (!validaciones.longitud(newPassword.value, 8, 25)) return showErrorToast("La nueva contraseña debe tener una longitud de entre 8 y 25 caracteres alfanumericos.");
+    if (!validaciones.longitud(newPassword.value, 8, 25)) return showErrorToast("La nueva contraseña debe tener una longitud de entre 8 y 25 caracteres alfanuméricos.");
 
     if (newPasswordR.value != newPassword.value) return showErrorToast("Las contraseñas deben de ser iguales.");
 
@@ -36,10 +36,10 @@ changePasswordBtn.addEventListener("click", async () => {
         })
         .catch(err => {
           console.log(err);
-          showErrorToast("Error al actualizar la contraseña");
+          showErrorToast("Error al actualizar la contraseña.");
         });
 
-    showErrorToast("Contraseña cambiada con éxito");
+    showErrorToast("Contraseña cambiada con éxito.");
     changePasswordModal.hide();
     password.value = "";
     newPassword.value = "";

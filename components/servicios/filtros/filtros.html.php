@@ -63,25 +63,25 @@
       <div class="form-check">
         <input class="form-check-input" type="checkbox" id="filter-servicios-tipo-desparasitacion"
           <?php if (in_array("DESPARASITACION", $_GET["filterTipo"])) echo "checked"; ?>>
-        <label class="form-check-label" for="filter-servicios-tipo-desparasitacion">Desparasitacion</label>
+        <label class="form-check-label" for="filter-servicios-tipo-desparasitacion">Desparasitación</label>
       </div>
 
       <div class="form-check">
         <input class="form-check-input" type="checkbox" id="filter-servicios-tipo-cirugia"
           <?php if (in_array("CIRUGIA", $_GET["filterTipo"])) echo "checked"; ?>>
-        <label class="form-check-label" for="filter-servicios-tipo-cirugia">Cirugia</label>
+        <label class="form-check-label" for="filter-servicios-tipo-cirugia">Cirugía</label>
       </div>
 
       <div class="form-check">
         <input class="form-check-input" type="checkbox" id="filter-servicios-tipo-estetica"
           <?php if (in_array("ESTETICA", $_GET["filterTipo"])) echo "checked"; ?>>
-        <label class="form-check-label" for="filter-servicios-tipo-estetica">Estetica</label>
+        <label class="form-check-label" for="filter-servicios-tipo-estetica">Estética</label>
       </div>
 
       <div class="form-check">
         <input class="form-check-input" type="checkbox" id="filter-servicios-tipo-estadia"
           <?php if (in_array("ESTADIA", $_GET["filterTipo"])) echo "checked"; ?>>
-        <label class="form-check-label" for="filter-servicios-tipo-estadia">Estadia</label>
+        <label class="form-check-label" for="filter-servicios-tipo-estadia">Estadía</label>
       </div>
 
       <button class="fw-bold btn btn-success mt-3" onclick="chnageParams();">Aplicar filtros</button>

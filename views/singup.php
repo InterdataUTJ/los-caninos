@@ -59,15 +59,15 @@ $_SESSION["resultadoOperacionValidacion"] = $num1 * $num2;
       <div data-mdb-input-init class="form-outline">
         <label class="form-label fw-bold" for="username">Nombre de usuario *</label>
         <input type="text" name="username" class="form-control" placeholder="Nombre de usuario" id="nombreUsuario" />
-        <div class="form-text invalid-feedback">El nombre de usuario debe tener una longitud entre 8 y 25 caracteres alfanumericos.</div>
+        <div class="form-text invalid-feedback">El nombre de usuario debe tener una longitud entre 8 y 25 caracteres alfanuméricos.</div>
       </div>
 
       <div data-mdb-input-init class="form-outline">
-        <label class="form-label fw-bold" for="password">Contraseña</label>
+        <label class="form-label fw-bold" for="password">Contraseña *</label>
         <div class="input-group mb-3">
           <input type="password" name="password" id="password" class="form-control" placeholder="Contraseña" />
           <button type="button" class="btn btn-orange-primary password-toggle"><?php include(__DIR__."/../components/icons/eye.php"); ?></button>
-          <div class="form-text invalid-feedback">La contraseña debe tener una longitud de entre 8 y 25 caracteres alfanumericos.</div>
+          <div class="form-text invalid-feedback">La contraseña debe tener una longitud de entre 8 y 25 caracteres alfanuméricos.</div>
         </div>
         <div class="input-group mb-3">
           <input type="password" name="rpassword" id="rpassword" class="form-control" placeholder="Repetir contraseña" />
@@ -77,11 +77,11 @@ $_SESSION["resultadoOperacionValidacion"] = $num1 * $num2;
       </div>
 
       <div data-mdb-input-init class="form-outline">
-        <label class="form-label fw-bold" for="operacion">Validación</label>
+        <label class="form-label fw-bold" for="operacion">Validación *</label>
         <div class="input-group">
           <span class="input-group-text"><?php echo "$num1 × $num2" ?></span>
           <input type="number" id="operacion" name="operacion" class="form-control" placeholder="Validación" />
-          <div class="form-text invalid-feedback">La respuesta debe de ser un numero positivo.</div>
+          <div class="form-text invalid-feedback">La respuesta debe de ser un número positivo.</div>
         </div>
       </div>
 
@@ -90,7 +90,7 @@ $_SESSION["resultadoOperacionValidacion"] = $num1 * $num2;
       <div class="row">
         <div class="col d-flex justify-content-center">
           <div class="text-center">
-            <p>Ya tienes una cuenta? <a class="custom-a-link" href="/login/">Inicia sesión</a></p>
+            <p>¿Ya tienes una cuenta? <a class="custom-a-link" href="/login/">Inicia sesión</a></p>
           </div>
         </div>
       </div>

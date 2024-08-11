@@ -17,17 +17,17 @@ $_POST = json_decode(file_get_contents('php://input'), true);
 
 if (!isset($_POST["idFactura"])) error("Falta el id de la factura.");
 if (!isset($_POST["fechaPago"])) error("Falta la fecha de pago.");
-if (!isset($_POST["metodoPago"])) error("Falta el metodo de pago.");
+if (!isset($_POST["metodoPago"])) error("Falta el método de pago.");
 if (!isset($_POST["descuento"])) error("Falta el descuento.");
 if (!isset($_POST["subtotal"])) error("Falta el subtotal.");
 if (!isset($_POST["servicios"])) error("Falta la lista de servicios.");
-if (!is_array($_POST["servicios"])) error("La lista de servicios no es valida.");
-if (count($_POST["servicios"]) < 1) error("La lista de servicios no puede estar vacia.");
+if (!is_array($_POST["servicios"])) error("La lista de servicios no es válida.");
+if (count($_POST["servicios"]) < 1) error("La lista de servicios no puede estar vacía.");
 
 foreach ($_POST["servicios"] as $servicio) {
   if (!isset($servicio["idServicio"])) error("Falta el id del servicio.");
   if (!isset($servicio["idPaciente"])) error("Falta el id del paciente.");
-  if (!isset($servicio["diagnostico"])) error("Falta el diagnostico.");
+  if (!isset($servicio["diagnostico"])) error("Falta el diagnóstico.");
   if (!isset($servicio["tratamiento"])) error("Falta el tratamiento.");
   if (!isset($servicio["tipoServicio"])) error("Falta el tipo de servicio.");
   if (!isset($servicio["fechaIngreso"])) error("Falta la fecha de ingreso.");
@@ -35,8 +35,8 @@ foreach ($_POST["servicios"] as $servicio) {
   if (!isset($servicio["estatus"])) error("Falta el estatus.");
 
   if (!isset($servicio["idEmpleado"])) error("Falta la lista de empleados.");
-  if (!is_array($servicio["idEmpleado"])) error("La lista de empleados no es valida.");
-  if (count($servicio["idEmpleado"]) < 1) error("La lista de empleados no puede estar vacia.");
+  if (!is_array($servicio["idEmpleado"])) error("La lista de empleados no es válida.");
+  if (count($servicio["idEmpleado"]) < 1) error("La lista de empleados no puede estar vacía.");
 }
 
 $factura = new EditarFactura();

@@ -34,13 +34,13 @@ $servicios = require_once(__DIR__ . "/../../controllers/reporte/servicios.php");
     <p class="mb-1"><b>ID del Gerente:</b> <?= $_SESSION["idRegistro"] ?></p>
     <p class="mb-1"><b>Nombre de usuario:</b> <?= $_SESSION["usuario"] ?></p>
 
-    <h4 class="fw-bold pb-2" style="border-bottom: 2px solid #fcbc73;">Servicios por fecha especifica</h4>
+    <h4 class="fw-bold pb-2" style="border-bottom: 2px solid #fcbc73;">Servicios por fecha específica</h4>
 
     <section class="d-flex flex-column gap-2 filter p-3 my-4 border rounded shadow"> 
       <h5 class="fw-bold">Filtros</h5>
       <div class="d-flex gap-3">
         <div class="mb-3 flex-grow-1">
-          <label for="fechaInicio" class="form-label fw-bold">Fecha Inicio</label>
+          <label for="fechaInicio" class="form-label fw-bold">Fecha inicio</label>
           <input type="date" class="form-control" id="fechaInicio" <?php if (isset($_GET["fechaInicio"])) echo "value='{$_GET['fechaInicio']}'"; ?>>
         </div>
         <div class="mb-3 flex-grow-1">

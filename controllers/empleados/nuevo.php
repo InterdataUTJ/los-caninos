@@ -9,13 +9,13 @@ function error($msg, $code = 301) {
   die();
 }
 
-if ($_SERVER["REQUEST_METHOD"] !== "POST") error("Método no permitido", 405);
+if ($_SERVER["REQUEST_METHOD"] !== "POST") error("Método no permitido.", 405);
 
-if (!isset($_POST["idCliente"])) error("idCliente no proporcionado");
-if (!isset($_POST["estado"])) error("Estado no proporcionado");
-if (!isset($_POST["fechaNac"])) error("Fecha de nacimiento no proporcionado");
-if (!isset($_POST["salario"])) error("Salario no proporcionado");
-if (!isset($_POST["rol"])) error("Rol no proporcionado");
+if (!isset($_POST["idCliente"])) error("Id de cliente no proporcionado.");
+if (!isset($_POST["estado"])) error("Estado no proporcionado.");
+if (!isset($_POST["fechaNac"])) error("Fecha de nacimiento no proporcionado.");
+if (!isset($_POST["salario"])) error("Salario no proporcionado.");
+if (!isset($_POST["rol"])) error("Rol no proporcionado.");
 
 $nuevoEmpleado = new NuevoEmpleado();
 $nuevoEmpleado->setIdCliente($_POST["idCliente"]);
@@ -25,6 +25,6 @@ $nuevoEmpleado->setSalario($_POST["salario"]);
 $nuevoEmpleado->setRol($_POST["rol"]);
 $nuevoEmpleado->guardar();
 
-header("Location: /empleados/?error=Empleado creado con exito.", true, 301);
+header("Location: /empleados/?error=Empleado creado con éxito.", true, 301);
 
 ?>

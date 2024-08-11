@@ -95,8 +95,8 @@ if (!isset($_GET["id"]) || !$empleado) {
       <h4 class="fw-bold py-2 my-3" style="border-bottom: 2px solid #fcbc73;">Contacto</h4>
 
       <div data-mdb-input-init class="form-outline">
-        <label class="form-label fw-bold" for="username">Telefono(s)</label>
-        <?php if (count($empleado->getTelefonos()) == 0) echo "<p>Sin telefonos registrados.</p>"; ?>
+        <label class="form-label fw-bold" for="username">Teléfono(s)</label>
+        <?php if (count($empleado->getTelefonos()) == 0) echo "<p>Sin teléfonos registrados.</p>"; ?>
         <?php foreach ($empleado->getTelefonos() as $telefono) : ?>
           <input type='text' class='form-control mb-2' value='<?= $telefono ?>' disabled />
         <?php endforeach; ?>

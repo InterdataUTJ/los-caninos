@@ -63,7 +63,7 @@ if ($_SESSION["rol"] != "CLIENTE") {
     </section>
 
     <form action="/controllers/perfil/editar/" method="POST" class="flex-grow-1 d-flex flex-column gap-3 p-3" onsubmit="enviarDatos(event);">
-      <h2 class="fw-bold pb-2 mb-3" style="border-bottom: 2px solid #fcbc73;">Información Personal</h2>
+      <h2 class="fw-bold pb-2 mb-3" style="border-bottom: 2px solid #fcbc73;">Información personal</h2>
 
       <div data-mdb-input-init class="form-outline">
         <label class="form-label fw-bold" for="nombre">Nombre *</label>
@@ -121,15 +121,15 @@ if ($_SESSION["rol"] != "CLIENTE") {
       <h2 class="fw-bold mt-4 pb-2 mb-3" style="border-bottom: 2px solid #fcbc73;">Contacto</h2>
 
       <div data-mdb-input-init class="form-outline" id="container-phone">
-        <label class="form-label fw-bold" for="telefono">Telefono(s)</label>
+        <label class="form-label fw-bold" for="telefono">Teléfono(s)</label>
 
         <?php foreach ($usuario->getTelefonos() as $telefono) : ?>
           <div class="input-group mb-3" id="<?= $telefono; ?>-phone-id">
-            <input value="<?= $telefono; ?>" type="text" class="form-control" name="telefono[]" placeholder="Telefono">
+            <input value="<?= $telefono; ?>" type="text" class="form-control" name="telefono[]" placeholder="Teléfono">
             <button class="btn btn-outline-danger" type="button" onclick="removeTelefono('<?= $telefono; ?>-phone-id');">
               <?php require(__DIR__ . "/../../components/icons/trash.php"); ?>
             </button>
-            <div class="invalid-feedback">Telefno debe de tener entre 7 y 15 digitos.</div>
+            <div class="invalid-feedback">Teléfono debe de tener entre 7 y 15 dígitos.</div>
           </div>
         <?php endforeach; ?>
 
@@ -148,7 +148,7 @@ if ($_SESSION["rol"] != "CLIENTE") {
             <button class="btn btn-outline-danger" type="button" onclick="removeEmail('<?= $email ?>-email-id');">
               <?php require(__DIR__ . "/../../components/icons/trash.php"); ?>
             </button>
-            <div class="invalid-feedback">Email debe de ser un correo valido.</div>
+            <div class="invalid-feedback">Email debe de ser un correo válido.</div>
           </div>
         <?php endforeach; ?>
 

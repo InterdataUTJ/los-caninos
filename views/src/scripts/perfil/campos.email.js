@@ -19,7 +19,7 @@ function Email() {
   button.setAttribute("onclick", `removeEmail('${id}');`);
   button.appendChild(Trash());
   feedback.setAttribute("class", "invalid-feedback");
-  feedback.innerText = "Email debe de ser un correo valido.";
+  feedback.innerText = "Email debe de ser un correo válido.";
   contenedor.appendChild(input);
   contenedor.appendChild(button);
   contenedor.appendChild(feedback);

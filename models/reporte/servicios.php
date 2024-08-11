@@ -35,6 +35,9 @@ class Servicios {
   public function getTipoServicio() { return $this->tipoServicio; }
 
   public function getData($fechaInicio = "1900-01-01", $fechaFin = "9999-12-31") {
+    if (!$this->setDays()) return false;
+    if (!$this->setTipoServicio()) return false;
+    
     $query = <<<SQL
       SELECT s.tipoServicio, p.nombre, u.nombreUsuario,
       TRUNCATE(subtotal - (subtotal * (descuento / 100)), 2) AS ingresos
@@ -59,8 +62,6 @@ class Servicios {
       $this->pacientes[] = $serv;
     }
 
-    $this->setDays();
-    $this->setTipoServicio();
     return $this->getSummary($fechaInicio, $fechaFin);
   }
 
@@ -106,6 +107,7 @@ class Servicios {
     $this->days["viernes"] = $resultado[0]["viernes"];
     $this->days["sabado"] = $resultado[0]["sabado"];
     $this->days["domingo"] = $resultado[0]["domingo"];
+    return true;
   }
 
   public function setTipoServicio() {
@@ -129,6 +131,7 @@ class Servicios {
     $this->tipoServicio["CIRUGIA"] = $resultado[0]["CIRUGIA"];
     $this->tipoServicio["ESTETICA"] = $resultado[0]["ESTETICA"];
     $this->tipoServicio["ESTADIA"] = $resultado[0]["ESTADIA"];
+    return true;
   }
 }
 

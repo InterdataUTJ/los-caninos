@@ -51,7 +51,7 @@ $facturas = require_once(__DIR__ . "/../../controllers/servicios/index.php");
                 <th>Subtotal</th>
                 <th>ID Paciente</th>
                 <th>Tipo de Servicio</th>
-                <th>Diagnostico</th>
+                <th>Diagnóstico</th>
                 <th>Fecha</th>
                 <th>Estatus</th>
                 <th>Acciones</th>

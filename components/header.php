@@ -41,7 +41,7 @@ function isActive(...$paths)
               <li><a class="dropdown-item" href="/perfil/">Ver perfil</a></li>
               <li><a class="dropdown-item" href="/logout/">Cerrar sesión</a></li>
             <?php else : ?>
-              <li><a class="dropdown-item" href="/login/">Iniciar Sesión</a></li>
+              <li><a class="dropdown-item" href="/login/">Iniciar sesión</a></li>
               <li><a class="dropdown-item" href="/singup/">Crear cuenta</a></li>
             <?php endif; ?>
           </ul>

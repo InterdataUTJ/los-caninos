@@ -10,7 +10,7 @@ if (!isset($_SESSION["usuario"])) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] != "POST") {
-    header("Location: /perfil/editar/?error=Ocurrio un error al enviar los datos");
+    header("Location: /perfil/editar/?error=Ocurrió un error al enviar los datos.");
     exit();
 }
 
@@ -72,7 +72,7 @@ if (isset($_POST["telefono"])) $telefonos = $_POST["telefono"];
 if (isset($_POST["email"])) $emails = $_POST["email"];
 
 $usuario->actualizar($_SESSION["idUsuario"], $_SESSION["idRegistro"], $telefonos, $emails);
-header("Location: /perfil/?error=Datos actualizados");
+header("Location: /perfil/?error=Datos actualizados.");
 exit();
 
 ?>
