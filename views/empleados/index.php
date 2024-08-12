@@ -77,7 +77,7 @@ $empleados = require_once(__DIR__ . "/../../controllers/empleados/index.php");
 
   <?php require(__DIR__ . "/../../components/footer.php") ?>
 
-  <script src="/../bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="/src/bootstrap/bootstrap.bundle.min.js"></script>
   <?php require_once(__DIR__ . "/../../components/error.php") ?>
 </body>
 

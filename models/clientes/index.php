@@ -7,7 +7,7 @@ class Clientes {
     protected $clientes = [];
 
     function __construct() {
-        $query = "SELECT c.*, rol, nombreUsuario FROM cliente e JOIN usuario u ON u.idUsuario = e.idUsuario;";
+        $query = "SELECT c.*, rol, nombreUsuario FROM cliente c JOIN usuario u ON u.idUsuario = c.idUsuario;";
         $resultado = DB::query($query);
         if (count($resultado) == 0) return;
 

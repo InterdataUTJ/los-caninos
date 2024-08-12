@@ -1,5 +1,7 @@
 <?php
 
+
+
 // Midlewares
 require_once(__DIR__ . "/../../middlewares/session_start.php");
 
@@ -9,6 +11,7 @@ require_once(__DIR__ . "/../../middlewares/gerente.php");
 // Componentes
 //Es necesario agregar un componente clientes
 require_once(__DIR__ . "/../../components/clientes/index.php");
+require_once(__DIR__ . "/../../components/clientes/filtros/filtros.back.php");
 
 // Controladores
 //Es necesario agregar un controlador clientes
@@ -36,23 +39,22 @@ $clientes = require_once(__DIR__ . "/../../controllers/clientes/index.php");
   <main class="container flex-grow-1 d-flex flex-column h-100 mx-auto p-3 gap-3" style="max-width: 1000px;">
     <h2 class="fw-bold pb-2 mb-3" style="border-bottom: 2px solid #fcbc73;">Ver Clientes</h2>
 
-    <a href="/clientes/nuevo/" class="mb-4 fw-bold btn btn-primary w-100 d-flex gap-2 justify-content-center align-items-center">
-      <?php require(__DIR__."/../../components/icons/new.php") ?>
-      Nuevo cliente
-    </a>
 
-    <?php // require_once(__DIR__."/../../components/empleados/filtros/filtros.html.php"); ?>
+    <?php require_once(__DIR__."/../../components/clientes/filtros/filtros.html.php"); ?>
+
 
     <div class="overflow-x-auto">
       <table class="table table-striped table-bordered">
           <thead class="text-center">
               <tr>
                 <th>#</th>
-                <th>nombreUsuario</th>
+                <th>Nombres</th>
+                <th>Apellidos Paterno</th>
                 <th>Apellidos Materno</th>
                 <th>Sexo</th>
                 <th>Rol</th>
                 <th>Nombre de usuario</th>
+                <th>Acciones</th>
               </tr>
           </thead>  
           <tbody>

@@ -33,8 +33,8 @@ class Cliente extends Contacto {
 
     //Funcion para obtener datos de la tabla de clientes mediante la tabla de usuario por la idusuario
     public function getData() {
-        $query = "SELECT c.*, rol, nombreUsuario FROM cliente c JOIN usuario u ON u.idUsuario = e.idUsuario WHERE e.idCliente = ?;";
-        $resultado = DB::query($query, $this->id);
+        $query = "SELECT c.*, rol, nombreUsuario FROM cliente c JOIN usuario u ON u.idUsuario = c.idUsuario WHERE c.idCliente = ?;";
+        $resultado = DB::query($query, $this->idCliente);
         if (count($resultado) == 0) return false;
         if (!isset($resultado[0])) return false;
         if (!isset($resultado[0]["idCliente"])) return false;

@@ -12,8 +12,6 @@ function clienteTable($idCliente, $nombres, $apellidoPaterno, $apellidoMaterno, 
       <td>$nombreUsuario</td>
       <td class='d-flex gap-2'>
         <a href='/clientes/ver/?id=$idCliente' class='btn btn-primary fw-bold'>Ver</a>
-        <a href='/clientes/editar/?id=$idCliente' class='btn btn-success fw-bold'>Editar</a>
-        <a href='/clientes/eliminar/?id=$idCliente' class='btn btn-danger fw-bold'>Eliminar</a>
       </td>
     </tr>
   HTML;
