@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  font-family: 'Roboto', sans-serif;
+  height: 100%;
+  background-color: #fff5ea;
+}
+
+h1 {
+  padding: 5px 12px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #fcbc73;
+}
+
+h1 > img {
+  width: 30px;
+  height: 30px;
+  padding: 13px 0;
+}
+
+h2 {
+  font-size: 24px;
+  text-align: center;
+  padding: 15px;
+  background-color: #f9d6af;
+}
+
+main:has(svg) {
+  padding: 10px 50px;
+  padding-top: 0;
+}
+
+svg {
+  width: 100%;
+}
+
+rect, text, tspan {
+  transition: transform 0.2s;
+  cursor: pointer;
+  user-select: none;
+}
+
+text, span {
+  pointer-events: none;
+}
+
+rect:hover {
+  transform: scale(1.02);
+}
+
+footer > section.copy {
+  background-color: #fcbc73;
+  padding: 16px;
+  text-align: center;
+  font-weight: 700;
+}
+
+footer > section.links {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  align-items: center;
+  background-color: #f9d6af;
+}
+
+footer > section.links > a {
+  color: #000;
+  text-decoration: none;
+  padding: 16px 30px;
+}
+
+footer > section.links > a > svg  {
+  height: 30px;
+  transition: scale 0.2s ease-in-out;
+}
+
+footer > section.links > a:hover  {
+  scale: 1.1;
+}
