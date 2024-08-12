@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="./views/src/images/logo.svg" alt="logo" width="200">
+  <img src="./logo.png" alt="logo" width="200">
   <br>
   Veterinaria: Los caninos
   <br>
@@ -22,7 +22,7 @@ Puedes acceder a la documentación del proyecto desde los siguientes enlaces.
 #### Tabla de contenido
 
 - [URLs](./docs/URLs.md)
-- [Mapa de navegación](./docs/URLs.md)
+- [Mapa de navegación](https://interdatautj.github.io/los-caninos/)
 
 
 ## Licencia 🚨
