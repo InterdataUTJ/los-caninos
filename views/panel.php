@@ -141,10 +141,6 @@ if ($_SESSION["rol"] != "CLIENTE") {
               <?php require(__DIR__ . "/../components/icons/eye.php") ?>
               Ver
             </a>
-            <a href="/clientes/nuevo/" class="btn btn-success fw-bold mt-3 d-flex justify-content-center align-items-center gap-2">
-              <?php require(__DIR__ . "/../components/icons/new.php") ?>
-              Nuevo
-            </a>
           </div>
         </section>
       <?php endif; ?>

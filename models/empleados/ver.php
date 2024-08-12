@@ -4,6 +4,7 @@ require_once(__DIR__."/../db.php");
 require_once(__DIR__."/../contacto.php");
 
 class Empleado extends Contacto {
+    //Atributos de la clase
     protected $id;
     protected $nombre;
     protected $apellidoPaterno;
