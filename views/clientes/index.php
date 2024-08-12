@@ -1,13 +1,14 @@
 <?php
+
 // Midlewares
 require_once(__DIR__ . "/../../middlewares/session_start.php");
 
-// Este lo tengo que quitar :) 
+// Midlewares solo el gerente puuede ver los clientes
 require_once(__DIR__ . "/../../middlewares/gerente.php");
 
 // Componentes
-//Es necesario agregar un componente empleados
-//require_once(__DIR__ . "/../../components/empleados/index.php");
+//Es necesario agregar un componente clientes
+require_once(__DIR__ . "/../../components/clientes/index.php");
 
 // Controladores
 //Es necesario agregar un controlador clientes
@@ -47,10 +48,10 @@ $clientes = require_once(__DIR__ . "/../../controllers/clientes/index.php");
           <thead class="text-center">
               <tr>
                 <th>#</th>
-                <th>id</th>
                 <th>nombreUsuario</th>
                 <th>Apellidos Materno</th>
                 <th>Sexo</th>
+                <th>Rol</th>
                 <th>Nombre de usuario</th>
               </tr>
           </thead>  
@@ -58,7 +59,12 @@ $clientes = require_once(__DIR__ . "/../../controllers/clientes/index.php");
               <?php 
                 foreach ($clientes as $cliente) {
                   echo clienteTable(
-                    $cliente->getId(),
+                    $cliente->getIdCliente(),
+                    $cliente->getNombre(),
+                    $cliente->getApellidoPaterno(),
+                    $cliente->getApellidoMaterno(),
+                    $cliente->getSexo(),
+                    $cliente->getRol(),
                     $cliente->getNombreUsuario()
                   );
                 }
@@ -76,7 +82,6 @@ $clientes = require_once(__DIR__ . "/../../controllers/clientes/index.php");
 </body>
 
 </html>
-
 
 
 

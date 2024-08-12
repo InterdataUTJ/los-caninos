@@ -3,7 +3,7 @@
 require_once(__DIR__."/../db.php");
 require_once(__DIR__."/ver.php");
 
-class Empleados {
+class Clientes {
     protected $clientes = [];
 
     function __construct() {
@@ -12,25 +12,24 @@ class Empleados {
         if (count($resultado) == 0) return;
 
         foreach ($resultado as $cliente) {
-            $nuevoEmpleado = new Empleado();
-            $nuevoEmpleado->setId($cliente["idEmpleado"]);
-            $nuevoEmpleado->setIdUsuario($empleado["idUsuario"]);
-            $nuevoEmpleado->setNombre($empleado["nombres"]);
-            $nuevoEmpleado->setApellidoPaterno($empleado["apellidoPaterno"]);
-            $nuevoEmpleado->setApellidoMaterno($empleado["apellidoMaterno"]);
-            $nuevoEmpleado->setEstatus($empleado["estado"]);
-            $nuevoEmpleado->setFechaNac($empleado["fechaNac"]);
-            $nuevoEmpleado->setSalario($empleado["salario"]);
-            $nuevoEmpleado->setSexo($empleado["sexo"]);
-            $nuevoEmpleado->setRol($empleado["rol"]);
-            $nuevoEmpleado->setNombreUsuario($empleado["nombreUsuario"]);
-            $nuevoEmpleado->setEmails();
-            $nuevoEmpleado->setTelefonos();
-            $this->empleados[] = $nuevoEmpleado;
+            //Instanciamos un nuevo cliente
+            $nuevoCliente = new Cliente();
+            $nuevoCliente->setIdCliente($cliente["idCliente"]);
+            $nuevoCliente->setIdUsuario($cliente["idUsuario"]);
+            $nuevoCliente->setNombre($cliente["nombres"]);
+            $nuevoCliente->setApellidoPaterno($cliente["apellidoPaterno"]);
+            $nuevoCliente->setApellidoMaterno($cliente["apellidoMaterno"]);
+            $nuevoCliente->setSexo($cliente["sexo"]);
+            $nuevoCliente->setRol($cliente["rol"]);
+            $nuevoCliente->setNombreUsuario($cliente["nombreUsuario"]);
+            $nuevoCliente->setEmails();
+            $nuevoCliente->setTelefonos();
+            $this->clientes[] = $nuevoCliente;
+            //clientes es un array de nuevoCliente
         }
     }
 
-    public function getEmpleados() { return $this->empleados; }
+    public function getClientes() { return $this-> clientes; }
 }
 
 ?>
