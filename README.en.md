@@ -14,11 +14,11 @@
   <a href="https://www.php.net/"><img src="https://img.shields.io/badge/use-PHP-blue.svg" alt="use: PHP"></a>
 </p>
 
-[`los-caninos`](https://github.com/InterdataUTJ/los-caninos) es un portal administrativo desarrollado a la medida para la `Veteriaria: Los caninos`. Este proyecto cuenta con secciones para administrar empleados, clientes, mascotas y servicios realizados. Adicionalmente, le permite al gerente realizar reportes con información sobre las mascotas y los servicios, permitiendo además imprimir los reportes en PDF.
+[`los-caninos`](https://github.com/InterdataUTJ/los-caninos) is an administrative portal Custom-developed for the `Veteriaria: Los caninos` This project features sections for managing employees, clients, pets, and services performed. Additionally, it allows the manager to create reports with information about pets and services, and also allows reports to be printed in PDF format.
 
-La plataforma está realizada 100% usando Vanilla PHP junto a [Chart.js](https://www.chartjs.org/) para mostrar gráficas en la sección de reportes.
+The platform is built entirely using Vanilla PHP along with [Chart.js](https://www.chartjs.org/) to display charts in the reports section.
 
-## Capturas de pantalla 📲
+## Screenshots 📲
 
 <img src="./docs/screenshots/landing-1.png" width="400">
 <img src="./docs/screenshots/landing-2.png" width="400">
@@ -29,17 +29,17 @@ La plataforma está realizada 100% usando Vanilla PHP junto a [Chart.js](https:/
 <img src="./docs/screenshots/reports.png" width="400">
 <img src="./docs/screenshots/print.png" width="400">
 
-## Documentación 📚
+## Documentation 📚
 
-Puedes acceder a la documentación del proyecto desde los siguientes enlaces.
+You can access the project documentation from the following links.
 
-#### Tabla de contenido
+#### Table of Contents
 
 - [URLs](./docs/URLs.md)
-- [Mapa de navegación](https://interdatautj.github.io/los-caninos/)
+- [Navigation Map](https://interdatautj.github.io/los-caninos/)
 
-## Licencia 🚨
+## License 🚨
 
-Esté proyecto está publicado bajo la licencia [**GPL v3**](https://www.gnu.org/licenses/gpl-3.0).
+This project is published under the [**GPL v3**](https://www.gnu.org/licenses/gpl-3.0) license.
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
